@@ -75,13 +75,18 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 > **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
 
 **Individual Microsoft Learn Verification Links:**
-
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-applied-skills.svg" width="24" height="24" alt="Applied Skills Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)**
-
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)**
-
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)**
-
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)**
-
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-expert-badge.svg" width="24" height="24" alt="Expert Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)**
+
+### Other Certifications
+
+| <img src="avepoint-badge-1.png" height="80"> | <img src="avepoint-badge-2.png" height="80"> | <img src="avepoint-badge-3.png" height="80"> | <img src="avepoint-badge-4.png" height="80"> |
+|:---:|:---:|:---:|:---:|
+
+- **AvePoint Cloud Governance Certified Professional**
+- **AvePoint Cloud Backup for Microsoft 365 Certified Professional**
+- **AvePoint Data Management Platform Certified Specialist**
+- **AvePoint Migration & Deployment Certified Expert**
