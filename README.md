@@ -1,8 +1,9 @@
 # 👋 Hi, I'm Ariff Mohamed
-**Cloud Solutions Engineer**  
+**Cloud Solutions Engineer**
+  
 *Azure | Intune | PowerShell | Automation | Security*
-
-📍 Wellington, New Zealand  
+📍 Wellington, New Zealand
+  
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=default)
@@ -46,7 +47,19 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 
 ## 🏅 Certifications
 
-> **[Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
+> **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
+
+**Individual Microsoft Learn Verification Links:**
+
+- **[Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)**
+
+- **[Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)**
+
+- **[Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)**
+
+- **[Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)**
+
+- **[Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)**
 
 <div align="center">
 
@@ -54,58 +67,3 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 [![Microsoft Certified: Azure Security Engineer Associate](https://images.credly.com/size/110x110/images/1ad16b6f-2c71-4a2e-ae74-ec69c4766039/azure-security-engineer-associate600x600.png)](https://www.credly.com/users/ariff-mohamed/badges)
 
 </div>
-
----
-
-## 🚀 Featured Projects
-
-### [Azure Landing Zone Automation](https://github.com/a-ariff)
-- Bicep templates for enterprise-scale Azure deployments
-- Automated governance and compliance baseline setup
-- Zero-downtime migration tooling
-
-### [Intune Configuration Manager](https://github.com/a-ariff)
-- PowerShell modules for Intune automation
-- Device compliance and remediation scripts
-- Reporting and analytics dashboards
-
-### [Security Baseline Toolkit](https://github.com/a-ariff)
-- Automated security hardening scripts
-- Compliance assessment and remediation tools
-- Integration with Microsoft Defender for Cloud
-
----
-
-## 💼 Experience
-
-**Cloud Solutions Engineer** | *Current*  
-- Design and implement secure Azure cloud infrastructure
-- Automate endpoint management with Microsoft Intune
-- Develop PowerShell solutions for operational efficiency
-- Lead enterprise-scale cloud migrations and deployments
-
-**Systems Engineer** | *Previous Roles*  
-- 10+ years across government and corporate environments
-- Specialized in Microsoft technology stack implementation
-- Focus on security, compliance, and automation solutions
-
----
-
-## 🎓 Education
-
-**Professional Development**
-- Microsoft Certified: Azure Administrator Associate
-- Microsoft Certified: Azure Security Engineer Associate
-- Continuous learning through Microsoft Learn and industry training
-
----
-
-## 📫 Contact
-
-- **Email:** [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
-- **LinkedIn:** [ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
-- **Location:** Wellington, New Zealand
-
----
-
-*Building secure, scalable cloud solutions that drive business value while maintaining the highest standards of security and compliance.*
