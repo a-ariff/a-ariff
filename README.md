@@ -11,13 +11,37 @@
 ---
 
 ## 📖 About
-
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
 - 50% faster incident resolution through PowerShell automation
 - 30% backlog reduction via CI/CD and workflow automation
 - Enterprise-scale deployments with zero-downtime migrations
+
+---
+
+## 💼 Experience
+
+**Cloud Solutions Engineer, Theta (NZ), Wellington** (March 2023 – Present)
+- Architected Azure environments and Intune policies for 100% device compliance
+- Automated workflows reducing ticket backlogs by 30%
+- Delivered training on Azure Monitor/Sentinel, boosting team efficiency
+
+**ICT Support Engineer (Contract), Wellington City Council** (Dec 2022 – Mar 2023)
+- Deployed Windows Autopilot with Intune for zero-touch provisioning
+- Managed ARM templates for compliance reporting in hybrid setups
+
+**Desktop Support Engineer, Ministry of Health, Wellington** (Jan 2022 – Nov 2022)
+- Administered SCCM/Intune for endpoint security
+- Automated asset inventory with PowerShell, enabling real-time audits
+
+**Desktop Support Engineer, Embassy of the State of Kuwait** (Oct 2019 – Jan 2022)
+- Configured secure networks (LAN/WAN, firewalls, VPNs)
+- Automated patches via SCCM, ensuring vulnerability remediation
+
+**Senior IT Support Officer, Zuari Cement Ltd, Chennai** (March 2011 – August 2018)
+- Supported 100+ users with Windows Server, Active Directory, and networking
+- Led multi-branch setups for seamless connectivity
 
 ---
 
@@ -46,24 +70,10 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ---
 
 ## 🏅 Certifications
-
 > **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
 
 **Individual Microsoft Learn Verification Links:**
-
 - **[Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)**
-
 - **[Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)**
-
 - **[Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)**
-
 - **[Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)**
-
-- **[Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)**
-
-<div align="center">
-
-[![Microsoft Certified: Azure Administrator Associate](https://images.credly.com/size/110x110/images/336eebfc-0ac3-4553-9a67-b402f491f185/azure-administrator-associate-600x600.png)](https://www.credly.com/users/ariff-mohamed/badges)
-[![Microsoft Certified: Azure Security Engineer Associate](https://images.credly.com/size/110x110/images/1ad16b6f-2c71-4a2e-ae74-ec69c4766039/azure-security-engineer-associate600x600.png)](https://www.credly.com/users/ariff-mohamed/badges)
-
-</div>
