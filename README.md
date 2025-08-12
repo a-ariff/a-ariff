@@ -1,8 +1,8 @@
 # 👋 Hi, I'm Ariff Mohamed
-
 **Cloud Solutions Engineer | Azure | Intune | PowerShell | Automation | Cybersecurity**
 
 ---
+
 ### About Me
 I'm a passionate Cloud Solutions Engineer specializing in:
 - **Azure:** Infrastructure as Code (Bicep, Terraform), Azure AD/Entra ID, Azure Automation, Security and Compliance, Sentinel, Defender
@@ -41,15 +41,7 @@ I have a background supporting enterprise and government environments, with a fo
 ### 🎯 Looking to Collaborate On
 - Cloud automation and DevOps best practices
 - Security and compliance frameworks for Azure/Intune
-- Innovative approaches to enterprise cloud adoption
 
-### 📫 Let's Connect!
-- [LinkedIn](#) | [Email](#) <!-- Optional: add links here -->
-
----
-
-*I am always learning and experimenting—exploring new ways to make cloud environments secure, automated, and cost-effective. Open to collaborative projects, feedback, and professional networking.*
-
-<!-- Feel free to update this README with new skills, achievements, or featured repositories as your journey evolves. -->
-
----
+### 🤝 Let's Connect!
+- 💼 LinkedIn: [linkedin.com/in/ariff-mohamed](https://linkedin.com/in/ariff-mohamed)
+- 📧 Email: [your.email@example.com](mailto:your.email@example.com)
