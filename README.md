@@ -1,47 +1,66 @@
 # 👋 Hi, I'm Ariff Mohamed
-**Cloud Solutions Engineer | Azure | Intune | PowerShell | Automation | Cybersecurity**
+Cloud Solutions Engineer — Azure | Intune | PowerShell | Automation | Security
 
----
+Wellington, New Zealand  
+🔗 LinkedIn: linkedin.com/in/ariff-mohamed | ✉️ aariff@outlook.co.nz
 
-### About Me
-I'm a passionate Cloud Solutions Engineer specializing in:
-- **Azure:** Infrastructure as Code (Bicep, Terraform), Azure AD/Entra ID, Azure Automation, Security and Compliance, Sentinel, Defender
-- **Endpoint Management:** Intune, Autopilot for modern device provisioning, policy automation
-- **Scripting and Automation:** PowerShell, GitHub Actions, CI/CD, automation frameworks
+I design secure Microsoft cloud platforms and automate endpoint management to improve compliance and reduce operational toil. 10+ years across government and corporate environments. Proven results include 50% faster incident resolution via PowerShell automation and 30% backlog reduction through CI/CD and workflow automation.
 
-I have a background supporting enterprise and government environments, with a focus on reliable, secure, and scalable cloud solutions.
+## What I'm great at
+- Azure landing zones with Bicep/Terraform, policy, RBAC, and governance
+- Intune Autopilot, compliance baselines, and proactive remediations
+- PowerShell automation for Entra ID/M365/Intune and GitHub Actions pipelines
+- Security baselines, Defender/Sentinel analytics, and incident workflows
 
-### 💡 What I Do
-- Architect and automate cloud infrastructure and security
-- Streamline endpoint management and compliance with Intune
-- Develop reusable automation for cloud ops, identity, and security
-- Promote best practices: documentation, testing, and continuous improvement
+## 🏅 Certifications
+<!-- Add certification badges here (e.g. AZ-104, AZ-305, AZ-500) -->
 
-### 🌟 Key Skills
-- Azure (Bicep, ARM, Terraform)
-- Intune & Modern Endpoint Management
-- PowerShell Automation
-- GitHub Actions, Azure DevOps
-- Security Hardening, Sentinel, Defender
-- CI/CD, Testing & Linting
+## 🚀 Featured Projects
+<!-- Add or pin flagship project repos here as they become public -->
 
-### 📜 Certifications
-<!-- Add badges as they become available -->
-- Microsoft Certified: Azure Administrator Associate (AZ-104)
-- Microsoft Certified: Azure Solutions Architect Expert (AZ-305)
-- Microsoft Certified: Security Engineer (AZ-500)
-- [Add others if any...]
+## 🛠️ Professional Experience
 
-### 🚀 Featured Projects
-- Infrastructure templates (IaC) for enterprise Azure environments
-- Automated device provisioning and policy remediation scripts
-- Security analytics and reporting with KQL and Sentinel
-- [Pin top 1-3 visible/public repos here in the future]
+Highlights from my roles, emphasizing achievements noted in appraisals (e.g., "consistently delivers high-quality work" and "demonstrates initiative"):
 
-### 🎯 Looking to Collaborate On
-- Cloud automation and DevOps best practices
-- Security and compliance frameworks for Azure/Intune
+• **Cloud Solutions Engineer, Theta (NZ), Wellington** (March 2023 – Present)  
+  Architected Azure environments and Intune policies for 100% device compliance. Automated workflows reducing ticket backlogs by 30%. Delivered training on Azure Monitor/Sentinel, boosting team efficiency.
 
-### 🤝 Let's Connect!
-- 💼 LinkedIn: [linkedin.com/in/ariff-mohamed](https://linkedin.com/in/ariff-mohamed)
-- 📧 Email: [your.email@example.com](mailto:your.email@example.com)
+• **ICT Support Engineer (Contract), Wellington City Council** (Dec 2022 – Mar 2023)  
+  Deployed Windows Autopilot with Intune for zero-touch provisioning. Managed ARM templates for compliance reporting in hybrid setups.
+
+• **Desktop Support Engineer, Ministry of Health, Wellington** (Jan 2022 – Nov 2022)  
+  Administered SCCM/Intune for endpoint security. Automated asset inventory with PowerShell, enabling real-time audits.
+
+• **Desktop Support Engineer, Embassy of the State of Kuwait** (Oct 2019 – Jan 2022)  
+  Configured secure networks (LAN/WAN, firewalls, VPNs). Automated patches via SCCM, ensuring vulnerability remediation.
+
+• Earlier roles: Senior IT Support Officer at Zuari Cement Ltd (2011–2018) and Customer Service at Fastway Couriers (2018–2019), building foundations in user support and high-stress incident resolution.
+
+## 🎓 Education & Certifications
+
+• Master of Information Technology (Cyber Security), Level 9 – Whitecliffe College, Wellington (In Progress, Jul 2025 – Jul 2026).
+• Bachelor of Science in Computer Science – Saisha Institutions, Chennai (2007–2010).
+
+Certifications (Actively maintained, as per my commitment to professional development):
+
+• Microsoft Certified: Azure Administrator Associate (AZ-104)
+• Microsoft Certified: Azure Security Engineer Associate (AZ-500)
+• Microsoft 365 Certified: Administrator Expert (MS-102)
+• Microsoft 365 Certified: Endpoint Administrator Associate (MD-102)
+• Microsoft 365 Certified: Teams Administrator Associate (MS-700)
+• Microsoft Applied Skills: Identities & Access (Entra)
+• AvePoint Certified: Technical Professional - Cloud Backup for M365
+• ServiceNow IT Leadership Professional Certificate
+
+## 📈 Achievements & Performance Highlights
+
+From my 2024/2025 appraisals (Manager ratings: 3.08–3.67 in competencies, praising empathy, initiative, and knowledge sharing):
+
+• Developed scripts automating troubleshooting, cutting completion time by 50% and boosting productivity.
+• Implemented mail-flow rules in Exchange for cost-effective notifications, resolving client needs without extra licensing.
+• Created Intune policies for macOS devices, improving spare device tracking and team efficiency.
+• Proactively followed company policies, completed e-learning (e.g., Cybersecurity Foundations), and shared expertise via SOPs.
+
+## 🤝 Let's Connect
+
+I'm open to collaborations on Azure/automation projects or discussing cybersecurity trends. Feel free to reach out—I'm always eager to share knowledge and tackle new challenges!
