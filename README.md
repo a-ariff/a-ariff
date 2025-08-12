@@ -9,9 +9,7 @@
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=default)
 
 ---
-
 ## 📖 About
-
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
@@ -20,9 +18,7 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 - Enterprise-scale deployments with zero-downtime migrations
 
 ---
-
 ## 💼 Experience
-
 **Cloud Solutions Engineer, Theta (NZ), Wellington** (March 2023 – Present)
 - Architected Azure environments and Intune policies for 100% device compliance
 - Automated workflows reducing ticket backlogs by 30%
@@ -45,9 +41,7 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 - Led multi-branch setups for seamless connectivity
 
 ---
-
 ## 🛠️ Skills
-
 ### Cloud Infrastructure & Governance
 - Azure landing zones with **Bicep/Terraform**
 - Policy enforcement, RBAC, and compliance frameworks
@@ -69,9 +63,7 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 - Infrastructure as Code (IaC) implementations
 
 ---
-
 ## 🏅 Certifications
-
 > **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
 
 **Individual Microsoft Learn Verification Links:**
@@ -81,12 +73,16 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)**
 - <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-expert-badge.svg" width="24" height="24" alt="Expert Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)**
 
-### Other Certifications
-
-| <img src="avepoint-badge-1.png" height="80"> | <img src="avepoint-badge-2.png" height="80"> | <img src="avepoint-badge-3.png" height="80"> | <img src="avepoint-badge-4.png" height="80"> |
-|:---:|:---:|:---:|:---:|
-
-- **AvePoint Cloud Governance Certified Professional**
-- **AvePoint Cloud Backup for Microsoft 365 Certified Professional**
-- **AvePoint Data Management Platform Certified Specialist**
-- **AvePoint Migration & Deployment Certified Expert**
+### AvePoint Certifications
+<p>
+  <a href="#"><img src="avepoint-badge-1.png" height="80" alt="AvePoint Cloud Governance Certified Professional"/></a>
+  <a href="#"><img src="avepoint-badge-2.png" height="80" alt="AvePoint Cloud Backup for Microsoft 365 Certified Professional"/></a>
+  <a href="#"><img src="avepoint-badge-3.png" height="80" alt="AvePoint Data Management Platform Certified Specialist"/></a>
+  <a href="#"><img src="avepoint-badge-4.png" height="80" alt="AvePoint Migration & Deployment Certified Expert"/></a>
+</p>
+<p>
+  <sub>AvePoint Cloud Governance Certified Professional</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <sub>AvePoint Cloud Backup for Microsoft 365 Certified Professional</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <sub>AvePoint Data Management Platform Certified Specialist</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <sub>AvePoint Migration & Deployment Certified Expert</sub>
+</p>
