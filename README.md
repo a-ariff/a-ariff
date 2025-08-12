@@ -2,7 +2,7 @@
 Cloud Solutions Engineer — Azure | Intune | PowerShell | Automation | Security
 Wellington, New Zealand
   
-🔗 LinkedIn: linkedin.com/in/ariff-mohamed | ✉️ aariff@outlook.co.nz
+🔗 LinkedIn: https://www.linkedin.com/in/ariff-mohamed/ | ✉️ aariff@outlook.co.nz
 I design secure Microsoft cloud platforms and automate endpoint management to improve compliance and reduce operational toil. 10+ years across government and corporate environments. Proven results include 50% faster incident resolution via PowerShell automation and 30% backlog reduction through CI/CD and workflow automation.
 
 ## What I'm great at
