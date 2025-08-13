@@ -1,14 +1,16 @@
 # 👋 Hi, I'm Ariff Mohamed
 **Microsoft 365 Certified - Cloud Solutions Engineer**
+
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
 *Modern Endpoint Management & Cloud Security Specialist*
 
 [About](#about) • [Skills](#skills) • [Featured Projects](#featured-projects) • [Certifications](#certifications) • [Contact](#contact)
 
 ## About
+
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
 
-[Back to top](#readme)
+<p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
 ## Skills
 
@@ -38,14 +40,15 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - **Azure Resource Management**: Subscription organization and resource optimization
 - **Cost Management**: Budget controls and resource rightsizing strategies
 
-[Back to top](#readme)
+<p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
 ## Featured Projects
+
 - [**Intune MDM Popup Policies**](https://github.com/a-ariff/Intune-MDM-Popup-Policies-macOS-Safari-Edge-Chrome-and-Windows-Edge-Chrome-) - Cross-platform Intune popup policies with automation and CI checks.
 - [**Intune Remediation Scripts**](https://github.com/a-ariff/intune-remediation-scripts) - Automated device compliance fixes using detection/remediation patterns.
 - [**Azure Landing Zone Bicep**](https://github.com/a-ariff/azure-landing-zone-bicep) - Enterprise-ready landing zones with modular security/governance.
 
-[Back to top](#readme)
+<p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
 ## Certifications
 
@@ -59,9 +62,8 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
 
-[Back to top](#readme)
+<p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
 ## Contact
 <!-- Contact information would go here -->
-
-[Back to top](#readme)
+<p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
