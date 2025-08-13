@@ -1,7 +1,6 @@
 # 👋 Hi, I'm Ariff Mohamed
 **Cloud Solutions Engineer**  
 *Azure | Intune | PowerShell | Automation | Security*  
-
 📍 Wellington, New Zealand
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 
@@ -15,6 +14,7 @@
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=default&hide_border=true)
 
 ## 📖 About
+
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
@@ -69,9 +69,11 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ---
 
 ## 🚀 Featured Projects
+
 > Check out my pinned repositories for detailed implementations:
 
 ### [Intune MDM Popup Policies](https://github.com/a-ariff/intune-mdm-popup-policies)
+
 Comprehensive collection of Microsoft Intune device compliance and configuration policies with automated deployment scripts.
 
 **Key Features:**
@@ -86,18 +88,12 @@ Comprehensive collection of Microsoft Intune device compliance and configuration
 
 ## 🏅 Certifications
 
-### Microsoft Azure
-- **Azure Solutions Architect Expert** (AZ-305)
-- **Azure Administrator Associate** (AZ-104)
-- **Azure Security Engineer Associate** (AZ-500)
-
-### Microsoft 365
-- **Microsoft 365 Certified: Enterprise Administrator Expert** (MS-100, MS-101)
-- **Microsoft 365 Certified: Modern Desktop Administrator Associate** (MD-100, MD-101)
-
-### Security & Compliance
-- **Microsoft Certified: Security, Compliance, and Identity Fundamentals** (SC-900)
-- **Microsoft Certified: Information Protection Administrator Associate** (SC-400)
+- [Microsoft Certified: Azure Solutions Architect Expert](https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/)
+- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/)
+- [Microsoft Certified: Security Operations Analyst Associate](https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/)
+- [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/en-us/credentials/certifications/modern-desktop/)
+- [HashiCorp Certified: Terraform Associate](https://www.credly.com/org/hashicorp/badge/hashicorp-certified-terraform-associate-003)
+- [ITIL Foundation](https://www.credly.com/org/axelos/badge/itil-4-foundation)
 
 ---
 
