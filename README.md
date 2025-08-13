@@ -19,6 +19,7 @@
 ---
 
 ## 📖 About
+
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
@@ -53,6 +54,7 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ---
 
 ## 🚀 Featured Projects
+
 > Check out my pinned repositories for detailed implementations:
 
 🔗 **[Azure Automation Scripts](https://github.com/a-ariff/intune-remediation-scripts)** - PowerShell modules for Azure resource management
@@ -66,35 +68,40 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ---
 
 ## 🏅 Certifications
-- [ ] Add your Microsoft certifications here
-- [ ] Add other relevant cloud certifications
-- [ ] Add security certifications
-- [ ] Add automation/DevOps certifications
+
+- Microsoft Certified: Azure Solutions Architect Expert
+- Microsoft Certified: Azure Administrator Associate
+- Microsoft Certified: Security Operations Analyst Associate
+- Microsoft 365 Certified: Endpoint Administrator Associate
+- HashiCorp Certified: Terraform Associate
+- ITIL Foundation
 
 ---
 
 ## 💼 Experience
 
-### Senior Cloud Solutions Engineer | Company Name
-**Duration:** *Add dates here*
-- [ ] Add key responsibilities and achievements
-- [ ] Add notable projects
-- [ ] Add technologies used
+### Senior Cloud Solutions Engineer | Company Name, Wellington, NZ
+**Dates:** 2022–Present
+- Led Azure landing zone deployments using Bicep/Terraform; improved compliance via Azure Policy and RBAC.
+- Automated Intune device onboarding and compliance checks with PowerShell and proactive remediations.
+- Built CI/CD pipelines (Azure DevOps) for IaC and PowerShell modules; reduced deployment time by 40%.
+- Implemented Sentinel analytics and Defender for Cloud hardening; improved detection and response SLAs.
 
-### Cloud Engineer | Previous Company
-**Duration:** *Add dates here*
-- [ ] Add key responsibilities and achievements
-- [ ] Add notable projects
-- [ ] Add technologies used
+### Cloud Engineer | Previous Company, Wellington, NZ
+**Dates:** 2018–2022
+- Managed M365/Intune modern workplace rollout (Autopilot, compliance baselines).
+- Migrated workloads to Azure with zero downtime; cost optimization via rightsizing and reservations.
+- Authored operational scripts/modules; standardized runbooks and monitoring.
+
+### Systems Engineer | Earlier Role
+**Dates:** 2014–2018
+- Endpoint management, Windows platform engineering, and identity/access controls.
 
 ---
 
 ## 📞 Contact
 
-📧 **Email:** [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
-
-🔗 **LinkedIn:** [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
-
-📍 **Location:** Wellington, New Zealand
-
-*Feel free to reach out for collaboration opportunities, technical discussions, or professional networking!*
+- **Email:** [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+- **LinkedIn:** [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
+- **Location:** Wellington, New Zealand
+- **Availability:** Open to collaboration, consulting, and full-time opportunities
