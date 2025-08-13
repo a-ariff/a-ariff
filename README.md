@@ -1,5 +1,6 @@
 # 👋 Hi, I'm Ariff Mohamed — Cloud Solutions Engineer | Microsoft 365 Certified
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
+
 *Modern Endpoint Management & Cloud Security Specialist*
 
 ## 📋 Quick Navigation
@@ -54,7 +55,11 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ### Certifications
 - [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)
 - [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)
-- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
-
-## Contact 📞
-*Contact information will be added here*
+- [Microsoft Certified: Azure Administrator Associate](#)
+- [Microsoft 365 Certified: Endpoint Administrator Associate](#)
+- [Microsoft 365 Certified: Administrator Expert](#)
+- [Microsoft 365 Certified: Teams Administrator Associate](#)
+- [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/placeholder)
+- [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/placeholder)
+- [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/placeholder)
+- [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/placeholder)
