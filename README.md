@@ -43,17 +43,15 @@
 - Automated deployment pipelines and validation tests
 - **Tech Stack**: Azure Bicep, Azure Resource Manager, GitHub Actions
 ## 🏅 Certifications
-- [Microsoft Certified: Azure Solutions Architect Expert](https://learn.microsoft.com/credentials/certifications/azure-solutions-architect/)
-- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/credentials/certifications/azure-security-engineer/)
-- [Microsoft Certified: Microsoft 365 Certified: Enterprise Administrator Expert](https://learn.microsoft.com/credentials/certifications/m365-enterprise-administrator/)
-- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/credentials/certifications/azure-administrator/)
-- [Microsoft Certified: Security, Compliance, and Identity Fundamentals](https://learn.microsoft.com/credentials/certifications/security-compliance-and-identity-fundamentals/)
+- [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)
+- Microsoft 365 Certified: Teams Administrator Associate
+- [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs&tab=applied-skills-tab)
 - [Credly Transcript](https://www.credly.com/users/ariff-mohamed)
-- [AvePoint Certified: Microsoft 365 Platform Specialist](https://www.credly.com/badges/avepoint-m365-platform-specialist)
-- [AvePoint Certified: Microsoft Teams Deployment Specialist](https://www.credly.com/badges/avepoint-teams-deployment-specialist)
-- [AvePoint Certified: SharePoint Migration Specialist](https://www.credly.com/badges/avepoint-sharepoint-migration-specialist)
-- [AvePoint Certified: Data Protection Specialist](https://www.credly.com/badges/avepoint-data-protection-specialist)
-## 📞 Contact
-I'm always interested in discussing cloud architecture, automation challenges, or collaboration opportunities.
-**Connect with me:**
-- 💼 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
+- [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
+- [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
+- [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
+- [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
