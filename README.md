@@ -19,7 +19,6 @@
 ---
 
 ## 📖 About
-
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
@@ -54,7 +53,6 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ---
 
 ## 🚀 Featured Projects
-
 > Check out my pinned repositories for detailed implementations:
 
 🔗 **[Azure Automation Scripts](https://github.com/a-ariff/intune-remediation-scripts)** - PowerShell modules for Azure resource management
@@ -64,3 +62,39 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 🔗 **[Infrastructure as Code Templates](https://github.com/a-ariff/azure-landing-zone-bicep)** - Azure Bicep templates for enterprise-scale deployments
 
 🔗 **[Sentinel Analytics Rules](https://github.com/a-ariff/sentinel-content)** - Security monitoring and threat detection rules
+
+---
+
+## 🏅 Certifications
+- [ ] Add your Microsoft certifications here
+- [ ] Add other relevant cloud certifications
+- [ ] Add security certifications
+- [ ] Add automation/DevOps certifications
+
+---
+
+## 💼 Experience
+
+### Senior Cloud Solutions Engineer | Company Name
+**Duration:** *Add dates here*
+- [ ] Add key responsibilities and achievements
+- [ ] Add notable projects
+- [ ] Add technologies used
+
+### Cloud Engineer | Previous Company
+**Duration:** *Add dates here*
+- [ ] Add key responsibilities and achievements
+- [ ] Add notable projects
+- [ ] Add technologies used
+
+---
+
+## 📞 Contact
+
+📧 **Email:** [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+
+🔗 **LinkedIn:** [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
+
+📍 **Location:** Wellington, New Zealand
+
+*Feel free to reach out for collaboration opportunities, technical discussions, or professional networking!*
