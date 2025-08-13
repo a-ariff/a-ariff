@@ -1,8 +1,7 @@
 # 👋 Hi, I'm Ariff Mohamed
-**Cloud Solutions Engineer**
-  
-*Azure | Intune | PowerShell | Automation | Security*
-  
+**Cloud Solutions Engineer**  
+*Azure | Intune | PowerShell | Automation | Security*  
+
 📍 Wellington, New Zealand
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 
@@ -26,48 +25,91 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ## 🛠️ Skills
 
 ### Cloud Infrastructure & Governance
-- Azure landing zones with Bicep/Terraform
-- Policy enforcement, RBAC, and compliance frameworks
-- Cost optimization and resource governance
+- **Azure Landing Zones**: Design and implement with Bicep/Terraform
+- **Resource Management**: Advanced tagging, cost optimization strategies
+- **Governance**: Policy enforcement, RBAC implementation
+- **Compliance**: CAF framework adherence, security baseline enforcement
+- **Architecture**: Hub-spoke topologies, network security groups
 
 ### Modern Endpoint Management
-- **Intune Autopilot** deployment and configuration
-- Compliance baselines and proactive remediations
-- Device lifecycle management and zero-trust security
+- **Microsoft Intune**: Full lifecycle management and policy configuration
+- **Autopilot**: Zero-touch deployment and provisioning workflows
+- **Compliance**: Security baselines, configuration profiles, remediation scripts
+- **Device Management**: Windows, iOS, Android enterprise enrollment
+- **Application Deployment**: Win32, store apps, and LOB application management
 
 ### Security & Compliance
-- Security baselines and hardening policies
-- **Defender for Cloud** and **Sentinel** analytics
-- Incident response workflow automation
+- **Microsoft Defender**: Cloud security posture management and threat detection
+- **Azure Sentinel**: SIEM configuration, custom analytics rules, playbooks
+- **Zero Trust**: Conditional access policies, identity protection
+- **Incident Response**: Automated workflows, threat hunting, forensics
+- **Risk Management**: Vulnerability assessments, security score optimization
 
 ### Automation & DevOps
-- **PowerShell** scripting and module development
-- CI/CD pipelines with Azure DevOps
-- Infrastructure as Code (IaC) implementations
-- **GitHub Actions** (CI for PowerShell/JSON linting, release workflows)
-- **Git and branching strategies** (GitFlow, trunk-based)
-- **Code quality** (PSScriptAnalyzer, pre-commit hooks)
+- **PowerShell**: Advanced scripting, module development, DSC configurations
+- **Azure DevOps**: Build/release pipelines, work item tracking, repositories
+- **Infrastructure as Code**: ARM templates, Bicep, Terraform deployment
+- **CI/CD**: Automated testing, deployment strategies, rollback procedures
+- **Monitoring**: Application Insights, Log Analytics, custom dashboards
 
-### Open Source & GitHub
-- **Maintainer** of Intune MDM Popup Policies repo
-- Uses **Issues, Projects, and Discussions**
-- **Semantic versioning** and conventional commits
-- **Security practices** (Dependabot, CodeQL)
+### GitHub & Collaboration
+- **GitHub Actions**: CI/CD workflows, automated testing, release management
+- **Version Control**: Git branching strategies (GitFlow, trunk-based development)
+- **Code Review**: Pull request workflows, automated quality checks
+- **Repository Management**: Issue tracking, project boards, discussions
+- **Security**: Dependabot alerts, CodeQL analysis, secret scanning
+- **Documentation**: Markdown, wikis, automated changelog generation
+
+### Open Source & Community
+- **Project Maintenance**: Active maintainer of Intune MDM Popup Policies repository
+- **Community Engagement**: GitHub Discussions, issue triage, feature planning
+- **Best Practices**: Semantic versioning, conventional commits, release automation
+- **Collaboration Tools**: GitHub Projects, milestone management, team coordination
 
 ---
 
 ## 🚀 Featured Projects
 > Check out my pinned repositories for detailed implementations:
 
-🔗 **[Azure Automation Scripts](https://github.com/a-ariff/intune-remediation-scripts)** - PowerShell modules for Azure resource management
+### [Intune MDM Popup Policies](https://github.com/a-ariff/intune-mdm-popup-policies)
+Comprehensive collection of Microsoft Intune device compliance and configuration policies with automated deployment scripts.
 
-🔗 **[Intune MDM Popup Policies](https://github.com/a-ariff/Intune-MDM-Popup-Policies-macOS-Safari-Edge-Chrome-and-Windows-Edge-Chrome-)** - Device compliance and popup management policies
+**Key Features:**
+- 📱 Multi-platform support (Windows, iOS, Android)
+- 🔧 PowerShell deployment automation
+- 📊 Compliance reporting dashboards
+- 🛡️ Security baseline templates
 
-🔗 **[Infrastructure as Code Templates](https://github.com/a-ariff/azure-landing-zone-bicep)** - Azure Bicep templates for enterprise-scale deployments
-
-🔗 **[Sentinel Analytics Rules](https://github.com/a-ariff/sentinel-content)** - Security monitoring and threat detection rules
+**Tech Stack:** PowerShell, Microsoft Graph API, Azure DevOps, JSON
 
 ---
 
 ## 🏅 Certifications
-**Microsoft Certifications**
+
+### Microsoft Azure
+- **Azure Solutions Architect Expert** (AZ-305)
+- **Azure Administrator Associate** (AZ-104)
+- **Azure Security Engineer Associate** (AZ-500)
+
+### Microsoft 365
+- **Microsoft 365 Certified: Enterprise Administrator Expert** (MS-100, MS-101)
+- **Microsoft 365 Certified: Modern Desktop Administrator Associate** (MD-100, MD-101)
+
+### Security & Compliance
+- **Microsoft Certified: Security, Compliance, and Identity Fundamentals** (SC-900)
+- **Microsoft Certified: Information Protection Administrator Associate** (SC-400)
+
+---
+
+## 📞 Contact
+
+**Let's connect and discuss cloud solutions!**
+
+- 💼 **LinkedIn**: [ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
+- 📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+- 🌐 **Location**: Wellington, New Zealand
+- 🕐 **Timezone**: NZST (UTC+12)
+
+---
+
+*⭐ If you find my repositories helpful, please consider giving them a star!*
