@@ -1,4 +1,7 @@
 # 👋 Hi, I'm Ariff Mohamed
+
+I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
+
 *Modern Endpoint Management & Cloud Security Specialist*
 
 ## 📋 Quick Navigation
@@ -9,6 +12,7 @@
 - [Contact](#contact)
 
 ## About
+
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
 
 ## Skills
@@ -57,11 +61,7 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?sharingId=5996650C026DFF6A)
-- [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
-- [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
-- [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
-- [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
 
 ## Contact
 
-Feel free to connect with me for collaboration opportunities, technical discussions, or project inquiries. I'm always interested in sharing knowledge and exploring innovative solutions in the Microsoft ecosystem.
+Feel free to reach out for collaboration opportunities or to discuss modern endpoint management and cloud security solutions.
