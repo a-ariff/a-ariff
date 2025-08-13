@@ -1,10 +1,8 @@
 # 👋 Hi, I'm Ariff Mohamed
-**Cloud Solutions Engineer**
-  
+**Cloud Solutions Engineer**  
 *Azure | Intune | PowerShell | Automation | Security*
+📍 Wellington, New Zealand  
 
-📍 Wellington, New Zealand
-  
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=default)
@@ -75,27 +73,31 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 
 > **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
 
-**Individual Microsoft Learn Verification Links:**
+### Microsoft Certifications
 
-- <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-applied-skills.svg" width="24" height="24" alt="Applied Skills Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)**
-
-- <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)**
-
-- <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)**
-
-- <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)**
-
-- <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-expert-badge.svg" width="24" height="24" alt="Expert Badge" style="vertical-align: middle; margin-right: 8px;"/> **[Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)**
+<table>
+  <tr>
+    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-applied-skills.svg" width="24" height="24" alt="Applied Skills Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Applied Skills"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C" title="Get started with identities and access using Microsoft Entra">Microsoft Applied Skills: Entra Identity & Access</a></strong></td>
+    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C" title="Azure Security Engineer Associate">Azure Security Engineer Associate</a></strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C" title="Azure Administrator Associate">Azure Administrator Associate</a></strong></td>
+    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C" title="Microsoft 365 Endpoint Administrator Associate">Microsoft 365 Endpoint Administrator Associate</a></strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-expert-badge.svg" width="24" height="24" alt="Expert Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Expert"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C" title="Microsoft 365 Administrator Expert">Microsoft 365 Administrator Expert</a></strong></td>
+  </tr>
+</table>
 
 ### AvePoint Certifications
 
-<p align="center">
-  <a href="https://www.credly.com/badges/avepoint-cloud-governance-certified-professional"><img src="avepoint-badge-1.png" height="80" alt="AvePoint Cloud Governance Certified Professional"/></a>
-  <a href="https://www.credly.com/badges/avepoint-cloud-backup-for-microsoft-365-certified-professional"><img src="avepoint-badge-2.png" height="80" alt="AvePoint Cloud Backup for Microsoft 365 Certified Professional"/></a>
-  <a href="https://www.credly.com/badges/avepoint-data-management-platform-certified-specialist"><img src="avepoint-badge-3.png" height="80" alt="AvePoint Data Management Platform Certified Specialist"/></a>
-  <a href="https://www.credly.com/badges/avepoint-migration-deployment-certified-expert"><img src="avepoint-badge-4.png" height="80" alt="AvePoint Migration & Deployment Certified Expert"/></a>
-</p>
-
-<p align="center">
-  <sub>AvePoint Cloud Governance Certified Professional</sub>                                                           <sub>AvePoint Cloud Backup for Microsoft 365 Certified Professional</sub>                <sub>AvePoint Data Management Platform Certified Specialist</sub>                               <sub>AvePoint Migration & Deployment Certified Expert</sub>
-</p>
+<table>
+  <tr>
+    <td align="center"><a href="https://www.credly.com/badges/avepoint-cloud-governance-certified-professional" title="AvePoint Cloud Governance Certified Professional"><img src="avepoint-badge-1.png" height="64" alt="AvePoint Cloud Governance Certified Professional"/></a><br/>Cloud Governance Professional</td>
+    <td align="center"><a href="https://www.credly.com/badges/avepoint-cloud-backup-for-microsoft-365-certified-professional" title="AvePoint Cloud Backup for Microsoft 365 Certified Professional"><img src="avepoint-badge-2.png" height="64" alt="AvePoint Cloud Backup for Microsoft 365 Certified Professional"/></a><br/>Cloud Backup Professional</td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://www.credly.com/badges/avepoint-data-management-platform-certified-specialist" title="AvePoint Data Management Platform Certified Specialist"><img src="avepoint-badge-3.png" height="64" alt="AvePoint Data Management Platform Certified Specialist"/></a><br/>Data Management Specialist</td>
+    <td align="center"><a href="https://www.credly.com/badges/avepoint-migration-deployment-certified-expert" title="AvePoint Migration & Deployment Certified Expert"><img src="avepoint-badge-4.png" height="64" alt="AvePoint Migration & Deployment Certified Expert"/></a><br/>Migration & Deployment Expert</td>
+  </tr>
+</table>
