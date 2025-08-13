@@ -76,5 +76,3 @@ Enterprise-ready landing zones with modular security/governance. Modular landing
 
 <div align="right"><a href="#-hi-im-ariff-mohamed">🔝 Back to top</a></div>
 
-## Changes
-- 2025-08-14: Added Azure Landing Zone Bicep to Featured Projects; restored Certifications and Contact; added backup branch.
