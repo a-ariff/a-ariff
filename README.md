@@ -43,7 +43,11 @@
 - Automated deployment pipelines and validation tests
 - **Tech Stack**: Azure Bicep, Azure Resource Manager, GitHub Actions
 ## 🏅 Certifications
-- [Microsoft Learn Consolidated Transcript](https://learn.microsoft.com/api/credentials/share/en-us/AriffMohamed-8403)
+- [Microsoft Certified: Azure Solutions Architect Expert](https://learn.microsoft.com/credentials/certifications/azure-solutions-architect/)
+- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/credentials/certifications/azure-security-engineer/)
+- [Microsoft Certified: Microsoft 365 Certified: Enterprise Administrator Expert](https://learn.microsoft.com/credentials/certifications/m365-enterprise-administrator/)
+- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/credentials/certifications/azure-administrator/)
+- [Microsoft Certified: Security, Compliance, and Identity Fundamentals](https://learn.microsoft.com/credentials/certifications/security-compliance-and-identity-fundamentals/)
 - [Credly Transcript](https://www.credly.com/users/ariff-mohamed)
 - [AvePoint Certified: Microsoft 365 Platform Specialist](https://www.credly.com/badges/avepoint-m365-platform-specialist)
 - [AvePoint Certified: Microsoft Teams Deployment Specialist](https://www.credly.com/badges/avepoint-teams-deployment-specialist)
@@ -53,7 +57,3 @@
 I'm always interested in discussing cloud architecture, automation challenges, or collaboration opportunities.
 **Connect with me:**
 - 💼 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
-- 📧 [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
-- 🐙 [GitHub](https://github.com/a-ariff)
----
-*"Automating the complex, securing the critical, and enabling the impossible."*
