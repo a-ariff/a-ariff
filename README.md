@@ -48,7 +48,7 @@
 - [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)
-- Microsoft 365 Certified: Teams Administrator Associate
+- [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?sharingId=5996650C026DFF6A)
 - [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs&tab=applied-skills-tab)
 - [Credly Transcript](https://www.credly.com/users/ariff-mohamed)
 - [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
