@@ -1,4 +1,6 @@
-# 👋 Hi, I'm Ariff Mohamed — Cloud Solutions Engineer | Microsoft 365 Certified
+# 👋 Hi, I'm Ariff Mohamed 
+**Microsoft 365 Certified - Cloud Solutions Engineer **
+
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
 
 *Modern Endpoint Management & Cloud Security Specialist*
