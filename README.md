@@ -1,12 +1,13 @@
 # 👋 Hi, I'm Ariff Mohamed
-**Cloud Solutions Engineer**
-  
-*Azure | Intune | PowerShell | Automation | Security*
-📍 Wellington, New Zealand
-  
+
+**Cloud Solutions Engineer**  
+*Azure | Intune | PowerShell | Automation | Security*  
+📍 Wellington, New Zealand  
+
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 
 ## Quick Navigation
+
 - [📖 About](#-about)
 - [🛠️ Skills](#️-skills)
 - [🚀 Featured Projects](#-featured-projects)
@@ -81,21 +82,24 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 ## 💼 Experience
 
 ### Senior Cloud Solutions Engineer | Company Name, Wellington, NZ
-**Dates:** 2022–Present
-- Led Azure landing zone deployments using Bicep/Terraform; improved compliance via Azure Policy and RBAC.
-- Automated Intune device onboarding and compliance checks with PowerShell and proactive remediations.
-- Built CI/CD pipelines (Azure DevOps) for IaC and PowerShell modules; reduced deployment time by 40%.
-- Implemented Sentinel analytics and Defender for Cloud hardening; improved detection and response SLAs.
+**2022–Present**
+
+- Led Azure landing zone deployments using Bicep/Terraform; improved compliance via Azure Policy and RBAC
+- Automated Intune device onboarding and compliance checks with PowerShell and proactive remediations
+- Built CI/CD pipelines (Azure DevOps) for IaC and PowerShell modules; reduced deployment time by 40%
+- Implemented Sentinel analytics and Defender for Cloud hardening; improved detection and response SLAs
 
 ### Cloud Engineer | Previous Company, Wellington, NZ
-**Dates:** 2018–2022
-- Managed M365/Intune modern workplace rollout (Autopilot, compliance baselines).
-- Migrated workloads to Azure with zero downtime; cost optimization via rightsizing and reservations.
-- Authored operational scripts/modules; standardized runbooks and monitoring.
+**2018–2022**
+
+- Managed M365/Intune modern workplace rollout (Autopilot, compliance baselines)
+- Migrated workloads to Azure with zero downtime; cost optimization via rightsizing and reservations
+- Authored operational scripts/modules; standardized runbooks and monitoring
 
 ### Systems Engineer | Earlier Role
-**Dates:** 2014–2018
-- Endpoint management, Windows platform engineering, and identity/access controls.
+**2014–2018**
+
+- Endpoint management, Windows platform engineering, and identity/access controls
 
 ---
 
