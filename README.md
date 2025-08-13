@@ -1,8 +1,6 @@
 # 👋 Hi, I'm Ariff Mohamed
 **Microsoft 365 Certified - Cloud Solutions Engineer**
-
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
-
 *Modern Endpoint Management & Cloud Security Specialist*
 
 [📖 About](#about) • [🛠️ Skills](#skills) • [🚀 Featured Projects](#featured-projects) • [🏅 Certifications](#certifications) • [📞 Contact](#contact)
@@ -58,14 +56,23 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 ## Certifications 🏅
 
-### Microsoft Certifications
-- [Microsoft 365 Certified: Modern Desktop Administrator Associate](https://learn.microsoft.com/en-us/certifications/m365-modern-desktop/)
-- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/en-us/certifications/azure-administrator/)
-- [Microsoft Certified: Security, Compliance, and Identity Fundamentals](https://learn.microsoft.com/en-us/certifications/security-compliance-and-identity-fundamentals/)
-- [Microsoft Certified: Azure Fundamentals](https://learn.microsoft.com/en-us/certifications/azure-fundamentals/)
+### Transcripts
+- [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript)
+- [Credly Transcript](https://www.credly.com/users/ariff-mohamed)
 
-### CompTIA Certifications
-- [CompTIA Security+ ce Certification](https://www.comptia.org/certifications/security)
+### Microsoft
+- [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?sharingId=5996650C026DFF6A)
+
+### AvePoint
+- [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
+- [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
+- [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
+- [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
 
 <p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
