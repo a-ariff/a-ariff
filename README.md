@@ -1,16 +1,23 @@
 # 👋 Hi, I'm Ariff Mohamed
 **Cloud Solutions Engineer**  
 *Azure | Intune | PowerShell | Automation | Security*
-📍 Wellington, New Zealand  
 
+📍 Wellington, New Zealand  
 🔗 [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) | ✉️ [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+
+## Quick Navigation
+- [📖 About](#-about)
+- [🛠️ Skills](#️-skills)
+- [🚀 Featured Projects](#-featured-projects)
+- [🏅 Certifications](#-certifications)
+- [💼 Experience](#-experience)
+- [📞 Contact](#-contact)
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=default)
 
 ---
 
 ## 📖 About
-
 Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft cloud platforms and automating endpoint management. I specialize in improving compliance while reducing operational overhead through strategic automation and modern workplace solutions.
 
 **Key Achievements:**
@@ -20,8 +27,68 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 
 ---
 
-## 💼 Experience
+## 🛠️ Skills
+### Cloud Infrastructure & Governance
+- Azure landing zones with **Bicep/Terraform**
+- Policy enforcement, RBAC, and compliance frameworks
+- Cost optimization and resource governance
 
+### Modern Endpoint Management
+- **Intune Autopilot** deployment and configuration
+- Compliance baselines and proactive remediations
+- Device lifecycle management and zero-trust security
+
+### Security & Compliance
+- Security baselines and hardening policies
+- **Defender for Cloud** and **Sentinel** analytics
+- Incident response workflow automation
+
+### Automation & DevOps
+- **PowerShell** scripting and module development
+- CI/CD pipelines with Azure DevOps
+- Infrastructure as Code (IaC) implementations
+
+---
+
+## 🚀 Featured Projects
+> Check out my pinned repositories for detailed implementations:
+
+🔗 **[Azure Automation Scripts](https://github.com/a-ariff/azure-automation-scripts)** - PowerShell modules for Azure resource management
+
+🔗 **[Intune Configuration Baselines](https://github.com/a-ariff/intune-baselines)** - Security baselines and compliance policies
+
+🔗 **[Infrastructure as Code Templates](https://github.com/a-ariff/iac-templates)** - Bicep and Terraform templates for Azure deployments
+
+---
+
+## 🏅 Certifications
+> **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
+
+### Microsoft Certifications
+<table>
+  <tr>
+    <td>
+      <img alt="Applied Skills Badge" height="24" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Applied Skills" width="24"/> 
+      <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9" title="Get started with identities and access using Microsoft Entra">Microsoft Applied Skills: Entra Identity & Access</a></strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="Azure Fundamentals Badge" height="24" style="vertical-align: middle; margin-right: 8px;" title="Azure Fundamentals" width="24"/> 
+      <strong>Microsoft Azure Fundamentals (AZ-900)</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img alt="Security Fundamentals Badge" height="24" style="vertical-align: middle; margin-right: 8px;" title="Security Fundamentals" width="24"/> 
+      <strong>Microsoft Security Fundamentals (SC-900)</strong>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 💼 Experience
 **Cloud Solutions Engineer, Theta (NZ), Wellington** (March 2023 – Present)
 - Architected Azure environments and Intune policies for 100% device compliance
 - Automated workflows reducing ticket backlogs by 30%
@@ -45,59 +112,10 @@ Cloud Solutions Engineer with 10+ years of experience designing secure Microsoft
 
 ---
 
-## 🛠️ Skills
+## 📞 Contact
+📍 **Location:** Wellington, New Zealand  
+🔗 **LinkedIn:** [linkedin.com/in/ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)  
+✉️ **Email:** [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)  
+💼 **GitHub:** [github.com/a-ariff](https://github.com/a-ariff)
 
-### Cloud Infrastructure & Governance
-- Azure landing zones with **Bicep/Terraform**
-- Policy enforcement, RBAC, and compliance frameworks
-- Cost optimization and resource governance
-
-### Modern Endpoint Management
-- **Intune Autopilot** deployment and configuration
-- Compliance baselines and proactive remediations
-- Device lifecycle management and zero-trust security
-
-### Security & Compliance
-- Security baselines and hardening policies
-- **Defender for Cloud** and **Sentinel** analytics
-- Incident response workflow automation
-
-### Automation & DevOps
-- **PowerShell** scripting and module development
-- CI/CD pipelines with Azure DevOps
-- Infrastructure as Code (IaC) implementations
-
----
-
-## 🏅 Certifications
-
-> **[View transcript of all certifications](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)** | **[View All Badges on Credly](https://www.credly.com/users/ariff-mohamed/badges)**
-
-### Microsoft Certifications
-
-<table>
-  <tr>
-    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-applied-skills.svg" width="24" height="24" alt="Applied Skills Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Applied Skills"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C" title="Get started with identities and access using Microsoft Entra">Microsoft Applied Skills: Entra Identity & Access</a></strong></td>
-    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C" title="Azure Security Engineer Associate">Azure Security Engineer Associate</a></strong></td>
-  </tr>
-  <tr>
-    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C" title="Azure Administrator Associate">Azure Administrator Associate</a></strong></td>
-    <td><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="24" height="24" alt="Associate Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Associate"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C" title="Microsoft 365 Endpoint Administrator Associate">Microsoft 365 Endpoint Administrator Associate</a></strong></td>
-  </tr>
-  <tr>
-    <td colspan="2"><img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-expert-badge.svg" width="24" height="24" alt="Expert Badge" style="vertical-align: middle; margin-right: 8px;" title="Microsoft Certified Expert"/> <strong><a href="https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C" title="Microsoft 365 Administrator Expert">Microsoft 365 Administrator Expert</a></strong></td>
-  </tr>
-</table>
-
-### AvePoint Certifications
-
-<table>
-  <tr>
-    <td align="center"><a href="https://www.credly.com/badges/avepoint-cloud-governance-certified-professional" title="AvePoint Cloud Governance Certified Professional"><img src="avepoint-badge-1.png" height="64" alt="AvePoint Cloud Governance Certified Professional"/></a><br/>Cloud Governance Professional</td>
-    <td align="center"><a href="https://www.credly.com/badges/avepoint-cloud-backup-for-microsoft-365-certified-professional" title="AvePoint Cloud Backup for Microsoft 365 Certified Professional"><img src="avepoint-badge-2.png" height="64" alt="AvePoint Cloud Backup for Microsoft 365 Certified Professional"/></a><br/>Cloud Backup Professional</td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://www.credly.com/badges/avepoint-data-management-platform-certified-specialist" title="AvePoint Data Management Platform Certified Specialist"><img src="avepoint-badge-3.png" height="64" alt="AvePoint Data Management Platform Certified Specialist"/></a><br/>Data Management Specialist</td>
-    <td align="center"><a href="https://www.credly.com/badges/avepoint-migration-deployment-certified-expert" title="AvePoint Migration & Deployment Certified Expert"><img src="avepoint-badge-4.png" height="64" alt="AvePoint Migration & Deployment Certified Expert"/></a><br/>Migration & Deployment Expert</td>
-  </tr>
-</table>
+*Let's connect and discuss how I can help optimize your cloud infrastructure and automation workflows!*
