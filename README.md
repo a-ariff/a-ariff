@@ -8,7 +8,10 @@ I design secure, automated Microsoft cloud environments that reduce ops overhead
 ## About
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
 
+[Back to top](#readme)
+
 ## Skills
+
 ### Modern Endpoint Management
 - **Autopilot**: Zero-touch deployment and provisioning
 - **Compliance**: Security baselines and remediation automation
@@ -35,12 +38,17 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - **Azure Resource Management**: Subscription organization and resource optimization
 - **Cost Management**: Budget controls and resource rightsizing strategies
 
+[Back to top](#readme)
+
 ## Featured Projects
 - [**Intune MDM Popup Policies**](https://github.com/a-ariff/Intune-MDM-Popup-Policies-macOS-Safari-Edge-Chrome-and-Windows-Edge-Chrome-) - Cross-platform Intune popup policies with automation and CI checks.
 - [**Intune Remediation Scripts**](https://github.com/a-ariff/intune-remediation-scripts) - Automated device compliance fixes using detection/remediation patterns.
 - [**Azure Landing Zone Bicep**](https://github.com/a-ariff/azure-landing-zone-bicep) - Enterprise-ready landing zones with modular security/governance.
 
+[Back to top](#readme)
+
 ## Certifications
+
 ### Transcripts
 - [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs&tab=applied-skills-tab)
 - [Credly Transcript](https://www.credly.com/users/ariff-mohamed)
@@ -51,5 +59,9 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
 - [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
 
+[Back to top](#readme)
+
 ## Contact
 <!-- Contact information would go here -->
+
+[Back to top](#readme)
