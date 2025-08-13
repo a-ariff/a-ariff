@@ -1,6 +1,8 @@
 # 👋 Hi, I'm Ariff Mohamed
 **Microsoft 365 Certified - Cloud Solutions Engineer**
+
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
+
 *Modern Endpoint Management & Cloud Security Specialist*
 
 [📖 About](#about) • [🛠️ Skills](#skills) • [🚀 Featured Projects](#featured-projects) • [🏅 Certifications](#certifications) • [📞 Contact](#contact)
@@ -44,13 +46,16 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ## Featured Projects 🚀
 
 - [**Intune MDM Popup Policies**](https://github.com/a-ariff/Intune-MDM-Popup-Policies-macOS-Safari-Edge-Chrome-and-Windows-Edge-Chrome-) - Cross-platform Intune popup policies with automation and CI checks.
-  - Used across Windows/macOS/iOS; standardizes prompts and reduces drift.
+  
+- Used across Windows/macOS/iOS; standardizes prompts and reduces drift.
 
 - [**Intune Remediation Scripts**](https://github.com/a-ariff/intune-remediation-scripts) - Automated device compliance fixes using detection/remediation patterns.
-  - Library of detection/remediation patterns; improves compliance at scale.
+  
+- Library of detection/remediation patterns; improves compliance at scale.
 
 - [**Azure Landing Zone Bicep**](https://github.com/a-ariff/azure-landing-zone-bicep) - Enterprise-ready landing zones with modular security/governance.
-  - Modular landing zones; policy-driven governance and secure defaults.
+  
+- Modular landing zones; policy-driven governance and secure defaults.
 
 <p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
 
@@ -80,7 +85,7 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 Let's connect!
 
-📧 **Email**: [ariff.mohamed@outlook.com](mailto:ariff.mohamed@outlook.com)
+📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 💼 **LinkedIn**: [linkedin.com/in/ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
 
 <p align="right"><sub><a href="#readme">↑ Back to top</a></sub></p>
