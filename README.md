@@ -57,13 +57,13 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 <a id="-featured-projects"></a>
 ## 🚀 Featured Projects
 
-### 🔧 [Intune MDM Popup Policies](https://github.com/a-ariff/4d1baa6c)
+### 🔧 Intune MDM Popup Policies
 Cross-platform Intune popup policies with automation and CI checks. Used across Windows/macOS/iOS; standardizes prompts and reduces drift.
 
-### 🛠️ [Intune Remediation Scripts](https://github.com/a-ariff/cda3a49a)
+### 🛠️ Intune Remediation Scripts
 Automated device compliance fixes using detection/remediation patterns. Library of detection/remediation patterns; improves compliance at scale.
 
-### 🏗️ [Azure Landing Zone Bicep](https://github.com/a-ariff/febd7ba4)
+### 🏗️ Azure Landing Zone Bicep
 Enterprise-ready landing zones with modular security/governance. Modular landing zones; policy-driven governance and secure defaults.
 
 [Back to top](#top)
