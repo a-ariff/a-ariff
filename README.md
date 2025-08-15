@@ -8,8 +8,7 @@ Modern Endpoint Management & Cloud Security Specialist
 
 [![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&style=for-the-badge)](#) [![Followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge)](https://github.com/a-ariff?tab=followers) [![Stars](https://img.shields.io/github/stars/a-ariff?affiliations=OWNER&label=Stars&style=for-the-badge)](https://github.com/a-ariff?tab=repositories)
 
-• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)  
-• [Email](mailto:aariff@outlook.co.nz)
+• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)  • [Email](mailto:aariff@outlook.co.nz)
 
 **Quick Navigation:**
 - [📖 About](#-about)
@@ -23,8 +22,6 @@ Modern Endpoint Management & Cloud Security Specialist
 ## 📖 About
 
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
-
-[Back to top](#top)
 
 <a id="️-skills"></a>
 ## 🛠️ Skills
@@ -61,24 +58,22 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 • **Azure Resource Management:** Optimizes subscription organization and resource allocation  
 • **Cost Management:** Implements budget controls achieving 30% cost reduction
 
-[Back to top](#top)
-
 ## 🚀 Featured Projects
 
-**Featured project navigation:**
-- [🔧 Intune MDM Popup Policies](#-intune-mdm-popup-policies)
-- [🛠️ Intune Remediation Scripts](#-intune-remediation-scripts)  
-- [🏗️ Azure Landing Zone Bicep](#-azure-landing-zone-bicep)
+Featured project navigation:
+- [🔧 Intune MDM Popup Policies](#intune-mdm-popup-policies)
+- [🛠️ Intune Remediation Scripts](#intune-remediation-scripts)
+- [🏗️ Azure Landing Zone Bicep](#azure-landing-zone-bicep)
 
 ### 🔧 Intune MDM Popup Policies
 
 Cross-platform policy framework delivering standardized user prompts across Windows, macOS, and iOS environments
 
-**Key Achievements:**
-- **Unified Experience:** Standardizes popup policies across all major platforms
-- **Drift Prevention:** Automated CI checks prevent configuration inconsistencies
-- **Enterprise Scale:** Supports multi-tenant deployments with centralized management
-- **Compliance Ready:** Built-in validation ensures policy adherence
+Key Achievements:
+• Unified Experience: Standardizes popup policies across all major platforms
+• Drift Prevention: Automated CI checks prevent configuration inconsistencies
+• Enterprise Scale: Supports multi-tenant deployments with centralized management
+• Compliance Ready: Built-in validation ensures policy adherence
 
 [View on GitHub](https://github.com/a-ariff/intune-mdm-popup-policies)
 
@@ -86,11 +81,11 @@ Cross-platform policy framework delivering standardized user prompts across Wind
 
 Automated compliance library featuring detection and remediation patterns for enterprise device management
 
-**Key Achievements:**
-- **Proactive Compliance:** Detection scripts identify issues before they impact users
-- **Self-Healing:** Automated remediation reduces manual intervention by 85%
-- **Scalable Patterns:** Reusable script templates accelerate deployment cycles
-- **Enterprise Monitoring:** Comprehensive logging and reporting for audit requirements
+Key Achievements:
+• Proactive Compliance: Detection scripts identify issues before they impact users
+• Self-Healing: Automated remediation reduces manual intervention by 85%
+• Scalable Patterns: Reusable script templates accelerate deployment cycles
+• Enterprise Monitoring: Comprehensive logging and reporting for audit requirements
 
 [View on GitHub](https://github.com/a-ariff/intune-remediation-scripts)
 
@@ -98,52 +93,49 @@ Automated compliance library featuring detection and remediation patterns for en
 
 Enterprise-grade Azure foundation with modular security controls and governance automation
 
-**Key Achievements:**
-- **Secure by Default:** Implements zero-trust principles from initial deployment
-- **Policy-Driven:** Automated governance through Azure Policy integration
-- **Modular Design:** Composable infrastructure components for flexible architectures
-- **Cost Optimized:** Built-in resource tagging and budget controls reduce overhead
+Key Achievements:
+• Secure by Default: Implements zero-trust principles from initial deployment
+• Policy-Driven: Automated governance through Azure Policy integration
+• Modular Design: Composable infrastructure components for flexible architectures
+• Cost Optimized: Built-in resource tagging and budget controls reduce overhead
 
 [View on GitHub](https://github.com/a-ariff/azure-landing-zone-bicep)
 
-[Back to top](#top)
-
 ## 🏅 Certifications
 
-![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-%20-%230078D4?style=flat&logo=microsoft)
+![Microsoft Certified](https://camo.githubusercontent.com/873ed827b3b5b654b5e2c8b1e7c3e9a7a2d8d2c0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6963726f736f66742d3030374143433f7374796c653d666c61742d737175617265266c6f676f3d6d6963726f736f6674266c6f676f436f6c6f723d7768697465)
 
 ### Transcripts
 
-- 🎓 [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)
-- 🏷️ [Credly Profile](https://www.credly.com/users/ariff-mohamed)
+• 🎓 [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)
+• 🏷️ [Credly Profile](https://www.credly.com/users/ariff-mohamed)
 
 ### Microsoft
 
-- 🛡️ [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
-- 🔧 [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
-- 📱 [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
-- 🧩 [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)
-- 👥 [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
-- 💬 [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
+• 🛡️ [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
+• 🔧 [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
+• 📱 [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
+• 🧩 [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)
+• 👥 [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
+• 💬 [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
 
 ### AvePoint
 
-- 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
-- 🧩 [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
-- 🔐 [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
-- 🚀 [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
-
-[Back to top](#top)
+• 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)
+• 🧩 [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/9b33d9ab/public_url)
+• 🔐 [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/47bfa023/public_url)
+• 🚀 [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/c526d426/public_url)
 
 ## 💼 Experience
 
 This section will be added in future updates.
 
-[Back to top](#top)
-
 ## 📞 Contact
 
-• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
-• [Email](mailto:aariff@outlook.co.nz)
+• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:aariff@outlook.co.nz)
 
-<div align="right">[Back to top](#top)</div>
+<div align="right">
+
+[Back to top](#top)
+
+</div>
