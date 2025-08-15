@@ -94,12 +94,6 @@ Enterprise-ready landing zones with modular security/governance. Modular landing
 - 👥 [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
 - 💬 [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
 
-**Featured Certifications:**
-
-<a href="https://www.credly.com/badges/1de42d8d-3e20-360f-8ac5-3fd9/public_url"><img alt="Azure Security Engineer" src="https://images.credly.com/images/azure-security-engineer-expert-600x600.png" width="100"/></a> <a href="https://www.credly.com/badges/27ea011b-0db9-95a/public_url"><img alt="Azure Administrator" src="https://images.credly.com/images/azure-administrator-associate-600x600.png" width="100"/></a>
-
-<a href="https://www.credly.com/badges/5e7b5535-d853-075/public_url"><img alt="Endpoint Administrator" src="https://images.credly.com/images/modern-desktop-administrator-associate-600x600.png" width="100"/></a> <a href="https://www.credly.com/badges/7ca3c54a-4daa-f6d/public_url"><img alt="Microsoft Entra" src="https://images.credly.com/images/microsoft-applied-skills-600x600.png" width="100"/></a>
-
 ### AvePoint
 
 - 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)
