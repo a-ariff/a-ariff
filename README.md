@@ -65,16 +65,15 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 ## 🚀 Featured Projects
 
-**Featured project navigation:**
-- [🔧 Intune MDM Popup Policies](#intune-mdm-popup-policies)
-- [🛠️ Intune Remediation Scripts](#intune-remediation-scripts)  
-- [🏗️ Azure Landing Zone Bicep](#azure-landing-zone-bicep)
+Featured project navigation:
 
----
+- [🔧 Intune MDM Popup Policies](#intune-mdm-popup-policies)
+- [🛠️ Intune Remediation Scripts](#intune-remediation-scripts)
+- [🏗️ Azure Landing Zone Bicep](#azure-landing-zone-bicep)
 
 ### 🔧 Intune MDM Popup Policies
 
-*Cross-platform policy framework delivering standardized user prompts across Windows, macOS, and iOS environments*
+Cross-platform policy framework delivering standardized user prompts across Windows, macOS, and iOS environments
 
 **Key Achievements:**
 - **Unified Experience:** Standardizes popup policies across all major platforms
@@ -84,11 +83,9 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 [View on GitHub](https://github.com/a-ariff/intune-mdm-popup-policies)
 
----
+### 🛠️ Intune Remediation Scripts
 
-### 🛠️ Intune Remediation Scripts  
-
-*Automated compliance library featuring detection and remediation patterns for enterprise device management*
+Automated compliance library featuring detection and remediation patterns for enterprise device management
 
 **Key Achievements:**
 - **Proactive Compliance:** Detection scripts identify issues before they impact users
@@ -98,11 +95,9 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 [View on GitHub](https://github.com/a-ariff/intune-remediation-scripts)
 
----
-
 ### 🏗️ Azure Landing Zone Bicep
 
-*Enterprise-grade Azure foundation with modular security controls and governance automation*
+Enterprise-grade Azure foundation with modular security controls and governance automation
 
 **Key Achievements:**
 - **Secure by Default:** Implements zero-trust principles from initial deployment
@@ -119,10 +114,12 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-%20-%230078D4?style=flat&logo=microsoft)
 
 ### Transcripts
+
 - 🎓 [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)
 - 🏷️ [Credly Profile](https://www.credly.com/users/ariff-mohamed)
 
 ### Microsoft
+
 - 🛡️ [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
 - 🔧 [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
 - 📱 [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
@@ -131,10 +128,11 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 - 💬 [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
 
 ### AvePoint
-- 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)
-- 🧩 [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/9b33d9ab/public_url)
-- 🔐 [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/47bfa023/public_url)
-- 🚀 [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/c526d426/public_url)
+
+- 🔒 AvePoint Certified Technical Professional - Cloud Backup for M365 ([view on Credly](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url))
+- 🧩 AvePoint Certified Technical Associate - AvePoint Elements ([view on Credly](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url))
+- 🔐 AvePoint Certified Technical Associate - Confidence Platform ([view on Credly](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url))
+- 🚀 AvePoint Certified Technical Professional - Fly Server ([view on Credly](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url))
 
 [Back to top](#top)
 
@@ -149,4 +147,4 @@ This section will be added in future updates.
 • [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
 • [Email](mailto:aariff@outlook.co.nz)
 
-[Back to top](#top)
+<div align="right">[Back to top](#top)</div>
