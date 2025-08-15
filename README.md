@@ -65,11 +65,10 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 ## 🚀 Featured Projects
 
-Featured project navigation:
-
-- [🔧 Intune MDM Popup Policies](#intune-mdm-popup-policies)
-- [🛠️ Intune Remediation Scripts](#intune-remediation-scripts)
-- [🏗️ Azure Landing Zone Bicep](#azure-landing-zone-bicep)
+**Featured project navigation:**
+- [🔧 Intune MDM Popup Policies](#-intune-mdm-popup-policies)
+- [🛠️ Intune Remediation Scripts](#-intune-remediation-scripts)  
+- [🏗️ Azure Landing Zone Bicep](#-azure-landing-zone-bicep)
 
 ### 🔧 Intune MDM Popup Policies
 
@@ -129,10 +128,10 @@ Enterprise-grade Azure foundation with modular security controls and governance 
 
 ### AvePoint
 
-- 🔒 AvePoint Certified Technical Professional - Cloud Backup for M365 ([view on Credly](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url))
-- 🧩 AvePoint Certified Technical Associate - AvePoint Elements ([view on Credly](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url))
-- 🔐 AvePoint Certified Technical Associate - Confidence Platform ([view on Credly](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url))
-- 🚀 AvePoint Certified Technical Professional - Fly Server ([view on Credly](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url))
+- 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
+- 🧩 [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
+- 🔐 [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
+- 🚀 [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
 
 [Back to top](#top)
 
