@@ -78,26 +78,34 @@ Enterprise-ready landing zones with modular security/governance. Modular landing
 
 ## 🏅 Certifications
 
+![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-%20-%230078D4?style=flat&logo=microsoft)
+
 ### Transcripts
 
-• Microsoft Learn Transcript: https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs  
-• Credly Profile: https://www.credly.com/users/ariff-mohamed
+- 🎓 [Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs)
+- 🏷️ [Credly Profile](https://www.credly.com/users/ariff-mohamed)
 
 ### Microsoft
 
-• [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)  
-• [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)  
-• [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)  
-• [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)  
-• [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)  
-• [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
+- 🛡️ [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
+- 🔧 [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
+- 📱 [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
+- 🧩 [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)
+- 👥 [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
+- 💬 [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
+
+**Featured Certifications:**
+
+<a href="https://www.credly.com/badges/1de42d8d-3e20-360f-8ac5-3fd9/public_url"><img alt="Azure Security Engineer" src="https://images.credly.com/images/azure-security-engineer-expert-600x600.png" width="100"/></a> <a href="https://www.credly.com/badges/27ea011b-0db9-95a/public_url"><img alt="Azure Administrator" src="https://images.credly.com/images/azure-administrator-associate-600x600.png" width="100"/></a>
+
+<a href="https://www.credly.com/badges/5e7b5535-d853-075/public_url"><img alt="Endpoint Administrator" src="https://images.credly.com/images/modern-desktop-administrator-associate-600x600.png" width="100"/></a> <a href="https://www.credly.com/badges/7ca3c54a-4daa-f6d/public_url"><img alt="Microsoft Entra" src="https://images.credly.com/images/microsoft-applied-skills-600x600.png" width="100"/></a>
 
 ### AvePoint
 
-• [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)  
-• [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/9b33d9ab/public_url)  
-• [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/47bfa023/public_url)  
-• [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/c526d426/public_url)
+- 🔒 [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)
+- 🧩 [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/9b33d9ab/public_url)
+- 🔐 [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/47bfa023/public_url)
+- 🚀 [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/c526d426/public_url)
 
 [Back to top](#top)
 
@@ -109,7 +117,7 @@ This section will be added in future updates.
 
 ## 📞 Contact
 
-• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)  
+• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
 • [Email](mailto:aariff@outlook.co.nz)
 
 [Back to top](#top)
