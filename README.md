@@ -1,12 +1,8 @@
 # 👋 Hi, I'm Ariff Mohamed
-Microsoft 365 Certified - Cloud Solutions Engineer
-I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
-Modern Endpoint Management & Cloud Security Specialist
 
-[![Profile Views](https://github.com/a-ariff/a-ariff)](https://github.com/a-ariff/a-ariff) [![Followers](https://github.com/a-ariff?tab=followers)](https://github.com/a-ariff?tab=followers) [![Stars](https://github.com/a-ariff?tab=repositories)](https://github.com/a-ariff?tab=repositories)
+Microsoft 365 Certified - Cloud Solutions Engineer I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance. Modern Endpoint Management & Cloud Security Specialist
 
-• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/)
-• [Email](mailto:aariff@outlook.co.nz)
+• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:aariff@outlook.co.nz)
 
 Quick Navigation:
 - • [📶 About](#-about)
@@ -55,11 +51,11 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ## 🚀 Featured Projects
 
 Featured project navigation:
-- • [🔧 Intune MDM Popup Policies](#d464d6dd)
-- • [🛠️ Intune Remediation Scripts](#cda3a49a)
-- • [🏗️ Azure Landing Zone Bicep](#febd7ba4)
+- • [🔧 Intune MDM Popup Policies](#intune-mdm-popup-policies)
+- • [🛠️ Intune Remediation Scripts](#intune-remediation-scripts)
+- • [🏗️ Azure Landing Zone Bicep](#azure-landing-zone-bicep)
 
-### [🔧 Intune MDM Popup Policies](https://github.com/a-ariff/d464d6dd)
+### 🔧 Intune MDM Popup Policies
 
 Cross-platform policy framework delivering standardized user prompts across Windows, macOS, and iOS environments
 
@@ -69,7 +65,7 @@ Key Achievements:
 • Enterprise Scale: Supports multi-tenant deployments with centralized management
 • Compliance Ready: Built-in validation ensures policy adherence
 
-### [🛠️ Intune Remediation Scripts](https://github.com/a-ariff/cda3a49a)
+### 🛠️ Intune Remediation Scripts
 
 Automated compliance library featuring detection and remediation patterns for enterprise device management
 
@@ -79,7 +75,7 @@ Key Achievements:
 • Scalable Patterns: Reusable script templates accelerate deployment cycles
 • Enterprise Monitoring: Comprehensive logging and reporting for audit requirements
 
-### [🏗️ Azure Landing Zone Bicep](https://github.com/a-ariff/febd7ba4)
+### 🏗️ Azure Landing Zone Bicep
 
 Enterprise-grade Azure foundation with modular security controls and governance automation
 
