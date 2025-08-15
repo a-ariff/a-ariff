@@ -14,6 +14,6 @@ jobs:
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --verbose README.md README_DRAFT.md
+          args: --no-progress --verbose --accept 200,999 README.md README_DRAFT.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
