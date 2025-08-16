@@ -1,21 +1,19 @@
 # 👋 Hi, I'm Ariff Mohamed
 
-Microsoft 365 Certified - Cloud Solutions Engineer
-
-I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
-
+Microsoft 365 Certified - Cloud Solutions Engineer  
+I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.  
 Modern Endpoint Management & Cloud Security Specialist
 
 • [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:aariff@outlook.co.nz)
 
 ## 🧭 Quick Navigation
 
-- 👤 [About](#about)
-- 🛠️ [Skills](#skills)
-- 🚀 [Featured Projects](#featured-projects)
-- 🎓 [Certifications](#certifications)
-- 💼 [Experience](#experience)
-- 📞 [Contact](#contact)
+- 👤 [About](#-about)
+- 🛠️ [Skills](#%EF%B8%8F-skills)
+- 🚀 [Featured Projects](#-featured-projects)
+- 🎓 [Certifications](#-certifications)
+- 💼 [Experience](#-experience)
+- 📞 [Contact](#-contact)
 
 ## 📶 About
 
@@ -26,105 +24,68 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ## 🛠️ Skills
 
 ### 📱 Modern Endpoint Management
-
-• **🚀 Autopilot**: Delivers zero-touch deployment reducing provisioning time by 80%
-• **✅ Compliance**: Automates security baselines achieving 95%+ compliance rates
+• **🚀 Autopilot**: Delivers zero-touch deployment reducing provisioning time by 80%  
+• **✅ Compliance**: Automates security baselines achieving 95%+ compliance rates  
 • **📦 Application Management**: Streamlines enterprise app deployment with centralized updates
 
 ### 🔐 Security & Compliance
-
-• **🛡️ Microsoft Defender**: Implements cloud security with real-time threat detection
-• **🎯 Azure Sentinel**: Configures SIEM for automated incident response workflows
-• **🔒 Zero Trust**: Enforces identity protection through conditional access policies
+• **🛡️ Microsoft Defender**: Implements cloud security with real-time threat detection  
+• **🎯 Azure Sentinel**: Configures SIEM for automated incident response workflows  
+• **🔒 Zero Trust**: Enforces identity protection through conditional access policies  
 • **⚠️ Risk Management**: Conducts vulnerability assessments with automated remediation
 
 ### ⚙️ Automation & DevOps
-
-• **💙 PowerShell**: Develops advanced scripts reducing manual tasks by 70%
-• **🔄 Azure DevOps**: Builds CI/CD pipelines accelerating deployment cycles
-• **🏗️ Infrastructure as Code**: Creates repeatable environments using Bicep and Terraform
+• **💙 PowerShell**: Develops advanced scripts reducing manual tasks by 70%  
+• **🔄 Azure DevOps**: Builds CI/CD pipelines accelerating deployment cycles  
+• **🏗️ Infrastructure as Code**: Creates repeatable environments using Bicep and Terraform  
 • **📊 Monitoring**: Implements Application Insights for proactive issue resolution
 
 ### 🐙 GitHub & Collaboration
-
-• **⚡ GitHub Actions**: Automates workflows improving release management efficiency
+• **⚡ GitHub Actions**: Automates workflows improving release management efficiency  
 • **📝 Version Control**: Manages Git branching strategies for team collaboration
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
 
 ## 🚀 Featured Projects
 
-### 🚫 [Intune MDM Popup Policies](https://github.com/a-ariff/Intune-MDM-Popup-Policies)
+### 🔧 PowerShell Scripts Collection
+**Automated Microsoft 365 Management Tools**
+- Zero-touch device enrollment automation
+- Compliance policy deployment and monitoring  
+- User provisioning and license management scripts
 
-**📋 Description**: Custom policy configurations for managing and controlling popup behaviors in Microsoft Intune MDM environments
+[📂 View Repository](https://github.com/a-ariff/powershell-scripts)
 
-**🔧 Technologies**: Microsoft Intune, PowerShell, XML Configuration
+### 🏗️ Infrastructure as Code Templates
+**Azure Resource Deployment Templates**
+- Bicep templates for secure cloud environments
+- Automated compliance and security configurations
+- Cost-optimized resource provisioning
 
-**🎯 Key Features**:
-- Automated popup policy deployment
-- Centralized configuration management
-- Compliance reporting integration
+[📂 View Repository](https://github.com/a-ariff/azure-templates)
 
-### 🔧 [Intune Remediation Scripts](https://github.com/a-ariff/Intune-Remediation-Scripts)
+### 📚 Career Resources Hub
+**Professional Development Tools**
+- Technical interview preparation guides
+- Resume templates and cover letter examples
+- Cloud certification study materials
 
-**📋 Description**: Collection of PowerShell remediation scripts for Microsoft Intune to automatically detect and fix common endpoint issues
-
-**🔧 Technologies**: PowerShell, Microsoft Intune, Windows Management
-
-**🎯 Key Features**:
-- Automated issue detection and remediation
-- Comprehensive logging and reporting
-- Enterprise-ready script collection
-
-### 🏗️ [Azure Landing Zone Bicep](https://github.com/a-ariff/Azure-Landing-Zone-Bicep)
-
-**📋 Description**: Infrastructure as Code implementation for Azure Landing Zones using Bicep templates for enterprise cloud deployments
-
-**🔧 Technologies**: Azure Bicep, Azure Resource Manager, Infrastructure as Code
-
-**🎯 Key Features**:
-- Scalable enterprise architecture
-- Automated resource provisioning
-- Security and compliance built-in
-
-### 📧 [OutlookPolicyKit](https://github.com/a-ariff/OutlookPolicyKit)
-
-**📋 Description**: Comprehensive toolkit for managing Microsoft Outlook policies and configurations across enterprise environments
-
-**🔧 Technologies**: PowerShell, Microsoft Graph API, Exchange Online
-
-**🎯 Key Features**:
-- Centralized policy management
-- Automated configuration deployment
-- Compliance monitoring and reporting
-
-### 🌐 [Network Automation MDM](https://github.com/a-ariff/Network-automation-MDM)
-
-**📋 Description**: Network automation solutions for Mobile Device Management environments with focus on security and compliance
-
-**🔧 Technologies**: PowerShell, Network Automation, MDM Integration
-
-**🎯 Key Features**:
-- Automated network configuration
-- Security policy enforcement
-- Integration with MDM platforms
+[📂 View Repository](https://github.com/a-ariff/career-resources)
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
 
 ## 🎓 Certifications
 
 ### Microsoft Certifications
-
 🏆 **Microsoft 365 Certified: Modern Desktop Administrator Associate**
 - Advanced endpoint management and security implementation
-- Demonstrated expertise in Microsoft 365 and Intune administration
+- Zero-touch deployment and compliance automation
 
 🏆 **Microsoft Certified: Security, Compliance, and Identity Fundamentals**
 - Comprehensive understanding of Microsoft security solutions
 - Zero Trust architecture and compliance frameworks
 
 ### Additional Certifications
-
 🏆 **CompTIA Security+**
 - Cybersecurity fundamentals and risk management
 - Network security and threat detection expertise
@@ -156,23 +117,19 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ## 📞 Contact
 
 ### 🤝 Let's Connect
-
 I'm always interested in discussing cloud security, automation opportunities, and modern endpoint management challenges. Whether you're looking to optimize your Microsoft 365 environment or implement zero-trust security frameworks, I'd love to help.
 
 ### 📬 Get in Touch
-
 - 💼 **LinkedIn**: [ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
 - 📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
 - 🐙 **GitHub**: [a-ariff](https://github.com/a-ariff)
 
 ### 📄 Professional Resources
-
 - 📋 **Cover Letter Guide**: [How to Write an Effective Cover Letter](https://github.com/a-ariff/career-resources/blob/main/cover-letter-guide.md)
 - 💼 **Resume Templates**: [Professional Resume Examples](https://github.com/a-ariff/career-resources/blob/main/resume-templates.md)
 - 🎯 **Interview Preparation**: [Technical Interview Guide](https://github.com/a-ariff/career-resources/blob/main/interview-prep.md)
 
 ---
-
 ⭐ **If you find my work helpful, please consider starring my repositories!**
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
