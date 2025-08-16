@@ -1,20 +1,24 @@
 # 👋 Hi, I'm Ariff Mohamed
+
 Microsoft 365 Certified - Cloud Solutions Engineer
-  
+
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
-  
+
 Modern Endpoint Management & Cloud Security Specialist
+
 • [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:aariff@outlook.co.nz)
 
 ## 🧭 Quick Navigation
-• 👤 [About](#about)
-• 🛠️ [Skills](#skills)
-• 🚀 [Featured Projects](#featured-projects)
-• 🎓 [Certifications](#certifications)
-• 💼 [Experience](#experience)
-• 📞 [Contact](#contact)
+
+- 👤 [About](#about)
+- 🛠️ [Skills](#skills)
+- 🚀 [Featured Projects](#featured-projects)
+- 🎓 [Certifications](#certifications)
+- 💼 [Experience](#experience)
+- 📞 [Contact](#contact)
 
 ## 📶 About
+
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
@@ -22,23 +26,27 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 ## 🛠️ Skills
 
 ### 📱 Modern Endpoint Management
+
 • **🚀 Autopilot**: Delivers zero-touch deployment reducing provisioning time by 80%
 • **✅ Compliance**: Automates security baselines achieving 95%+ compliance rates
 • **📦 Application Management**: Streamlines enterprise app deployment with centralized updates
 
 ### 🔐 Security & Compliance
+
 • **🛡️ Microsoft Defender**: Implements cloud security with real-time threat detection
 • **🎯 Azure Sentinel**: Configures SIEM for automated incident response workflows
 • **🔒 Zero Trust**: Enforces identity protection through conditional access policies
 • **⚠️ Risk Management**: Conducts vulnerability assessments with automated remediation
 
 ### ⚙️ Automation & DevOps
+
 • **💙 PowerShell**: Develops advanced scripts reducing manual tasks by 70%
 • **🔄 Azure DevOps**: Builds CI/CD pipelines accelerating deployment cycles
 • **🏗️ Infrastructure as Code**: Creates repeatable environments using Bicep and Terraform
 • **📊 Monitoring**: Implements Application Insights for proactive issue resolution
 
 ### 🐙 GitHub & Collaboration
+
 • **⚡ GitHub Actions**: Automates workflows improving release management efficiency
 • **📝 Version Control**: Manages Git branching strategies for team collaboration
 
@@ -46,114 +54,125 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 
 ## 🚀 Featured Projects
 
-### 🤖 Intune Compliance Automation
-**📋 Description**: Automated compliance monitoring and remediation system for Microsoft Intune-managed devices
+### 🚫 [Intune MDM Popup Policies](https://github.com/a-ariff/Intune-MDM-Popup-Policies)
 
-**🎯 Key Achievements**:
-• ⚡ Automated Remediation: Proactive issue resolution reducing manual intervention by 85%
-• 📊 Compliance Monitoring: Real-time compliance status reporting and alerting
-• 📈 Scalable Framework: Enterprise-ready solution supporting thousands of endpoints
+**📋 Description**: Custom policy configurations for managing and controlling popup behaviors in Microsoft Intune MDM environments
 
-**🛠️ Technologies**: 💙 PowerShell | 📱 Microsoft Intune | 📊 Azure Monitor
+**🔧 Technologies**: Microsoft Intune, PowerShell, XML Configuration
 
----
+**🎯 Key Features**:
+- Automated popup policy deployment
+- Centralized configuration management
+- Compliance reporting integration
 
-### 🏗️ Azure Landing Zone Bicep
-**📋 Description**: Infrastructure as Code templates for deploying secure, compliant Azure environments with enterprise governance
+### 🔧 [Intune Remediation Scripts](https://github.com/a-ariff/Intune-Remediation-Scripts)
 
-**🎯 Key Achievements**:
-• 🎯 Standardized Deployment: Consistent infrastructure provisioning across environments
-• 🔐 Security by Design: Built-in compliance and security controls from day one
-• 📋 Governance Integration: Automated policy enforcement and cost management
+**📋 Description**: Collection of PowerShell remediation scripts for Microsoft Intune to automatically detect and fix common endpoint issues
 
-**🛠️ Technologies**: ☁️ Azure Bicep | 📄 ARM Templates | 📋 Azure Policy | 🔄 Azure DevOps
+**🔧 Technologies**: PowerShell, Microsoft Intune, Windows Management
 
----
+**🎯 Key Features**:
+- Automated issue detection and remediation
+- Comprehensive logging and reporting
+- Enterprise-ready script collection
 
-### 📧 OutlookPolicyKit
-**📋 Description**: Comprehensive toolkit for managing Outlook client policies and configurations in enterprise environments
+### 🏗️ [Azure Landing Zone Bicep](https://github.com/a-ariff/Azure-Landing-Zone-Bicep)
 
-**🎯 Key Achievements**:
-• 📏 Policy Standardization: Uniform Outlook configurations across the organization
-• 🔐 Security Enhancement: Advanced security settings enforcement and monitoring
-• ⚙️ Administrative Efficiency: Simplified policy management and deployment
+**📋 Description**: Infrastructure as Code implementation for Azure Landing Zones using Bicep templates for enterprise cloud deployments
 
-**🛠️ Technologies**: 💙 PowerShell | 📋 Group Policy | 365️⃣ Microsoft 365 | 📧 Exchange Online
+**🔧 Technologies**: Azure Bicep, Azure Resource Manager, Infrastructure as Code
 
----
+**🎯 Key Features**:
+- Scalable enterprise architecture
+- Automated resource provisioning
+- Security and compliance built-in
 
-### 🌐 Network Automation MDM
-**📋 Description**: Automated network configuration and management solution integrated with Mobile Device Management platforms
+### 📧 [OutlookPolicyKit](https://github.com/a-ariff/OutlookPolicyKit)
 
-**🎯 Key Achievements**:
-• 🔄 Network Automation: Streamlined device network provisioning and management
-• 🔗 MDM Integration: Seamless coordination between network and device policies
-• ⭐ Operational Excellence: Reduced network configuration errors by 90%
+**📋 Description**: Comprehensive toolkit for managing Microsoft Outlook policies and configurations across enterprise environments
 
-**🛠️ Technologies**: 💙 PowerShell | 🌐 Network Automation | 📱 MDM APIs | ☁️ Azure Networking
+**🔧 Technologies**: PowerShell, Microsoft Graph API, Exchange Online
+
+**🎯 Key Features**:
+- Centralized policy management
+- Automated configuration deployment
+- Compliance monitoring and reporting
+
+### 🌐 [Network Automation MDM](https://github.com/a-ariff/Network-automation-MDM)
+
+**📋 Description**: Network automation solutions for Mobile Device Management environments with focus on security and compliance
+
+**🔧 Technologies**: PowerShell, Network Automation, MDM Integration
+
+**🎯 Key Features**:
+- Automated network configuration
+- Security policy enforcement
+- Integration with MDM platforms
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
 
 ## 🎓 Certifications
 
-### 🏅 Microsoft Certifications
-• 📜 **Microsoft 365 Certified: Modern Desktop Administrator Associate**
-• ☁️ **Microsoft Certified: Azure Fundamentals**
-• 🔐 **Microsoft Certified: Security, Compliance, and Identity Fundamentals**
+### Microsoft Certifications
 
-### 🏆 Professional Development
-• 📚 **Continuous Learning**: Active participation in Microsoft Tech Community
-• 🎯 **Industry Focus**: Specialized training in Zero Trust Architecture
-• 📊 **Best Practices**: Regular attendance at Microsoft Ignite and Build conferences
+🏆 **Microsoft 365 Certified: Modern Desktop Administrator Associate**
+- Advanced endpoint management and security implementation
+- Demonstrated expertise in Microsoft 365 and Intune administration
+
+🏆 **Microsoft Certified: Security, Compliance, and Identity Fundamentals**
+- Comprehensive understanding of Microsoft security solutions
+- Zero Trust architecture and compliance frameworks
+
+### Additional Certifications
+
+🏆 **CompTIA Security+**
+- Cybersecurity fundamentals and risk management
+- Network security and threat detection expertise
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
 
 ## 💼 Experience
 
-### 🏢 Current Role
-**💼 Senior Cloud Solutions Engineer** | *2023 - Present*
-• 🎯 Lead enterprise Microsoft 365 and Azure implementations
-• 🔐 Design and implement Zero Trust security architectures
-• 📊 Develop automation solutions reducing operational overhead by 60%
+### Cloud Solutions Engineer
+**Microsoft Partner Organization** | 2022 - Present
 
-### 🏗️ Previous Experience
-**⚙️ Systems Administrator** | *2021 - 2023*
-• 📱 Managed enterprise device fleet using Microsoft Intune
-• 🔄 Implemented PowerShell automation reducing manual tasks
-• 📈 Improved system reliability and security compliance
+🎯 **Key Achievements**:
+- Implemented zero-touch deployment solutions reducing device provisioning time by 80%
+- Automated compliance monitoring achieving 95%+ policy adherence across 1000+ endpoints
+- Designed Infrastructure as Code templates accelerating environment deployments by 60%
+- Led security assessment projects identifying and remediating critical vulnerabilities
 
-**🎓 Technical Specialist** | *2019 - 2021*
-• 🛠️ Provided technical support for Microsoft 365 environments
-• 📚 Developed technical documentation and training materials
-• 🤝 Collaborated with cross-functional teams on technology initiatives
+### IT Systems Administrator
+**Enterprise Technology Services** | 2020 - 2022
+
+🎯 **Key Achievements**:
+- Managed hybrid cloud infrastructure supporting 500+ users
+- Developed PowerShell automation reducing manual tasks by 70%
+- Implemented Microsoft Defender for enhanced threat detection and response
+- Coordinated major system upgrades with zero business disruption
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
 
 ## 📞 Contact
 
-### 🌐 Professional Links
-• 💼 **LinkedIn**: [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
-• 📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
-• 🐙 **GitHub**: [a-ariff](https://github.com/a-ariff)
+### 🤝 Let's Connect
 
-### 💬 Let's Connect!
-🤝 I'm always interested in discussing:
-• ☁️ **Cloud Architecture**: Modern Microsoft 365 and Azure solutions
-• 🔐 **Security**: Zero Trust implementations and compliance automation
-• 🚀 **Automation**: PowerShell scripting and Infrastructure as Code
-• 📱 **Modern Workplace**: Device management and user experience optimization
+I'm always interested in discussing cloud security, automation opportunities, and modern endpoint management challenges. Whether you're looking to optimize your Microsoft 365 environment or implement zero-trust security frameworks, I'd love to help.
 
-### 📍 Location
-🇳🇿 **Based in New Zealand** | Open to remote collaboration globally
+### 📬 Get in Touch
+
+- 💼 **LinkedIn**: [ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
+- 📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+- 🐙 **GitHub**: [a-ariff](https://github.com/a-ariff)
+
+### 📄 Professional Resources
+
+- 📋 **Cover Letter Guide**: [How to Write an Effective Cover Letter](https://github.com/a-ariff/career-resources/blob/main/cover-letter-guide.md)
+- 💼 **Resume Templates**: [Professional Resume Examples](https://github.com/a-ariff/career-resources/blob/main/resume-templates.md)
+- 🎯 **Interview Preparation**: [Technical Interview Guide](https://github.com/a-ariff/career-resources/blob/main/interview-prep.md)
 
 ---
 
-<div align="center">
-
-**🚀 Building the future of secure, automated cloud environments**
-
-⭐ *Feel free to explore my repositories and don't hesitate to reach out!* ⭐
-
-</div>
+⭐ **If you find my work helpful, please consider starring my repositories!**
 
 [🔼 Back to top](#-hi-im-ariff-mohamed)
