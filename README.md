@@ -117,7 +117,7 @@ Currently developing, testing, and documenting PowerShell and Bicep automation m
 
 - **Email:** aariff@outlook.co.nz
 - **LinkedIn:** [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
-- **Location:** New Zealand
+- **
 
 ---
 
