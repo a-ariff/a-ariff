@@ -98,7 +98,7 @@ I'm a modern endpoint management and cloud security specialist with extensive ex
 📊 What I'm Currently Working On
 --------------------------------
 
-**Master of Information Technology student at Whitecliffe College (NZ), expected graduation 2026**
+**Master of Information Technology student **
 
 Deepening expertise in advanced cybersecurity, digital strategy, and intelligent systems for cloud environments.
 
