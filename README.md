@@ -1,108 +1,128 @@
-<a id="top"></a>
+👋 Hi, I'm Ariff Mohamed
+========================
+**Cloud Solutions Engineer | Azure Security Engineer Associate | MIT Student (Cybersecurity Focus)**
 
-# 👋 Hi, I'm Ariff Mohamed
+I'm a research-driven Cloud Solutions Engineer pursuing my Master of Information Technology with specialization in Cybersecurity (2026) at Whitecliffe College. I bridge academic research with enterprise practice to deliver:
 
-Microsoft 365 Certified - Cloud Solutions Engineer
+- 🔒 **Evidence-Based Security** – Applying research methodologies to cybersecurity implementations
+- 🛡️ **Advanced Threat Intelligence** – Academic-backed approach to Azure Sentinel and Defender deployments
+- 🤖 **Intelligent Security Systems** – Integrating AI/ML research with Microsoft security stack
+- 📊 **Strategic Technology Management** – Academic governance frameworks applied to enterprise environments
 
-I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
+**Current Research**: Zero-trust architecture optimization in hybrid Microsoft cloud environments
 
-Modern Endpoint Management & Cloud Security Specialist
+---
 
-**Quick Navigation:**
-- [📖 About](#-about)
+## 🧭 Quick Navigation
+
+- [📶 About](#-about)
 - [🛠️ Skills](#️-skills)
 - [🚀 Featured Projects](#-featured-projects)
-- [🏅 Certifications](#-certifications)
-- [💼 Experience](#-experience)
+- [🎓 Certifications](#-certifications)
+- [📊 What I'm Currently Working On](#-what-im-currently-working-on)
 - [📞 Contact](#-contact)
 
-<a id="-about"></a>
-## 📖 About
+---
+
+## 📶 About
 
 I'm a modern endpoint management and cloud security specialist with extensive experience in Microsoft 365, Azure, and enterprise device management. I specialize in zero-touch deployment solutions, security compliance automation, and Infrastructure as Code implementations that drive operational excellence and security posture improvements across enterprise environments.
 
-[Back to top](#top)
+---
 
-<a id="️-skills"></a>
 ## 🛠️ Skills
 
+### Cloud Infrastructure & Governance
+
+- Azure landing zones with Bicep/Terraform
+- Policy enforcement, RBAC, and compliance frameworks
+- Cost optimization and resource governance
+
 ### Modern Endpoint Management
-• **Autopilot**: Delivers zero-touch deployment reducing provisioning time by 80%
-• **Compliance**: Automates security baselines achieving 95%+ compliance rates
-• **Application Management**: Streamlines enterprise app deployment with centralized updates
+
+- Intune Autopilot deployment and configuration
+- Compliance baselines and proactive remediations
+- Device lifecycle management and zero-trust security
 
 ### Security & Compliance
-• **Microsoft Defender**: Implements cloud security with real-time threat detection
-• **Azure Sentinel**: Configures SIEM for automated incident response workflows
-• **Zero Trust**: Enforces identity protection through conditional access policies
-• **Risk Management**: Conducts vulnerability assessments with automated remediation
+
+- Security baselines and hardening policies
+- Defender for Cloud and Sentinel analytics
+- Incident response workflow automation
 
 ### Automation & DevOps
-• **PowerShell**: Develops advanced scripts reducing manual tasks by 70%
-• **Azure DevOps**: Builds CI/CD pipelines accelerating deployment cycles
-• **Infrastructure as Code**: Creates repeatable environments using Bicep and Terraform
-• **Monitoring**: Implements Application Insights for proactive issue resolution
 
-### GitHub & Collaboration
-• **GitHub Actions**: Automates workflows improving release management efficiency
-• **Version Control**: Manages Git branching strategies for team collaboration
+- PowerShell scripting and module development
+- CI/CD pipelines and Infrastructure as Code
+- GitHub Actions and workflow automation
 
-### Cloud Infrastructure & Governance
-• **Azure Policy**: Establishes enterprise governance frameworks ensuring compliance
-• **Azure Resource Management**: Optimizes subscription organization and resource allocation
-• **Cost Management**: Implements budget controls achieving 30% cost reduction
+---
 
-[Back to top](#top)
-
-<a id="-featured-projects"></a>
 ## 🚀 Featured Projects
 
-### 🔧 Intune MDM Popup Policies
-Cross-platform Intune popup policies with automation and CI checks. Used across Windows/macOS/iOS; standardizes prompts and reduces drift.
+> Check out my pinned repositories for detailed implementations:
 
-### 🛠️ Intune Remediation Scripts
-Automated device compliance fixes using detection/remediation patterns. Library of detection/remediation patterns; improves compliance at scale.
+🔗 [Intune Remediation Scripts](https://github.com/a-ariff/intune-remediation-scripts) - Microsoft Intune remediation scripts and configurations for endpoint management
 
-### 🏗️ Azure Landing Zone Bicep
-Enterprise-ready landing zones with modular security/governance. Modular landing zones; policy-driven governance and secure defaults.
+🔗 [Azure Landing Zone Bicep](https://github.com/a-ariff/azure-landing-zone-bicep) - Azure Landing Zone implementation using Bicep templates for enterprise-scale cloud architecture
 
-[Back to top](#top)
+🔗 [OutlookPolicyKit](https://github.com/a-ariff/OutlookPolicyKit) - Intune Outlook automation toolkit for policy management and remediation
 
-<a id="-certifications"></a>
-## 🏅 Certifications
+🔗 [Network Automation MDM](https://github.com/a-ariff/Network-automation-MDM) - Network automation toolkit for MDM/Intune environments with PowerShell scripts
 
-### Transcripts
-- **Microsoft Learn Transcript**: [https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?10057e31](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?10057e31)
-- **Credly Profile**: [https://www.credly.com/users/ariff-mohamed](https://www.credly.com/users/ariff-mohamed)
+🔗 [Browser Popup MDM Automation](https://github.com/a-ariff/browser-popup-mdm-automation) - Browser Popup MDM Automation - Comprehensive cross-platform policy templates
 
-### Microsoft
-- [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)
-- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
-- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
-- [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
-- [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
-- [Microsoft 365 Certified: Teams Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?9cde1e35)
+🔗 [Sentinel Content Library](https://github.com/a-ariff/sentinel-content-library) - Microsoft Sentinel security content library including detection rules, workbooks, and threat hunting queries
 
-### AvePoint
-- [AvePoint Certified Technical Professional – Cloud Backup for M365](https://www.credly.com/badges/41165314/public_url)
-- [AvePoint Certified Technical Associate – AvePoint Elements](https://www.credly.com/badges/9b33d9ab/public_url)
-- [AvePoint Certified Technical Associate – Confidence Platform](https://www.credly.com/badges/47bfa023/public_url)
-- [AvePoint Certified Technical Professional – Fly Server](https://www.credly.com/badges/c526d426/public_url)
+---
 
-[Back to top](#top)
+## 🎓 Certifications
 
-<a id="-experience"></a>
-## 💼 Experience
+### Microsoft Learn Transcript
 
-*This section will be added in future updates.*
+📋 **[View My Complete Microsoft Learn Transcript](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p?source=docs&tab=applied-skills-tab)**
 
-[Back to top](#top)
+### Microsoft Certifications
 
-<a id="-contact"></a>
+- [Microsoft Applied Skills: Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?sharingId=DD420D2859BF1A3C)
+- [Microsoft Certified: Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Endpoint Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?sharingId=DD420D2859BF1A3C)
+- [Microsoft 365 Certified: Administrator Expert](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?sharingId=DD420D2859BF1A3C)
+
+### AvePoint Certifications
+
+📋 **[View My Credly Profile](https://www.credly.com/users/ariff-mohamed)**
+
+- [AvePoint Certified Technical Professional - Cloud Backup for M365](https://www.credly.com/badges/e43592d4-221d-4fea-aa33-262043879856/public_url)
+- [AvePoint Certified Technical Associate - AvePoint Elements](https://www.credly.com/badges/f89e8071-97da-4fd9-a62f-b14294b00cda/public_url)
+- [AvePoint Certified Technical Associate - Confidence Platform](https://www.credly.com/badges/ca658222-99e5-490b-bb82-c8b55b6de533/public_url)
+- [AvePoint Certified Technical Professional - Fly Server](https://www.credly.com/badges/a6c376df-835f-40f9-b3d0-4dfa632c6e71/public_url)
+
+---
+
+## 📊 What I'm Currently Working On
+
+**Master of Information Technology student **
+
+Deepening expertise in advanced cybersecurity, digital strategy, and intelligent systems for cloud environments.
+
+Gaining hands-on experience in:
+
+- **Cybersecurity**: Threat analysis, incident response, security architecture for Microsoft cloud
+- **Technology Management**: Strategic leadership, IT governance, and digital transformation in enterprise
+- **Research Methods**: Evidence-based problem-solving and academic writing applied to IT security
+- **Intelligent Systems**: Modern approaches to IoT, smart automation and AI integration for IT operations
+
+Currently developing, testing, and documenting PowerShell and Bicep automation modules for Azure, Sentinel, and device management.
+
+---
+
 ## 📞 Contact
 
-📧 Email: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+- **Email:** contact@aglobaltec.com
+- **LinkedIn:** [Ariff Mohamed](https://www.linkedin.com/in/ariff-mohamed/)
 
-💼 LinkedIn: [https://www.linkedin.com/in/ariff-mohamed/](https://www.linkedin.com/in/ariff-mohamed/)
+---
 
-[Back to top](#top)
+⭐ **If you find my work helpful, please consider starring my repositories! I'm always open to collaboration and contributions.** ⭐
