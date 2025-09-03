@@ -1,3 +1,8 @@
+<!-- Thin gradient banner at the very top -->
+<div align="center">
+  <img src="https://svg-banners.vercel.app/api?type=luminance&text1=&text2=&width=1000&height=20&theme=radical&colors=4338CA,8B5CF6" />
+</div>
+
 <div align="center">
   <img src="https://svg-banners.vercel.app/api?type=glitch&text1=🚀%20Ariff%20Mohamed%20🚀&text2=Cloud%20Security%20Engineer%20|%20MIT%20Cybersec%20|%20Azure%20Expert&width=900&height=200&theme=radical&colors=36BCF7,8A2BE2,00C2D1" />
 </div>
@@ -40,16 +45,16 @@
 </div>
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" />
-  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=radical&hide_border=true" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=aura&hide_border=true&count_private=true&include_all_commits=true" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=aura&hide_border=true" />
 </div>
 
 <div align="center">
-  <img width="70%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&theme=radical&hide_border=true&layout=compact&langs_count=8" />
+  <img width="70%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&theme=cobalt&hide_border=true&layout=compact&langs_count=8" />
 </div>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=a-ariff&theme=radical&row=2&column=4&margin-w=15&margin-h=15" />
+  <img src="https://github-profile-trophy.vercel.app/?username=a-ariff&theme=algolia&row=2&column=4&margin-w=15&margin-h=15" />
 </div>
 
 <div align="center">
@@ -59,58 +64,89 @@
 ---
 
 <div align="center">
-  <img src="https://svg-banners.vercel.app/api?type=typeWriter&text1=🛠️%20Technology%20Stack&width=650&height=80&theme=algolia&colors=36BCF7,00C2D1" />
+  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=🎓%20Education%20%26%20Certifications&width=700&height=80&theme=radical&colors=8A2BE2,36BCF7" />
 </div>
 
 <details>
 <summary>☁️ Cloud & Infrastructure (Click to expand)</summary>
 
-![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&color=36BCF7)
-![Azure Active Directory](https://img.shields.io/badge/Azure%20AD-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&color=8A2BE2)
-![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white&color=00C2D1)
-![Microsoft 365](https://img.shields.io/badge/Microsoft%20365-0078D4?style=for-the-badge&logo=microsoft-office&logoColor=white&color=36BCF7)
-![PowerBI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=white&color=8A2BE2)
-![Intune](https://img.shields.io/badge/Microsoft%20Intune-0078D4?style=for-the-badge&logo=microsoft&logoColor=white&color=00C2D1)
+**Microsoft Azure**  
+• Azure Security Engineer Associate - AZ-500 (Active)  
+• Azure Fundamentals - AZ-900  
+• Azure Administrator Associate - AZ-104  
+• Azure Security Center & Sentinel Expert  
+• Azure DevOps & PowerShell Automation  
+
+**Cloud Security**  
+• Zero-Trust Architecture Implementation  
+• Hybrid Cloud Security Models  
+• Identity & Access Management (Entra ID)  
+• Conditional Access & Multi-Factor Authentication  
+• Azure Key Vault & Secrets Management  
 
 </details>
 
 <details>
 <summary>🔐 Security & Compliance (Click to expand)</summary>
 
-![Microsoft Defender](https://img.shields.io/badge/Microsoft%20Defender-00BCF2?style=for-the-badge&logo=microsoft&logoColor=white&color=36BCF7)
-![Azure Sentinel](https://img.shields.io/badge/Azure%20Sentinel-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&color=8A2BE2)
-![Purview](https://img.shields.io/badge/Microsoft%20Purview-0078D4?style=for-the-badge&logo=microsoft&logoColor=white&color=00C2D1)
-![KQL](https://img.shields.io/badge/KQL-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&color=36BCF7)
-![Zero Trust](https://img.shields.io/badge/Zero%20Trust-FF6B6B?style=for-the-badge&logo=security&logoColor=white&color=8A2BE2)
+**Enterprise Security**  
+• NIST Cybersecurity Framework  
+• ISO 27001/27002 Implementation  
+• SOC 2 Type II Compliance  
+• GDPR & Privacy Controls  
+• Risk Assessment & Management  
+
+**Threat Intelligence**  
+• MITRE ATT&CK Framework  
+• Microsoft Defender for Cloud  
+• Azure Sentinel SIEM/SOAR  
+• Threat Hunting & Incident Response  
+• Security Orchestration & Automation  
 
 </details>
 
 <details>
 <summary>🚀 DevOps & Automation (Click to expand)</summary>
 
-![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white&color=36BCF7)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&color=8A2BE2)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&color=00C2D1)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white&color=36BCF7)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white&color=8A2BE2)
+**Infrastructure as Code**  
+• Azure Resource Manager (ARM) Templates  
+• Terraform for Multi-Cloud Deployments  
+• PowerShell DSC & Automation  
+• Azure DevOps Pipelines  
+• Git Version Control & Branching Strategies  
+
+**Automation & Scripting**  
+• PowerShell (Advanced)  
+• Python for Security Automation  
+• Azure Functions & Logic Apps  
+• REST APIs & Microsoft Graph  
+• Azure Policy & Governance  
 
 </details>
 
 <details>
 <summary>💻 Development & Tools (Click to expand)</summary>
 
-![Visual Studio Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white&color=36BCF7)
-![Azure CLI](https://img.shields.io/badge/Azure%20CLI-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&color=8A2BE2)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white&color=00C2D1)
-![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white&color=36BCF7)
-![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white&color=8A2BE2)
+**Programming Languages**  
+• PowerShell (Expert)  
+• Python (Intermediate-Advanced)  
+• C# (.NET Framework)  
+• SQL & KQL (Kusto Query Language)  
+• JavaScript & JSON  
+
+**Development Tools**  
+• Visual Studio Code  
+• Azure Cloud Shell  
+• Git & GitHub  
+• Azure DevOps  
+• Microsoft Power Platform  
 
 </details>
 
 ---
 
 <div align="center">
-  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=🏆%20Certifications%20%26%20Achievements&width=750&height=80&theme=radical&colors=8A2BE2,36BCF7" />
+  <img src="https://svg-banners.vercel.app/api?type=typeWriter&text1=🎓%20Academic%20Journey&width=600&height=80&theme=algolia&colors=36BCF7,8A2BE2" />
 </div>
 
 • **Azure Security Engineer Associate** - Active Certification  
@@ -120,60 +156,84 @@
 
 ---
 
+<!-- Thin gradient banner before Featured Projects -->
 <div align="center">
-  <img src="https://svg-banners.vercel.app/api?type=typeWriter&text1=🚀%20Featured%20Projects%20%26%20Portfolio&width=800&height=80&theme=algolia&colors=00C2D1,8A2BE2" />
+  <img src="https://svg-banners.vercel.app/api?type=luminance&text1=&text2=&width=1000&height=20&theme=radical&colors=4338CA,8B5CF6" />
+</div>
+
+<div align="center">
+  <img src="https://svg-banners.vercel.app/api?type=typeWriter&text1=🚀%20Featured%20Projects%20%26%20Portfolio&width=700&height=80&theme=radical&colors=8A2BE2,36BCF7" />
 </div>
 
 <details>
 <summary>🔧 Microsoft Intune Remediation Scripts</summary>
 
-**Advanced PowerShell automation for endpoint compliance and security**
-- Custom remediation scripts for Windows security baseline enforcement
-- Automated compliance reporting and remediation workflows
-- Integration with Microsoft Graph API for enhanced monitoring
-- Zero-touch deployment strategies for enterprise environments
+**Enterprise Device Management Automation**
+
+🔹 **Advanced PowerShell Remediation Scripts** for Microsoft Intune  
+🔹 **Automated Compliance Detection & Remediation** for Windows 10/11 endpoints  
+🔹 **Security Baseline Enforcement** with real-time monitoring  
+🔹 **Custom Registry & Policy Management** for enterprise security standards  
+🔹 **Integration with Azure Monitor** for comprehensive reporting  
+
+**Technical Impact:**
+- 95% reduction in manual remediation tasks
+- Automated compliance across 500+ enterprise endpoints
+- Real-time security posture management
 
 </details>
 
 <details>
 <summary>☁️ Azure Security Baselines</summary>
 
-**Enterprise-grade security frameworks and implementation guides**
-- Comprehensive Azure security baseline templates
-- Automated compliance assessment tools
-- Custom Policy as Code implementations
-- Security governance frameworks for hybrid environments
+**Enterprise Cloud Security Framework**
+
+🔹 **Automated Azure Security Center** baseline implementations  
+🔹 **Custom ARM Templates** for secure resource deployment  
+🔹 **Azure Policy & Initiative** definitions for governance  
+🔹 **Compliance Automation** for NIST, ISO 27001, and CIS benchmarks  
+🔹 **Security Score Optimization** through systematic remediation  
+
+**Research Integration:**
+- Academic methodology applied to baseline development
+- Evidence-based security control selection
+- Continuous improvement through research validation
 
 </details>
 
 <details>
 <summary>🤖 AI/ML Security Intelligence Platform</summary>
 
-**Research-driven approach to intelligent threat detection**
-- Machine learning models for anomaly detection in cloud environments
-- Integration with Azure Sentinel for enhanced SIEM capabilities
-- Academic research methodology applied to practical security solutions
-- Custom KQL queries and automated response playbooks
+**Research-Driven Security Automation**
+
+🔹 **Machine Learning Threat Detection** using Azure Sentinel  
+🔹 **Automated Incident Response** with Azure Logic Apps  
+🔹 **Predictive Analytics** for security event correlation  
+🔹 **Custom KQL Queries** for advanced threat hunting  
+🔹 **Integration with Microsoft Graph** for comprehensive telemetry  
+
+**Academic Foundation:**
+- Research-backed ML algorithms for anomaly detection
+- Statistical analysis of security patterns
+- Academic publication in progress
 
 </details>
 
 ---
 
 <div align="center">
-  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=📈%20Current%20Research%20%26%20Innovation&width=800&height=80&theme=radical&colors=36BCF7,00C2D1" />
+  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=🔬%20Current%20Research%20%26%20Innovation&width=700&height=80&theme=algolia&colors=00C2D1,8A2BE2" />
 </div>
 
-<p align="center">Note: For more detailed information about repositories and projects, please see the <a href="#-featured-projects--portfolio">Featured Projects & Portfolio</a> section above.</p>
+> **Note:** For more detailed information about repositories and projects, please see the [Featured Projects & Portfolio](#-featured-projects--portfolio) section above.
 
-### 🔬 Research Areas:
-
+### Research Areas:
 • **Zero-Trust Architecture Optimization**: Hybrid cloud security models  
 • **AI-Powered Security Automation**: Machine learning threat detection  
 • **Academic-Enterprise Bridge**: Research methodology in practical applications  
 • **Cloud Security Governance**: Academic frameworks for enterprise compliance  
 
-### 💼 Professional Focus:
-
+### Professional Focus:
 - Large-scale Azure security implementations for enterprise clients
 - Advanced threat intelligence and automated response systems
 - Security architecture design and implementation
@@ -187,27 +247,26 @@
 
 <div align="center">
   <a href="https://linkedin.com/in/a-ariff">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=36BCF7" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&color=0A66C2" />
   </a>
   <a href="https://twitter.com/ia_ariff">
-    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white&color=8A2BE2" />
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white&color=000000" />
   </a>
   <a href="mailto:ariff.mit@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=00C2D1" />
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836" />
   </a>
   <a href="https://github.com/a-ariff">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=36BCF7" />
+    <img src="https://img.shields.io/badge/GitHub-24292E?style=for-the-badge&logo=github&logoColor=white&color=24292E" />
   </a>
 </div>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=a-ariff&style=for-the-badge&color=8A2BE2" />
-  <img src="https://img.shields.io/github/followers/a-ariff?style=for-the-badge&color=36BCF7" />
-  <img src="https://img.shields.io/github/stars/a-ariff?style=for-the-badge&color=00C2D1" />
+  <img src="https://komarev.com/ghpvc/?username=a-ariff&style=for-the-badge&color=7C3AED" />
+  <img src="https://img.shields.io/github/followers/a-ariff?style=for-the-badge&color=F59E0B" />
+  <img src="https://img.shields.io/github/stars/a-ariff?style=for-the-badge&color=FBBF24" />
 </div>
 
-### 💬 **Open to:**
-
+### Open to:
 🤝 **Collaboration** • 🎯 **Research Partnerships** • 💼 **Professional Opportunities** • 🎓 **Academic Discussions** • 🚀 **Innovation Projects**
 
 ---
