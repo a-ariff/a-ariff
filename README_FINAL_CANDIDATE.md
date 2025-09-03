@@ -18,6 +18,7 @@
 **🔬 Research-Driven Cloud Solutions Engineer** with **10+ years** of experience bridging academic excellence with enterprise innovation. Currently pursuing **Master of Information Technology** with specialization in **Cybersecurity** at Whitecliffe College (2026).
 
 ### 🌟 Core Expertise:
+
 - **📊 Evidence-Based Security**: Applying research methodologies to cybersecurity implementations
 - **🛡️ Advanced Threat Intelligence**: Academic-backed approach to Azure Sentinel and Defender deployments
 - **🤖 Intelligent Security Systems**: Integrating AI/ML research with Microsoft security stack
@@ -25,6 +26,7 @@
 - **⚡ Cloud Automation**: PowerShell, Python, and DevOps pipeline optimization
 
 ### 🎯 Current Research Focus:
+
 **Zero-trust architecture optimization in hybrid Microsoft cloud environments**
 
 ---
@@ -44,8 +46,6 @@
 <div align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=aura&hide_border=true&background=0d1117&stroke=ff6b6b&ring=ff6b6b&fire=ff6b6b&currStreakLabel=ff6b6b" />
 </div>
-
----
 
 ## ☁️ Cloud & Infrastructure
 
@@ -104,10 +104,10 @@
 
 ## 🏆 Achievements & Certifications
 
-• **🥇 Azure Security Engineer Associate** - Active Certification
-• **🎓 Master of Information Technology (Cybersecurity)**, Whitecliffe College — In Progress (2026)
-• **🔬 Published Research** - Zero-Trust Architecture
-• **💼 10+ Years Experience** - Enterprise Cloud Security
+• 🥇 **Azure Security Engineer Associate** - Active Certification
+• 🎓 **Master of Information Technology (Cybersecurity)**, Whitecliffe College — In Progress (2026)
+• 🔬 **Published Research** - Zero-Trust Architecture
+• 💼 **10+ Years Experience** - Enterprise Cloud Security
 
 ---
 
@@ -170,12 +170,14 @@
 ## 📈 What I'm Currently Working On
 
 ### Research Areas:
+
 • **Zero-Trust Architecture Optimization**: Hybrid cloud security models
 • **AI-Powered Security Automation**: Machine learning threat detection
 • **Academic-Enterprise Bridge**: Research methodology in practical applications
 • **Cloud Security Governance**: Academic frameworks for enterprise compliance
 
 ### Professional Focus:
+
 • Large-scale Azure security implementations for enterprise clients
 • Advanced threat intelligence and automated response systems
 • Security architecture design and implementation
@@ -183,49 +185,41 @@
 
 ---
 
-<!-- Gradient Divider -->
+<!-- Connect & Collaborate Section -->
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=🌐+Let's+Connect+%26+Collaborate;💼+Open+to+Professional+Opportunities&font=Fira%20Code&center=true&width=600&height=50&color=ff6b6b&vCenter=true&size=20" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=60&section=footer&text=Connect%20%26%20Collaborate&fontSize=24&fontColor=ffffff" />
 </div>
 
 ## 🌐 Let's Connect!
 
-<div align="center">
-  <a href="https://linkedin.com/in/a-ariff">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-  <a href="https://twitter.com/ia_ariff">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
-  </a>
-  <a href="mailto:ariff.mit@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-  <a href="https://github.com/a-ariff">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</div>
+<p align="center">
+  <a href="https://linkedin.com/in/a-ariff"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:contact@aglobaltec.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://github.com/a-ariff"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+</p>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=flat" alt="a-ariff" /> 
-  <img src="https://img.shields.io/github/followers/a-ariff?label=Followers&style=social" alt="GitHub Badge" /> 
-  <img src="https://img.shields.io/github/stars/a-ariff?label=Stars" alt="GitHub Badge" />
+  <img src="https://github-profile-trophy.vercel.app/?username=a-ariff&theme=aura&no-frame=true&column=7" alt="a-ariff" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&bg_color=0d1117&color=ff6b6b&line=ff6b6b&point=ffffff&area=true&hide_border=true" alt="GitHub Badge" />
+  <img src="https://komarev.com/ghpvc/?username=a-ariff&color=ff6b6b&style=flat-square" alt="GitHub Badge" />
 </div>
 
 ### 💬 Open to:
+
 🤝 **Collaboration** • 🎯 **Research Partnerships** • 💼 **Professional Opportunities** • 🎓 **Academic Discussions** • 🚀 **Innovation Projects**
 
 ---
 
-<!-- Gradient Divider -->
+<!-- Gradient Footer -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=1&section=header" />
 </div>
 
 <p align="center">
-  <em>"Bridging academic excellence with enterprise innovation to build tomorrow's secure cloud infrastructure."</em>
+  <i>"Bridging academic excellence with enterprise innovation to build tomorrow's secure cloud infrastructure."</i>
 </p>
 
-<!-- Closing Gradient Banner -->
+<!-- Footer Wave -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=60&section=footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" />
 </div>
