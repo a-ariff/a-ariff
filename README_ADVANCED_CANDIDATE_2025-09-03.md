@@ -4,7 +4,8 @@
 </div>
 
 <div align="center">
-  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=🚀%20Ariff%20Mohamed%20🚀&text2=Cloud%20Security%20Engineer%20|%20MIT%20Cybersec%20|%20Azure%20Expert&width=900&height=200&theme=radical&colors=36BCF7,8A2BE2,00C2D1" />
+  <img src="https://svg-banners.vercel.app/api?type=glitch&text1=%20Ariff%20Mohamed%20
+    &text2=Cloud%20Security%20Engineer%20|%20MIT%20Cybersec%20|%20Azure%20Expert&width=900&height=200&theme=radical&colors=36BCF7,8A2BE2,00C2D1" />
 </div>
 
 <p align="center">
