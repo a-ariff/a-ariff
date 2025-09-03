@@ -1,11 +1,32 @@
+# 💫 Hi there! I'm **Ariff Mohamed**
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=🔬+Research-Driven+Cloud+Solutions+Engineer;🎓+MIT+Cybersecurity+Student+(2026);☁️+Azure+Security+Engineer+Associate;🛡️+10%2B+Years+Enterprise+Security&font=Fira%20Code&center=true&width=700&height=45&color=ff6b6b&vCenter=true&size=22" />
+</div>
+
+<p><img src="https://github.com/a-ariff" alt="Profile Views" /> <img src="https://github.com/a-ariff" alt="GitHub followers" /></p>
+
+## 🎯 About Me
+
+🔬 **Research-Driven Cloud Solutions Engineer** | 🎓 **MIT Student (Cybersecurity Focus)** | ☁️ **Azure Security Engineer Associate**
+
+<img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif"/>
+
+I'm pursuing my **Master of Information Technology** with specialization in **Cybersecurity (2026)** at Whitecliffe College, where I bridge academic research with enterprise practice to deliver cutting-edge security solutions.
+
+### 🌟 What I Bring to the Table:
+
+- • 🔒 **Evidence-Based Security** – Applying research methodologies to cybersecurity implementations
+- • 🛡️ **Advanced Threat Intelligence** – Academic-backed approach to Azure Sentinel and Defender deployments  
+- • 🤖 **Intelligent Security Systems** – Integrating AI/ML research with Microsoft security stack
+- • 📊 **Strategic Technology Management** – Academic governance frameworks applied to enterprise environments
+
+### 🔬 Current Research Focus:
+**Zero-trust architecture optimization in hybrid Microsoft cloud environments**
+
 <!-- Gradient Banner -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=60&section=header" />
-</div>
-
-<!-- Animated Typing Header with Ariff Mohamed name -->
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=💫+Hi+there!+I'm+Ariff+Mohamed;🔬+Research-Driven+Cloud+Solutions+Engineer;🎓+MIT+Cybersecurity+Student+(2026);☁️+Azure+Security+Engineer+Associate;🛡️+10%2B+Years+Enterprise+Security&font=Fira%20Code&center=true&width=700&height=45&color=ff6b6b&vCenter=true&size=22" />
 </div>
 
 <!-- Gradient Divider -->
@@ -26,7 +47,6 @@
 - **⚡ Cloud Automation**: PowerShell, Python, and DevOps pipeline optimization
 
 ### 🎯 Current Research Focus:
-
 **Zero-trust architecture optimization in hybrid Microsoft cloud environments**
 
 ---
@@ -95,8 +115,6 @@
 • REST APIs & Microsoft Graph
 • Azure Policy & Governance
 
----
-
 <!-- Gradient Divider -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=1&section=header" />
@@ -108,8 +126,6 @@
 • 🎓 **Master of Information Technology (Cybersecurity)**, Whitecliffe College — In Progress (2026)
 • 🔬 **Published Research** - Zero-Trust Architecture
 • 💼 **10+ Years Experience** - Enterprise Cloud Security
-
----
 
 <!-- Gradient Divider -->
 <div align="center">
@@ -160,8 +176,6 @@
 • Statistical analysis of security patterns
 • Academic publication in progress
 
----
-
 <!-- Gradient Divider -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=1&section=header" />
@@ -170,56 +184,76 @@
 ## 📈 What I'm Currently Working On
 
 ### Research Areas:
-
 • **Zero-Trust Architecture Optimization**: Hybrid cloud security models
 • **AI-Powered Security Automation**: Machine learning threat detection
 • **Academic-Enterprise Bridge**: Research methodology in practical applications
 • **Cloud Security Governance**: Academic frameworks for enterprise compliance
 
 ### Professional Focus:
-
 • Large-scale Azure security implementations for enterprise clients
 • Advanced threat intelligence and automated response systems
 • Security architecture design and implementation
 • Team mentorship and knowledge transfer
 
----
-
-<!-- Connect & Collaborate Section -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=60&section=footer&text=Connect%20%26%20Collaborate&fontSize=24&fontColor=ffffff" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:EEFF00,10:a82da8,30:903749,75:234E70,100:36067a&height=100&section=footer" />
 </div>
 
 ## 🌐 Let's Connect!
 
 <p align="center">
-  <a href="https://linkedin.com/in/a-ariff"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:contact@aglobaltec.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-  <a href="https://github.com/a-ariff"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/a-ariff"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:contact@aglobaltec.com"><img src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white" /></a>
+  <a href="https://github.com/a-ariff"><img src="https://img.shields.io/badge/GitHub-%2312100E.svg?logo=github&logoColor=white" /></a>
 </p>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=a-ariff&theme=aura&no-frame=true&column=7" alt="a-ariff" />
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&bg_color=0d1117&color=ff6b6b&line=ff6b6b&point=ffffff&area=true&hide_border=true" alt="GitHub Badge" />
-  <img src="https://komarev.com/ghpvc/?username=a-ariff&color=ff6b6b&style=flat-square" alt="GitHub Badge" />
+  <img src="https://img.shields.io/badge/a--ariff-Profile-blue?style=for-the-badge&logo=github" alt="a-ariff" />
+  <img src="https://img.shields.io/badge/Followers-4-orange?style=for-the-badge&logo=github" alt="GitHub Badge" />
+  <img src="https://img.shields.io/badge/Stars-15-yellow?style=for-the-badge&logo=github" alt="GitHub Badge" />
 </div>
 
 ### 💬 Open to:
-
 🤝 **Collaboration** • 🎯 **Research Partnerships** • 💼 **Professional Opportunities** • 🎓 **Academic Discussions** • 🚀 **Innovation Projects**
 
----
-
-<!-- Gradient Footer -->
+<!-- Gradient Divider -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=1&section=header" />
 </div>
 
-<p align="center">
-  <i>"Bridging academic excellence with enterprise innovation to build tomorrow's secure cloud infrastructure."</i>
-</p>
+> "Bridging academic excellence with enterprise innovation to build tomorrow's secure cloud infrastructure."
 
-<!-- Footer Wave -->
+<!-- Snake Animation -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" />
+  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg" />
+</div>
+
+---
+
+<div align="center">
+  
+# 🎉 Thanks for Visiting! 🎉
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=⭐+Don't+forget+to+star+repositories+you+find+interesting!;🚀+Let's+build+amazing+things+together!;💫+Your+support+means+the+world!;🌟+Keep+exploring+and+learning!&font=Fira%20Code&center=true&width=600&height=50&color=ff6b6b&vCenter=true&size=18" />
+</div>
+
+## 🌟 ⭐ 🎯 🚀 💫 🌟 ⭐ 🎯 🚀 💫
+
+<div align="center">
+  <h3>🎊 Thanks for stopping by! 🎊</h3>
+  <p><strong>🌟 Don't forget to ⭐ star repositories you find interesting!</strong></p>
+  <p>🚀 <em>Let's connect and build something amazing together!</em> 🚀</p>
+  
+  <img width="100" src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" />
+  
+  <h4>✨ Keep exploring, keep learning, keep growing! ✨</h4>
+</div>
+
+## 🌟 ⭐ 🎯 🚀 💫 🌟 ⭐ 🎯 🚀 💫
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer&animation=fadeIn" />
+</div>
+
 </div>
