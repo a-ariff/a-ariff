@@ -58,12 +58,12 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ## 📊 **GitHub Analytics**
 
 <div align="center">
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight">
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=tokyonight">
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide=contribs">
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=7&theme=tokyonight">
 </div>
 <div align="center">
   
-  ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=tokyonight)
+  ![GitHub Streak](https://streak-stats.demolab.com?user=a-ariff&theme=tokyonight&hide_border=true)
   
 </div>
 
