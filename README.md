@@ -58,12 +58,9 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ## 📊 **GitHub Analytics**
 
 <div align="center">
-  
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=tokyonight"/>
-  
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight">
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=tokyonight">
 </div>
-
 <div align="center">
   
   ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=tokyonight)
@@ -97,7 +94,6 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ### 💼 **Professional Portfolio**
 
 </div>
-
 <table align="center">
 <tr>
 <td width="50%">
@@ -171,8 +167,7 @@ graph TD
 
 *"Bridging academic excellence with enterprise innovation to build tomorrow's secure cloud infrastructure."*
 
-<img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" width="100%">
-
+<img width="100%" src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg">
 </div>
 
 ---
