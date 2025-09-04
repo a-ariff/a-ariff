@@ -63,7 +63,7 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 </div>
 <div align="center">
   
-  ![GitHub Streak](https://streak-stats.demolab.com?user=a-ariff&theme=tokyonight&hide_border=true)
+  [GitHub Streak](https://streak-stats.demolab.com?user=a-ariff&theme=tokyonight&hide_border=true)
   
 </div>
 
