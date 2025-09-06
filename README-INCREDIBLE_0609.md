@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=shark&color=0:8871e5,50:b678f0,100:eebefa&height=280&section=header&text=ARIFF%20MOHAMED&fontSize=70&fontColor=fff&animation=scaleIn&fontAlignY=30&desc=CLOUD%20SECURITY%20ARCHITECT%20%7C%20AI%20RESEARCHER&descAlignY=65&descSize=18&rotate=2" />
+  <img src="https://capsule-render.vercel.app/api?type=shark&color=0:8871e5,50:b678f0,100:eebefa&height=280&section=header&text=ARIFF%20MOHAMED&fontSize=70&fontColor=fff&animation=scaleIn&fontAlignY=30&desc=CLOUD%20SECURITY%20ARCHITECT%20%7C%20CYBERSECURITY%20SPECIALIST&descAlignY=65&descSize=18&rotate=2" />
 </div>
 
 <div align="center">
@@ -44,19 +44,15 @@
 
 ## 🌟 TECHNICAL EXPERTISE
 
-<div align="center">
-
 | **Technology** | **Proficiency** | **Experience** | **Projects** |
-|:--------------:|:---------------:|:--------------:|:------------:|
-| Azure Security | ![98%](https://progress-bar.dev/98/?scale=100&title=Expert&width=120&color=0078d4) | 10+ Years | 200+ Implementations |
-| Zero Trust Architecture | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=8b5fbf) | 8+ Years | 50+ Designs |
-| AI/ML Security | ![92%](https://progress-bar.dev/92/?scale=100&title=Expert&width=120&color=ff6b6b) | 6+ Years | 30+ Models |
-| Kubernetes Security | ![90%](https://progress-bar.dev/90/?scale=100&title=Expert&width=120&color=326ce5) | 7+ Years | 80+ Clusters |
-| Microsoft Intune | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 7+ Years | 100+ Deployments |
-| Azure Sentinel | ![88%](https://progress-bar.dev/88/?scale=100&title=Advanced&width=120&color=0078d4) | 5+ Years | 40+ SOCs |
-| Infrastructure as Code | ![85%](https://progress-bar.dev/85/?scale=100&title=Advanced&width=120&color=7b68ee) | 6+ Years | 150+ Templates |
-
-</div>
+|:---:|:---:|:---:|:---:|
+| Azure Security | **98% Expert** | 10+ Years | 200+ Implementations |
+| Zero Trust Architecture | **95% Expert** | 8+ Years | 50+ Designs |
+| PowerShell Automation | **92% Expert** | 10+ Years | 200+ Scripts |
+| Microsoft Intune | **90% Advanced** | 7+ Years | 100+ Deployments |
+| Azure Sentinel | **95% Expert** | 5+ Years | 40+ SOCs |
+| Infrastructure as Code | **88% Advanced** | 6+ Years | 150+ Templates |
+| Kubernetes Security | **85% Advanced** | 6+ Years | 80+ Clusters |
 
 ## 💻 CODING ACTIVITY & STATS
 
