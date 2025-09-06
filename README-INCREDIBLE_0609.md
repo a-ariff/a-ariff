@@ -42,19 +42,16 @@
   <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=synthwave&hide_border=true&background=0d1117&stroke=8b5fbf&ring=8b5fbf&fire=ff6b6b&currStreakLabel=8b5fbf" />
 </div>
 
-<div align="center">
-  <img width="60%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&langs_count=10" />
-</div>
-
-## 🛠️ ADVANCED TECHNICAL EXPERTISE
+## 🌟 TECHNICAL EXPERTISE
 
 <div align="center">
 
-| Technology | Proficiency | Experience | Projects |
-|------------|:-----------:|:----------:|---------:|
-| Azure Cloud | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 8+ Years | 500+ Deployments |
-| PowerShell | ![98%](https://progress-bar.dev/98/?scale=100&title=Expert&width=120&color=012456) | 10+ Years | 200+ Scripts |
-| Zero Trust Security | ![90%](https://progress-bar.dev/90/?scale=100&title=Expert&width=120&color=ff6b6b) | 6+ Years | 30+ Implementations |
+| **Technology** | **Proficiency** | **Experience** | **Projects** |
+|:--------------:|:---------------:|:--------------:|:------------:|
+| Azure Security | ![98%](https://progress-bar.dev/98/?scale=100&title=Expert&width=120&color=0078d4) | 10+ Years | 200+ Implementations |
+| Zero Trust Architecture | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=8b5fbf) | 8+ Years | 50+ Designs |
+| AI/ML Security | ![92%](https://progress-bar.dev/92/?scale=100&title=Expert&width=120&color=ff6b6b) | 6+ Years | 30+ Models |
+| Kubernetes Security | ![90%](https://progress-bar.dev/90/?scale=100&title=Expert&width=120&color=326ce5) | 7+ Years | 80+ Clusters |
 | Microsoft Intune | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 7+ Years | 100+ Deployments |
 | Azure Sentinel | ![88%](https://progress-bar.dev/88/?scale=100&title=Advanced&width=120&color=0078d4) | 5+ Years | 40+ SOCs |
 | Infrastructure as Code | ![85%](https://progress-bar.dev/85/?scale=100&title=Advanced&width=120&color=7b68ee) | 6+ Years | 150+ Templates |
@@ -64,7 +61,17 @@
 ## 💻 CODING ACTIVITY & STATS
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=a-ariff&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&layout=compact" width="60%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&icon_color=8b5fbf&text_color=ffffff&include_all_commits=true&count_private=true" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&langs_count=8" width="48%" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=a-ariff&theme=synthwave" width="80%" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=a-ariff&theme=synthwave&utc_offset=12" width="48%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=a-ariff&theme=synthwave" width="48%" />
 </div>
 
 ## 📈 COMPETITIVE PROGRAMMING
