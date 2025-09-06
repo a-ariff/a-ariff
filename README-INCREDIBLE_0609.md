@@ -18,13 +18,40 @@
   <img src="https://img.shields.io/badge/EXPERTISE-10%2B%20YEARS-red?style=for-the-badge&logo=trophy&logoColor=white&labelColor=F44336" />
 </div>
 
+## 🏆 ACHIEVEMENTS & METRICS
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=a-ariff&theme=dracula&no-frame=true&no-bg=false&margin-w=4&column=4" />
+</div>
+
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20Views&color=blueviolet&style=for-the-badge&abbreviated=true" />
   <img src="https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=8B5FBF&logoColor=white" />
   <img src="https://img.shields.io/github/stars/a-ariff?label=Total%20Stars&style=for-the-badge&color=FFD700&logoColor=white" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=a-ariff.a-ariff&style=for-the-badge&color=8b5fbf" />
+</div>
+
+## 📊 COMPREHENSIVE GITHUB ANALYTICS
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=a-ariff&theme=synthwave" />
+</div>
+
+<div align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&icon_color=8b5fbf&text_color=ffffff&include_all_commits=true&count_private=true" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=pie&theme=synthwave" />
+</div>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/8b5fbf/a-ariff" />
+</div>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=synthwave&hide_border=true&background=0d1117&stroke=8b5fbf&ring=8b5fbf&fire=8b5fbf&currStreakLabel=8b5fbf" />
 </div>
 
 ## ⚡ TECH ARSENAL
+
 <div align="center">
 
 [![Cloud Skills](https://skillicons.dev/icons?i=azure,aws,gcp,kubernetes,docker,terraform,ansible,grafana,prometheus,jenkins&theme=dark&perline=5)](https://skillicons.dev)
@@ -34,7 +61,10 @@
 [![Dev Skills](https://skillicons.dev/icons?i=python,javascript,typescript,nodejs,react,nextjs,tailwind,html,css,markdown&theme=dark&perline=5)](https://skillicons.dev)
 
 [![AI Skills](https://skillicons.dev/icons?i=tensorflow,pytorch,jupyter,r,matlab,opencv,sklearn&theme=dark&perline=4)](https://skillicons.dev)
+
 </div>
+
+## 🎯 PROFICIENCY MATRIX
 
 <div align="center">
 
@@ -46,57 +76,62 @@
 | Microsoft Intune | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 7+ Years | 100+ Deployments |
 | Azure Sentinel | ![88%](https://progress-bar.dev/88/?scale=100&title=Advanced&width=120&color=0078d4) | 5+ Years | 40+ SOCs |
 | Infrastructure as Code | ![85%](https://progress-bar.dev/85/?scale=100&title=Advanced&width=120&color=7b68ee) | 6+ Years | 150+ Templates |
+
+</div>
+
+## 💻 CODING ACTIVITY & STATS
+
+<div align="center">
+  <img src="https://github-readme-metrics.vercel.app/a-ariff?template=classic&config.timezone=Pacific%2FAuckland" />
+</div>
+
+## 📈 COMPETITIVE PROGRAMMING
+
+<div align="center">
+  <img src="https://leetcode-stats-api.herokuapp.com/a-ariff?theme=dark" />
 </div>
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&icon_color=8b5fbf&text_color=ffffff&include_all_commits=true&count_private=true" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&langs_count=10" />
+  <img src="https://stackoverflow-readme-profile.vercel.app/profile/a-ariff?theme=dark" />
 </div>
+
+## 📝 CONTENT & ARTICLES
 
 <div align="center">
-  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=synthwave&hide_border=true&background=0d1117&ring=8b5fbf&fire=8b5fbf&currStreakLabel=8b5fbf&stroke=8b5fbf&currStreakNum=ffffff&sideNums=8b5fbf&sideLabels=8b5fbf&dates=ffffff" alt="GitHub Streak" />
+  <img src="https://github-readme-medium.vercel.app/api?username=ariff-mohamed&theme=synthwave" />
 </div>
+
+## 🎵 CURRENT VIBES
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&bg_color=0d1117&color=8b5fbf&line=b678f0&point=ffffff&area=true&hide_border=true&custom_title=Ariff%27s%20Contribution%20Graph&height=300" width="98%" alt="Activity Graph" />
+  <img src="https://spotify-github-profile.vercel.app/api/spotify?background_color=0d1117&border_color=8b5fbf" />
 </div>
+
+## 💡 DAILY INSPIRATION
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake.svg">
-    <img alt="Snake animation" src="https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake.svg" width="100%" />
-  </picture>
+  <img src="https://quotes-github-readme.vercel.app/api?type=vertical&theme=synthwave" />
 </div>
+
+## 😄 DEV HUMOR
 
 <div align="center">
-
-| 🎖️ CERTIFICATION | 🏢 ISSUER | 📅 STATUS | 🔗 VERIFICATION |
-|:---:|:---:|:---:|:---:|
-| Azure Security Engineer Associate | Microsoft | ✅ CERTIFIED | [Verify](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9) |
-| Azure Administrator Associate | Microsoft | ✅ CERTIFIED | [Verify](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9) |
-| Microsoft 365 Endpoint Administrator | Microsoft | ✅ CERTIFIED | [Verify](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9) |
-| Microsoft 365 Administrator Expert | Microsoft | ✅ CERTIFIED | [Verify](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9) |
-| Microsoft Applied Skills: Identity & Access | Microsoft | ✅ CERTIFIED | [Verify](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9) |
-| MIT Cybersecurity Specialization | Academic Institution | 🎓 IN PROGRESS (2026) | Academic Record |
-
-| 🎯 AVEPOINT CERTIFICATIONS | 🏢 ISSUER | 📅 STATUS | 🔗 VERIFICATION |
-|:---:|:---:|:---:|:---:|
-| Cloud Backup for M365 - Technical Professional | AvePoint | ✅ CERTIFIED | [Verify](https://www.credly.com/badges/41165314/public_url) |
-| AvePoint Elements - Technical Associate | AvePoint | ✅ CERTIFIED | [Verify](https://www.credly.com/badges/9b33d9ab/public_url) |
-| Confidence Platform - Technical Associate | AvePoint | ✅ CERTIFIED | [Verify](https://www.credly.com/badges/47bfa023/public_url) |
-| Fly Server - Technical Professional | AvePoint | ✅ CERTIFIED | [Verify](https://www.credly.com/badges/c526d426/public_url) |
-
+  <img src="https://readme-jokes.vercel.app/api?hideBorder&theme=synthwave" />
 </div>
+
+## 🌟 CONNECT WITH ME
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=a-ariff&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&custom_title=Weekly%20Coding%20Statistics&layout=compact" width="60%" />
+  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
+[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/ariff_mohamed)
+[![Medium](https://img.shields.io/badge/-Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@ariff-mohamed)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff.mohamed@example.com)
+
 </div>
+
+---
 
 <div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=synthwave" width="80%" />
+  <i>"Securing the cloud, one deployment at a time" ☁️🔒</i>
 </div>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8871e5,50:b678f0,100:eebefa&height=150&section=footer&animation=fadeIn&fontColor=ffffff&fontSize=16&desc=%F0%9F%94%90%20SECURE%20%E2%80%A2%20%F0%9F%A4%96%20AUTOMATE%20%E2%80%A2%20%F0%9F%92%A1%20INNOVATE%20%E2%80%A2%20%F0%9F%9A%80%20REPEAT&descAlignY=85&descSize=14"/>
-</p>
