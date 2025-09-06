@@ -39,38 +39,20 @@
 
 <div align="center">
   <img width="49%" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&icon_color=8b5fbf&text_color=ffffff&include_all_commits=true&count_private=true" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=pie&theme=synthwave" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=synthwave&hide_border=true&background=0d1117&stroke=8b5fbf&ring=8b5fbf&fire=ff6b6b&currStreakLabel=8b5fbf" />
 </div>
 
 <div align="center">
-  <img src="https://ghchart.rshah.org/8b5fbf/a-ariff" />
+  <img width="60%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&langs_count=10" />
 </div>
 
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=synthwave&hide_border=true&background=0d1117&stroke=8b5fbf&ring=8b5fbf&fire=8b5fbf&currStreakLabel=8b5fbf" />
-</div>
-
-## ⚡ TECH ARSENAL
+## 🛠️ ADVANCED TECHNICAL EXPERTISE
 
 <div align="center">
 
-[![Cloud Skills](https://skillicons.dev/icons?i=azure,aws,gcp,kubernetes,docker,terraform,ansible,grafana,prometheus,jenkins&theme=dark&perline=5)](https://skillicons.dev)
-
-[![Security Skills](https://skillicons.dev/icons?i=linux,windows,bash,powershell,python,go,rust,vim,vscode,github&theme=dark&perline=5)](https://skillicons.dev)
-
-[![Dev Skills](https://skillicons.dev/icons?i=python,javascript,typescript,nodejs,react,nextjs,tailwind,html,css,markdown&theme=dark&perline=5)](https://skillicons.dev)
-
-[![AI Skills](https://skillicons.dev/icons?i=tensorflow,pytorch,jupyter,r,matlab,opencv,sklearn&theme=dark&perline=4)](https://skillicons.dev)
-
-</div>
-
-## 🎯 PROFICIENCY MATRIX
-
-<div align="center">
-
-| 💻 TECHNOLOGY | 📊 PROFICIENCY | 🎯 EXPERIENCE | 🚀 PROJECTS |
-|:---:|:---:|:---:|:---:|
-| Microsoft Azure | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 8+ Years | 50+ Deployments |
+| Technology | Proficiency | Experience | Projects |
+|------------|:-----------:|:----------:|---------:|
+| Azure Cloud | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 8+ Years | 500+ Deployments |
 | PowerShell | ![98%](https://progress-bar.dev/98/?scale=100&title=Expert&width=120&color=012456) | 10+ Years | 200+ Scripts |
 | Zero Trust Security | ![90%](https://progress-bar.dev/90/?scale=100&title=Expert&width=120&color=ff6b6b) | 6+ Years | 30+ Implementations |
 | Microsoft Intune | ![95%](https://progress-bar.dev/95/?scale=100&title=Expert&width=120&color=0078d4) | 7+ Years | 100+ Deployments |
@@ -82,29 +64,27 @@
 ## 💻 CODING ACTIVITY & STATS
 
 <div align="center">
-  <img src="https://github-readme-metrics.vercel.app/a-ariff?template=classic&config.timezone=Pacific%2FAuckland" />
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=a-ariff&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff&layout=compact" width="60%" />
 </div>
 
 ## 📈 COMPETITIVE PROGRAMMING
 
 <div align="center">
-  <img src="https://leetcode-stats-api.herokuapp.com/a-ariff?theme=dark" />
-</div>
-
-<div align="center">
-  <img src="https://stackoverflow-readme-profile.vercel.app/profile/a-ariff?theme=dark" />
+  <img src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&icon_color=8b5fbf&text_color=ffffff" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=pie&theme=synthwave&hide_border=true&bg_color=0d1117&title_color=8b5fbf&text_color=ffffff" width="48%" />
 </div>
 
 ## 📝 CONTENT & ARTICLES
 
 <div align="center">
-  <img src="https://github-readme-medium.vercel.app/api?username=ariff-mohamed&theme=synthwave" />
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=synthwave&quote=Security%20is%20not%20a%20product%20but%20a%20process&author=Bruce%20Schneier" width="80%" />
 </div>
 
 ## 🎵 CURRENT VIBES
 
 <div align="center">
-  <img src="https://spotify-github-profile.vercel.app/api/spotify?background_color=0d1117&border_color=8b5fbf" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=a-ariff.a-ariff&style=for-the-badge&color=blueviolet" />
+  <img src="https://img.shields.io/badge/Focus-Building%20Secure%20Systems-blue?style=for-the-badge&logo=security&logoColor=white" />
 </div>
 
 ## 💡 DAILY INSPIRATION
@@ -133,5 +113,7 @@
 ---
 
 <div align="center">
-  <i>"Securing the cloud, one deployment at a time" ☁️🔒</i>
+  <i>
+"Securing the cloud, one deployment at a time" ☁️🔒
+  </i>
 </div>
