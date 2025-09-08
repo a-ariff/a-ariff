@@ -27,8 +27,7 @@
   
 </div>
 
-## 🖥️ SYSTEM INFORMATION
-
+## COMPUTER SYSTEM INFORMATION
 ```bash
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                        ARIFF MOHAMED SECURITY SYSTEM v3.0                   ║
@@ -41,143 +40,17 @@
 ║ Graduation:     2026                                                        ║
 ║ Certification:  Azure Security Engineer Associate                           ║
 ║ Experience:     10+ years in IT Security & Cloud Infrastructure             ║
-║ Research:       Zero-trust architecture optimization in hybrid clouds       ║
-║ Mission:        Building tomorrow's secure cloud infrastructure              ║
-║ Status:         Always Learning, Always Securing, Always Innovating         ║
+║══════════════════════════════════════════════════════════════════════════════║
+║ Tech Stack:     PowerShell | Azure | Python | Security Frameworks          ║
+║ Research:       Zero-Trust Architecture | AI Security | Cloud Governance    ║
+║ Current Focus:  Enterprise Security Implementation & Academic Excellence     ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
-## 🔐 SECURITY CLEARANCE LEVELS
-
 <div align="center">
-  
-  ```diff
-  + 🎓 ACADEMIC: MIT Cybersecurity Specialization (2024-2026)
-  + ☁️ CERTIFIED: Azure Security Engineer Associate - Microsoft
-  + 🔬 RESEARCH: Zero-trust architecture in hybrid Microsoft clouds  
-  + 🛡️ EXPERTISE: Advanced threat intelligence & security automation
-  + 🤖 INNOVATION: AI/ML integration with Microsoft security stack
-  + 💼 PROFESSIONAL: Large-scale enterprise security implementations
-  + 📊 METHODOLOGY: Evidence-based security using academic research
-  ```
-  
-</div>
 
-## ⚙️ INSTALLED PACKAGES & DEPENDENCIES
-
-### 🌐 Cloud & Infrastructure Stack
+### CONNECTION ENDPOINTS
 ```
-[CLOUD_PLATFORMS]
-├── Microsoft Azure ████████████████████ 100%
-├── Azure Active Directory ████████████████ 95%
-├── Microsoft 365 Security ███████████████ 90%
-└── Hybrid Cloud Integration ████████████ 85%
-
-[SECURITY_SERVICES]
-├── Azure Sentinel (SIEM) ████████████████ 95%
-├── Microsoft Defender ███████████████ 90%
-├── Azure Security Center ████████████ 85%
-└── Identity & Access Management ████████ 95%
-```
-
-### 🔒 Security & Compliance Modules
-```
-[SECURITY_FRAMEWORKS]
-├── Zero Trust Architecture ████████████████ 100%
-├── NIST Cybersecurity Framework ███████████ 85%
-├── ISO 27001 Controls ██████████████ 80%
-└── CIS Controls ████████████████ 90%
-
-[THREAT_INTELLIGENCE]
-├── MITRE ATT&CK Framework ███████████████ 90%
-├── Cyber Kill Chain ████████████████ 85%
-├── STIX/TAXII Protocols ██████████ 75%
-└── Threat Hunting ███████████████ 90%
-```
-
-### 🚀 Automation & DevOps Tools
-```
-[SCRIPTING_LANGUAGES]
-├── PowerShell ████████████████████ 100%
-├── KQL (Kusto Query Language) ██████████████ 85%
-├── ARM Templates ███████████████ 90%
-└── Microsoft Graph API ████████████ 80%
-
-[AUTOMATION_PLATFORMS]
-├── Microsoft Intune ████████████████ 95%
-├── Azure DevOps ██████████████ 85%
-├── GitHub Actions ███████████████ 90%
-└── Infrastructure as Code ████████████ 85%
-```
-
-## 📊 SYSTEM PERFORMANCE METRICS
-
-<div align="center">
-  
-  <img src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=matrix&hide_border=true&bg_color=000000&title_color=00ff00&icon_color=00ff00&text_color=00ff00" />
-  
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=matrix&hide_border=true&background=000000&ring=00ff00&fire=00ff00&currStreakLabel=00ff00" alt="GitHub Streak" />
-</div>
-
-## 🏆 ACHIEVEMENT UNLOCKED
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    CERTIFICATION MATRIX                    │
-├─────────────────────────────────────────────────────────────┤
-│ [✓] Azure Security Engineer Associate    │ Microsoft       │
-│ [⏳] MIT Cybersecurity Specialization    │ Whitecliffe     │ 
-│ [✓] Zero-Trust Research Publication      │ Academic        │
-│ [✓] Enterprise Security Implementation   │ Professional    │
-│ [⚡] AI-Powered Security Automation      │ Innovation      │
-│ [🔬] Advanced Threat Intelligence        │ Research        │
-└─────────────────────────────────────────────────────────────┘
-```
-
-## 💾 ACTIVE PROCESSES & PROJECTS
-
-### 🚀 RUNNING SERVICES
-
-```bash
-[ENTERPRISE_PROJECTS]
-┌──────────────────────────────────────────────────────────────┐
-│ Service: intune-remediation-engine          Status: RUNNING  │
-│ ├── Process: automated-compliance-enforcement               │
-│ ├── Process: proactive-device-remediation                   │
-│ ├── Process: advanced-reporting-analytics                   │
-│ ├── Process: zero-touch-deployment                          │
-│ └── Process: security-baseline-enforcement                  │
-│                                                             │
-│ Service: azure-security-baselines          Status: RUNNING  │
-│ ├── Process: zero-trust-implementation                      │
-│ ├── Process: advanced-threat-protection                     │
-│ ├── Process: compliance-automation                          │
-│ ├── Process: infrastructure-as-code                         │
-│ └── Process: security-monitoring-dashboards                │
-└──────────────────────────────────────────────────────────────┘
-```
-
-### 🔬 RESEARCH PROTOCOLS
-
-```diff
-@@ ZERO-TRUST OPTIMIZATION RESEARCH @@
-- Research Title: "Hybrid Microsoft Cloud Environment Security Architecture"
-+ Academic Institution: Whitecliffe College (MIT Program)
-+ Methodology: Systematic literature review & empirical analysis  
-+ Scope: Zero-trust implementation in hybrid cloud environments
-+ Data Collection: Enterprise deployment case studies
-+ Timeline: 2024-2026
-+ Expected Outcome: Optimized security framework
-+ Publication Goal: Peer-reviewed cybersecurity journals
-```
-
-## 📡 NETWORK INTERFACES
-
-```
-[ACTIVE_CONNECTIONS]
 ├── LinkedIn: linkedin.com/in/ariff-mohamed
 ├── Website: aglobaltec.com  
 ├── Email: ariff.mit@gmail.com
@@ -192,16 +65,17 @@
 └── Port 8080 (ALT): Knowledge Sharing
 ```
 
-## 🔄 CURRENT EXECUTION STATUS
+</div>
 
+## PROCESS CURRENT EXECUTION STATUS
 ```
 [ACTIVE_THREADS]
-┌─ Thread_01: research_zero_trust_optimization     [████████████████] 85%
-├─ Thread_02: enterprise_azure_security_impl      [██████████████  ] 90%  
-├─ Thread_03: mit_cybersecurity_coursework        [████████████    ] 75%
-├─ Thread_04: ai_security_automation_dev          [██████████      ] 65%
-├─ Thread_05: powershell_automation_framework     [██████████████  ] 85%
-└─ Thread_06: advanced_threat_detection_sys       [████████████    ] 70%
+┌─ Thread_01: research_zero_trust_optimization     [Progress: 85% Complete]
+├─ Thread_02: enterprise_azure_security_impl      [Progress: 90% Complete]  
+├─ Thread_03: mit_cybersecurity_coursework        [Progress: 75% Complete]
+├─ Thread_04: ai_security_automation_dev          [Progress: 65% Complete]
+├─ Thread_05: powershell_automation_framework     [Progress: 85% Complete]
+└─ Thread_06: advanced_threat_detection_sys       [Progress: 70% Complete]
 
 [SYSTEM_LOGS]
 [2024-09-06 02:54:00] INFO: Research methodology applied to security implementation
@@ -211,7 +85,7 @@
 [2024-09-06 02:54:04] SUCCESS: Building tomorrow's secure infrastructure... ACTIVE
 ```
 
-## 🎯 MISSION PARAMETERS
+## TARGET MISSION PARAMETERS
 
 <div align="center">
 
@@ -229,7 +103,7 @@
 ╚════════════════════════════════════════════════════════════════╝
 ```
 
-**🌟 Thanks for accessing my terminal! Execute `git star <repo>` on interesting repositories!**
+**STAR Thanks for accessing my terminal! Execute `git star <repo>` on interesting repositories! **
 
 </div>
 
