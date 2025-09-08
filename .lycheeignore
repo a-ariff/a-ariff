@@ -1,9 +1,27 @@
 # Ignore non-HTTP schemes
 mailto:
 
-# Ignore LinkedIn anti-bot protected URLs
+# Ignore LinkedIn anti-bot protected URLs (returns 999 status code)
 linkedin.com
 www.linkedin.com
 
-# Optional: credential sharing endpoints that can redirect unpredictably
+# Microsoft Learn may have access restrictions or authentication requirements
 learn.microsoft.com/api/credentials/share
+learn.microsoft.com/en-us/users/
+
+# Badge services that may have rate limiting or temporary issues
+komarev.com/ghpvc/
+shields.io/badge/
+
+# GitHub stats services (may be rate limited or temporarily unavailable)
+github-readme-stats.vercel.app/
+streak-stats.demolab.com/
+readme-typing-svg.herokuapp.com/
+capsule-render.vercel.app/
+
+# Credly badges (may require authentication or have access controls)
+credly.com/badges/
+
+# Common animation/image services that may be unreliable
+raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif
+raw.githubusercontent.com/platane/snk/output/

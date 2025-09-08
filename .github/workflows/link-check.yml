@@ -14,6 +14,6 @@ jobs:
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --verbose --accept 200,999 --max-redirects 5 --retry-wait-time 2 --timeout 20 README.md
+          args: --no-progress --verbose --accept 200,999 --max-redirects 5 --retry-wait-time 2 --timeout 20 --exclude-file .lycheeignore README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

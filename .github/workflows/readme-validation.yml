@@ -1,0 +1,138 @@
+name: README Validation
+
+on:
+  pull_request:
+    paths:
+      - 'README*.md'
+      - 'docs/**/*.md'
+  push:
+    branches: [ main ]
+    paths:
+      - 'README*.md'
+      - 'docs/**/*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for problematic Unicode characters
+        run: |
+          echo "🔍 Checking for problematic Unicode characters in README files..."
+          
+          # Define problematic Unicode characters
+          BLOCK_CHARS="█▓░▐▌▀▄"
+          BOX_CHARS="├┌└┐┘─│┬┴┼╔╗╚╝╬═║"
+          
+          # Check all README files
+          FOUND_ISSUES=false
+          
+          for file in README*.md docs/**/*.md; do
+            if [[ -f "$file" ]]; then
+              echo "Checking $file..."
+              
+              # Check for block characters
+              if grep -n "[$BLOCK_CHARS]" "$file"; then
+                echo "❌ Found problematic block characters in $file"
+                echo "   Consider using badge shields or text descriptions instead"
+                FOUND_ISSUES=true
+              fi
+              
+              # Check for box drawing characters
+              if grep -n "[$BOX_CHARS]" "$file"; then
+                echo "❌ Found problematic box drawing characters in $file"
+                echo "   Consider using standard ASCII characters instead"
+                FOUND_ISSUES=true
+              fi
+              
+              # Check for potential progress bar patterns
+              if grep -n ".*[█▓░].*[0-9]\+%" "$file"; then
+                echo "❌ Found potential ASCII progress bar in $file"
+                echo "   Consider replacing with badges or text descriptions"
+                FOUND_ISSUES=true
+              fi
+            fi
+          done
+          
+          if [[ "$FOUND_ISSUES" == "true" ]]; then
+            echo ""
+            echo "💡 Suggestions:"
+            echo "   • Use shields.io badges for visual indicators"
+            echo "   • Replace progress bars with descriptive text"
+            echo "   • See docs/README-MAINTENANCE.md for alternatives"
+            echo ""
+            echo "⚠️  Unicode character issues found. Please review and fix."
+            exit 1
+          else
+            echo "✅ No problematic Unicode characters found!"
+          fi
+
+      - name: Validate markdown links (local)
+        run: |
+          echo "🔗 Checking internal markdown links..."
+          
+          for file in README*.md docs/**/*.md; do
+            if [[ -f "$file" ]]; then
+              echo "Checking links in $file..."
+              
+              # Extract internal links and check if targets exist
+              grep -n "\[.*\](#.*)" "$file" | while IFS=: read -r line_num link_line; do
+                # Extract the anchor from the link
+                anchor=$(echo "$link_line" | sed -n 's/.*](#\([^)]*\)).*/\1/p')
+                
+                if [[ -n "$anchor" ]]; then
+                  # Check if the anchor exists in the file (as heading or explicit anchor)
+                  if ! grep -q "^#.*\|<a.*id.*$anchor" "$file"; then
+                    echo "⚠️  Line $line_num: Anchor '$anchor' may not exist in $file"
+                  fi
+                fi
+              done
+            fi
+          done
+
+      - name: Check badge dependencies
+        run: |
+          echo "🏷️ Checking external badge dependencies..."
+          
+          for file in README*.md; do
+            if [[ -f "$file" ]]; then
+              echo "Checking badges in $file..."
+              
+              # Count shields.io dependencies
+              shield_count=$(grep -c "shields.io" "$file" || true)
+              komarev_count=$(grep -c "komarev.com" "$file" || true)
+              
+              echo "   • shields.io badges: $shield_count"
+              echo "   • komarev.com badges: $komarev_count"
+              
+              if [[ $shield_count -gt 10 ]]; then
+                echo "⚠️  High number of shields.io dependencies ($shield_count)"
+                echo "   Consider reducing external dependencies for better reliability"
+              fi
+            fi
+          done
+
+      - name: Validate file encoding
+        run: |
+          echo "📝 Checking file encoding..."
+          
+          for file in README*.md docs/**/*.md; do
+            if [[ -f "$file" ]]; then
+              # Check if file is valid UTF-8
+              if ! iconv -f utf-8 -t utf-8 "$file" >/dev/null 2>&1; then
+                echo "❌ Invalid UTF-8 encoding in $file"
+                exit 1
+              fi
+              
+              # Check for BOM (Byte Order Mark)
+              if [[ $(head -c 3 "$file" | od -t x1 -N 3 | head -1 | awk '{print $2$3$4}') == "efbbbf" ]]; then
+                echo "⚠️  BOM detected in $file - may cause display issues"
+              fi
+            fi
+          done
+          
+          echo "✅ File encoding validation complete"
