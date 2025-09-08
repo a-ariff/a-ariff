@@ -272,7 +272,7 @@
   <tr>
     <td align="center" width="50%">
       <h3>🏆 TryHackMe Elite Profile</h3>
-      <img src="https://tryhackme-badges.s3.amazonaws.com/ariff.png" alt="TryHackMe Profile" width="300" />
+      <img src="assets/badge_transparent.png" alt="TryHackMe Profile" width="300" />
       <br><br>
       <h4>🥇 Top 1% Global Ranking</h4>
       <p><code>6083 Points | 211 Rooms Completed | 24 Badges</code></p>
@@ -283,7 +283,7 @@
     </td>
     <td align="center" width="50%">
       <h3>🎖️ Certified Penetration Tester</h3>
-      <img src="https://github.com/a-ariff/a-ariff/raw/main/tryhackme-pt1.png" alt="TryHackMe PT1 Certification" width="200" />
+      <img src="assets/PT1_transparent.png" alt="TryHackMe PT1 Certification" width="200" />
       <br><br>
       <h4>🔴 Advanced Ethical Hacking Certification</h4>
       <p><strong>Professional Penetration Testing</strong></p>
