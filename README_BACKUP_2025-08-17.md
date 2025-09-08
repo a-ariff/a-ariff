@@ -4,7 +4,7 @@ Microsoft 365 Certified - Cloud Solutions Engineer
 I design secure, automated Microsoft cloud environments that reduce ops overhead and improve compliance.
   
 Modern Endpoint Management & Cloud Security Specialist
-• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:aariff@outlook.co.nz)
+• [LinkedIn](https://www.linkedin.com/in/ariff-mohamed/) • [Email](mailto:contact@aglobaltec.com)
 
 ## 🧭 Quick Navigation
 - 👤 [About](#-about)
@@ -131,7 +131,7 @@ I'm always interested in discussing cloud security, automation opportunities, an
 
 ### 📬 Get in Touch
 - 💼 **LinkedIn**: [ariff-mohamed](https://www.linkedin.com/in/ariff-mohamed/)
-- 📧 **Email**: [aariff@outlook.co.nz](mailto:aariff@outlook.co.nz)
+- 📧 **Email**: [contact@aglobaltec.com](mailto:contact@aglobaltec.com)
 - 🐙 **GitHub**: [a-ariff](https://github.com/a-ariff)
 
 ### 📄 Professional Resources

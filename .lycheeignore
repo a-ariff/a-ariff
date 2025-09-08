@@ -1,0 +1,9 @@
+# Ignore non-HTTP schemes
+mailto:
+
+# Ignore LinkedIn anti-bot protected URLs
+linkedin.com
+www.linkedin.com
+
+# Optional: credential sharing endpoints that can redirect unpredictably
+learn.microsoft.com/api/credentials/share
