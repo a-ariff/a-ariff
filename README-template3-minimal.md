@@ -26,25 +26,21 @@ Cloud Solutions Engineer specializing in Azure security architecture and automat
 ---
 
 <div align="center">
-  
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=calm&include_all_commits=true&count_private=true&hide_border=true&bg_color=f8fafc&title_color=667eea&icon_color=764ba2&text_color=2d3748"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=7&theme=calm&hide_border=true&bg_color=f8fafc&title_color=667eea&text_color=2d3748"/>
-  
 </div>
 
 <div align="center">
-  
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=calm&hide_border=true&background=f8fafc&ring=667eea&fire=764ba2&currStreakLabel=667eea" alt="GitHub Streak" />
-  
 </div>
 
 ### Recent Focus
 
 ```
-🔬 Research Projects     → Zero-Trust Architecture Optimization
-💼 Professional Work     → Enterprise Azure Security Implementations  
-🎓 Academic Studies      → MIT Cybersecurity Program (2026)
-🚀 Innovation           → AI-powered Security Automation
+[Research] Research Projects     -> Zero-Trust Architecture Optimization
+[Work] Professional Work     -> Enterprise Azure Security Implementations  
+[Study] Academic Studies      -> MIT Cybersecurity Program (2026)
+[Innovation] Innovation           -> AI-powered Security Automation
 ```
 
 <div align="center">
