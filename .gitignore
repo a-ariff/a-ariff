@@ -9,3 +9,7 @@ Thumbs.db
 # Ignore temp files
 *.tmp
 *.bak
+
+# Ignore script outputs
+maintenance-report.md
+stats-report.md

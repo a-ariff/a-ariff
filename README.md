@@ -4,15 +4,24 @@
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Expert;MIT+Student+%7C+Cybersecurity+Research;Building+Secure+Cloud+Architectures;Research-Driven+Innovation;Transforming+Enterprise+Security)
 
+<div align="center">
+
 [![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=for-the-badge)](https://github.com/a-ariff)
 [![GitHub followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=blue&labelColor=black)](https://github.com/a-ariff)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
+[![Years Badge](https://badges.pufler.dev/years/a-ariff?style=for-the-badge&color=blue&logo=github)](https://github.com/a-ariff)
+[![Repos Badge](https://badges.pufler.dev/repos/a-ariff?style=for-the-badge&color=green&logo=github)](https://github.com/a-ariff)
+[![Commits Badge](https://badges.pufler.dev/commits/monthly/a-ariff?style=for-the-badge&color=orange&logo=github)](https://github.com/a-ariff)
+
+</div>
 
 </div>
 
 ---
 
-<img align="right" alt="Coding" width="450" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif">
+<img align="right" alt="Coding" width="400"
+     src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif"
+     style="max-width: 100%; height: auto;">
 
 ## 🎯 **About Me**
 
@@ -148,12 +157,19 @@ Features:
 
 <div align="center">
 
-<img height="180em"
-     src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"
-     alt="GitHub Stats"/>
-<img height="180em"
-     src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=8&theme=tokyonight"
-     alt="Top Languages"/>
+<picture>
+  <source media="(max-width: 600px)" srcset="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&card_width=300">
+  <img height="180em"
+       src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"
+       alt="GitHub Stats"/>
+</picture>
+
+<picture>
+  <source media="(max-width: 600px)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=6&theme=tokyonight&card_width=300">
+  <img height="180em"
+       src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=8&theme=tokyonight"
+       alt="Top Languages"/>
+</picture>
 
 </div>
 
@@ -168,6 +184,20 @@ Features:
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&theme=tokyo-night)
 
 </div>
+
+<div align="center">
+
+[![GitHub Contribution Snake](https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake-dark.svg)](https://github.com/a-ariff)
+
+</div>
+
+---
+
+## 📱 **Recent Activity**
+
+<!-- START_SECTION:activity -->
+- 🔄 Unable to fetch recent activity
+<!-- END_SECTION:activity -->
 
 ---
 
@@ -197,6 +227,9 @@ Features:
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@ariffmohamed.com)
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ariffmohamed.com)
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://researchgate.net/profile/ariff-mohamed)
+[![Calendly](https://img.shields.io/badge/Schedule_Meeting-006BFF?style=for-the-badge&logo=calendly&logoColor=white)](https://calendly.com/ariff-mohamed/30min)
+
+**📧 Open for:** *Collaboration | Research Opportunities | Cloud Consulting | Speaking Engagements*
 
 </div>
 
@@ -237,5 +270,7 @@ class AriffMohamed:
 
 **⚡ Fun Fact:** *Currently working on AI-powered security orchestration that can predict and
 prevent cyber threats before they occur!*
+
+<!-- STATS_LAST_UPDATED:Auto-updated daily by GitHub Actions -->
 
 </div>
