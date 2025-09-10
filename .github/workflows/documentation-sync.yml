@@ -1,0 +1,425 @@
+name: Documentation Automation
+
+on:
+  schedule:
+    # Run documentation sync weekly on Saturday at 1 AM UTC
+    - cron: '0 1 * * 6'
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'templates/**'
+      - 'README.md'
+      - 'docs/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  readme-template-sync:
+    name: README Template Synchronization
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        npm install -g mustache markdown-it
+
+    - name: Generate README from template
+      run: |
+        echo "Generating README from templates..."
+        
+        # Create automation script
+        cat > generate_readme.js << 'EOF'
+        const fs = require('fs');
+        const path = require('path');
+        
+        // Repository metadata
+        const repoData = {
+          repository_name: process.env.GITHUB_REPOSITORY?.split('/')[1] || 'repository',
+          owner: process.env.GITHUB_REPOSITORY?.split('/')[0] || 'a-ariff',
+          description: 'Enterprise-grade automation and security solutions',
+          current_year: new Date().getFullYear(),
+          last_updated: new Date().toISOString().split('T')[0],
+          main_branch: 'main'
+        };
+        
+        // Technology detection
+        const detectTechnologies = () => {
+          const techs = [];
+          
+          if (fs.existsSync('package.json')) techs.push('Node.js');
+          if (fs.existsSync('requirements.txt') || fs.existsSync('pyproject.toml')) techs.push('Python');
+          if (fs.existsSync('Cargo.toml')) techs.push('Rust');
+          if (fs.existsSync('go.mod')) techs.push('Go');
+          if (fs.existsSync('Dockerfile') || fs.existsSync('docker-compose.yml')) techs.push('Docker');
+          if (fs.existsSync('terraform/') || fs.existsSync('*.tf')) techs.push('Terraform');
+          
+          // Check for PowerShell files
+          const psFiles = require('child_process').execSync('find . -name "*.ps1" -o -name "*.psm1" -o -name "*.psd1" 2>/dev/null | wc -l').toString().trim();
+          if (parseInt(psFiles) > 0) techs.push('PowerShell');
+          
+          return techs;
+        };
+        
+        repoData.technologies = detectTechnologies();
+        repoData.is_powershell = repoData.technologies.includes('PowerShell');
+        repoData.is_docker = repoData.technologies.includes('Docker');
+        repoData.is_automation = repoData.repository_name.includes('automation') || 
+                                 repoData.repository_name.includes('scripts') ||
+                                 repoData.repository_name.includes('intune');
+        
+        // Generate badges
+        const generateBadges = () => {
+          let badges = [];
+          
+          // Repository badges
+          badges.push(`![GitHub last commit](https://img.shields.io/github/last-commit/${repoData.owner}/${repoData.repository_name})`);
+          badges.push(`![GitHub issues](https://img.shields.io/github/issues/${repoData.owner}/${repoData.repository_name})`);
+          badges.push(`![GitHub stars](https://img.shields.io/github/stars/${repoData.owner}/${repoData.repository_name})`);
+          badges.push(`![GitHub license](https://img.shields.io/github/license/${repoData.owner}/${repoData.repository_name})`);
+          
+          // Workflow badges
+          badges.push(`![Security Scan](https://github.com/${repoData.owner}/${repoData.repository_name}/workflows/Security%20Scanning%20Suite/badge.svg)`);
+          badges.push(`![Health Check](https://github.com/${repoData.owner}/${repoData.repository_name}/workflows/Repository%20Health%20Check/badge.svg)`);
+          
+          // Technology-specific badges
+          if (repoData.is_powershell) {
+            badges.push('![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat&logo=powershell&logoColor=white)');
+          }
+          if (repoData.is_docker) {
+            badges.push('![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)');
+          }
+          
+          return badges.join('\n');
+        };
+        
+        repoData.badges = generateBadges();
+        
+        console.log('Repository data:', JSON.stringify(repoData, null, 2));
+        
+        // Base README template
+        const readmeTemplate = `# ${repoData.repository_name}
+
+${repoData.badges}
+
+> ${repoData.description}
+
+## 🚀 Overview
+
+This repository is part of the **a-ariff** automation suite, providing enterprise-grade solutions for modern IT infrastructure management.
+
+### 🔧 Technologies
+
+${repoData.technologies.map(tech => `- **${tech}**`).join('\n')}
+
+## 📋 Features
+
+- **Enterprise-Grade**: Production-ready automation solutions
+- **Security-First**: Built with security best practices
+- **Cross-Platform**: Compatible with Windows, macOS, and Linux
+- **Well-Documented**: Comprehensive documentation and examples
+- **Actively Maintained**: Regular updates and security patches
+
+## 🛠️ Installation
+
+\`\`\`bash
+git clone https://github.com/${repoData.owner}/${repoData.repository_name}.git
+cd ${repoData.repository_name}
+\`\`\`
+
+${repoData.is_powershell ? `
+### PowerShell Requirements
+
+\`\`\`powershell
+# Set execution policy (if needed)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Install required modules
+Install-Module -Name Microsoft.Graph -Force
+Install-Module -Name Microsoft.Graph.Intune -Force
+\`\`\`
+` : ''}
+
+${repoData.is_docker ? `
+### Docker Requirements
+
+\`\`\`bash
+# Build the Docker image
+docker build -t ${repoData.repository_name} .
+
+# Run with Docker Compose
+docker-compose up -d
+\`\`\`
+` : ''}
+
+## 📖 Usage
+
+Please refer to the documentation in the \`docs/\` directory for detailed usage instructions.
+
+## 🔒 Security
+
+This repository follows security best practices:
+
+- ✅ **Automated Security Scanning**: CodeQL and dependency scanning
+- ✅ **Secret Detection**: Automated secret scanning
+- ✅ **Dependency Updates**: Automated security patches via Dependabot
+- ✅ **Branch Protection**: Protected main branch with required reviews
+
+For security issues, please see [SECURITY.md](.github/SECURITY.md).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/${repoData.owner}/${repoData.repository_name}/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/${repoData.owner}/${repoData.repository_name}/discussions)
+- **Email**: [contact@aglobaltec.com](mailto:contact@aglobaltec.com)
+
+---
+
+<div align="center">
+
+**⭐ If you find this project helpful, please consider giving it a star!**
+
+Made with ❤️ by [${repoData.owner}](https://github.com/${repoData.owner})
+
+</div>
+
+---
+
+*Last updated: ${repoData.last_updated}*
+`;
+        
+        // Write the generated README
+        fs.writeFileSync('README_GENERATED.md', readmeTemplate);
+        console.log('✅ README generated successfully');
+        EOF
+        
+        # Run the generation script
+        node generate_readme.js
+
+    - name: Check for changes and create PR
+      run: |
+        # Check if README_GENERATED.md is different from README.md
+        if ! cmp -s README_GENERATED.md README.md 2>/dev/null; then
+          echo "README changes detected, creating pull request..."
+          
+          # Create a new branch for the update
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          branch_name="automated/readme-update-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$branch_name"
+          
+          # Replace the current README
+          mv README_GENERATED.md README.md
+          
+          git add README.md
+          git commit -m "docs: automated README update
+
+          - Updated repository metadata
+          - Refreshed badges and links
+          - Applied latest template standards
+          
+          Generated by Documentation Automation workflow"
+          
+          git push origin "$branch_name"
+          
+          # Create pull request using GitHub CLI
+          gh pr create \
+            --title "📝 Automated README Update" \
+            --body "## Automated README Update
+
+          This pull request contains automated updates to the README.md file:
+
+          - ✅ Updated repository metadata
+          - ✅ Refreshed status badges
+          - ✅ Applied latest documentation standards
+          - ✅ Ensured consistency across repositories
+
+          ### Changes Made:
+          - Repository description and metadata
+          - Status badges with current workflow states
+          - Technology stack detection and badges
+          - Standard sections and formatting
+
+          This is an automated update generated by the Documentation Automation workflow.
+
+          ---
+          *Generated by: Documentation Automation workflow*" \
+            --head "$branch_name" \
+            --base main \
+            --label "automated,documentation,maintenance"
+        else
+          echo "No README changes detected."
+          rm -f README_GENERATED.md
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docs-structure-validation:
+    name: Documentation Structure Validation
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Validate documentation structure
+      run: |
+        echo "Validating documentation structure..."
+        
+        # Check for essential documentation files
+        docs_files=(
+          "README.md"
+          "CONTRIBUTING.md"
+          "CHANGELOG.md"
+          ".github/SECURITY.md"
+        )
+        
+        missing_docs=()
+        
+        for file in "${docs_files[@]}"; do
+          if [ ! -f "$file" ]; then
+            missing_docs+=("$file")
+            echo "❌ Missing: $file"
+          else
+            echo "✅ Found: $file"
+          fi
+        done
+        
+        # Create missing documentation files from templates
+        if [ ${#missing_docs[@]} -gt 0 ]; then
+          echo "Creating missing documentation files..."
+          
+          for file in "${missing_docs[@]}"; do
+            case "$file" in
+              "CONTRIBUTING.md")
+                cat > CONTRIBUTING.md << 'EOF'
+        # Contributing to $(basename $(pwd))
+
+        Thank you for your interest in contributing! Please follow these guidelines.
+
+        ## How to Contribute
+
+        1. Fork the repository
+        2. Create a feature branch
+        3. Make your changes
+        4. Add tests if applicable
+        5. Submit a pull request
+
+        ## Code Standards
+
+        - Follow existing code style
+        - Add comments where necessary
+        - Update documentation as needed
+
+        ## Reporting Issues
+
+        Please use GitHub Issues to report bugs or request features.
+        EOF
+                ;;
+              "CHANGELOG.md")
+                cat > CHANGELOG.md << 'EOF'
+        # Changelog
+
+        All notable changes to this project will be documented in this file.
+
+        ## [Unreleased]
+
+        ### Added
+        - Initial release
+
+        ## Format
+
+        This changelog follows [Keep a Changelog](https://keepachangelog.com/) format.
+        EOF
+                ;;
+            esac
+          done
+        fi
+
+  markdown-linting:
+    name: Markdown Linting
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install markdownlint
+      run: npm install -g markdownlint-cli
+
+    - name: Lint markdown files
+      run: |
+        echo "Linting markdown files..."
+        markdownlint "**/*.md" --ignore node_modules || echo "Markdown linting issues found"
+      continue-on-error: true
+
+  generate-docs-report:
+    name: Generate Documentation Report
+    runs-on: ubuntu-latest
+    needs: [readme-template-sync, docs-structure-validation, markdown-linting]
+    if: always()
+    steps:
+    - name: Generate documentation report
+      run: |
+        echo "# Documentation Automation Report" > docs-report.md
+        echo "" >> docs-report.md
+        echo "**Repository:** ${{ github.repository }}" >> docs-report.md
+        echo "**Generated:** $(date -u)" >> docs-report.md
+        echo "" >> docs-report.md
+        
+        echo "## Status Summary" >> docs-report.md
+        echo "" >> docs-report.md
+        
+        if [ "${{ needs.readme-template-sync.result }}" = "success" ]; then
+          echo "✅ **README Template Sync:** COMPLETED" >> docs-report.md
+        else
+          echo "❌ **README Template Sync:** FAILED" >> docs-report.md
+        fi
+        
+        if [ "${{ needs.docs-structure-validation.result }}" = "success" ]; then
+          echo "✅ **Documentation Structure:** VALID" >> docs-report.md
+        else
+          echo "❌ **Documentation Structure:** ISSUES FOUND" >> docs-report.md
+        fi
+        
+        if [ "${{ needs.markdown-linting.result }}" = "success" ]; then
+          echo "✅ **Markdown Linting:** PASSED" >> docs-report.md
+        else
+          echo "⚠️ **Markdown Linting:** WARNINGS" >> docs-report.md
+        fi
+
+    - name: Upload documentation report
+      uses: actions/upload-artifact@v4
+      with:
+        name: documentation-report
+        path: docs-report.md
+        retention-days: 30

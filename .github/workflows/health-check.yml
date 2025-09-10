@@ -1,0 +1,305 @@
+name: Repository Health Check
+
+on:
+  schedule:
+    # Run health checks weekly on Sunday at 3 AM UTC
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'README.md'
+      - 'docs/**'
+      - '.github/**'
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  link-health-check:
+    name: Link Health Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install markdown-link-check
+      run: npm install -g markdown-link-check
+
+    - name: Check links in README
+      run: |
+        echo "Checking links in documentation files..."
+        find . -name "*.md" -not -path "./node_modules/*" -not -path "./.git/*" | while read file; do
+          echo "Checking links in: $file"
+          markdown-link-check "$file" --config .github/config/mlc_config.json || echo "Issues found in $file"
+        done
+      continue-on-error: true
+
+    - name: Run lychee link checker (comprehensive)
+      uses: lycheeverse/lychee-action@v2
+      with:
+        args: --no-progress --verbose --accept 200,999,429 --max-redirects 5 --retry-wait-time 3 --timeout 30 --exclude-mail --exclude-private "**/*.md" "**/*.html" "**/*.rst"
+        fail: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      continue-on-error: true
+
+  badge-validation:
+    name: Badge Validation
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Validate badges in README
+      run: |
+        echo "Validating badges in README files..."
+        
+        # Check for common outdated badge patterns
+        echo "Checking for outdated or problematic badges..."
+        
+        find . -name "*.md" -exec grep -l "badge" {} \; | while read file; do
+          echo "Checking badges in: $file"
+          
+          # Check for insecure HTTP badges
+          if grep -q "http://.*badge" "$file"; then
+            echo "⚠️  Found insecure HTTP badges in $file"
+          fi
+          
+          # Check for deprecated shields.io patterns
+          if grep -q "shields.io.*svg" "$file"; then
+            echo "ℹ️  Found shields.io badges in $file"
+          fi
+          
+          # Check for GitHub workflow badges
+          if grep -q "github.com.*workflows.*badge.svg" "$file"; then
+            echo "✅ Found GitHub workflow badges in $file"
+          fi
+        done
+
+  repository-structure-check:
+    name: Repository Structure Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check essential files
+      run: |
+        echo "Checking for essential repository files..."
+        
+        # Essential files checklist
+        files_to_check=(
+          "README.md"
+          "LICENSE"
+          ".gitignore"
+          ".github/workflows"
+        )
+        
+        missing_files=()
+        
+        for file in "${files_to_check[@]}"; do
+          if [ ! -e "$file" ]; then
+            missing_files+=("$file")
+            echo "❌ Missing: $file"
+          else
+            echo "✅ Found: $file"
+          fi
+        done
+        
+        if [ ${#missing_files[@]} -gt 0 ]; then
+          echo "::warning title=Missing Essential Files::The following essential files are missing: ${missing_files[*]}"
+        fi
+
+    - name: Check README quality
+      run: |
+        echo "Checking README quality..."
+        
+        if [ -f "README.md" ]; then
+          # Check README length
+          lines=$(wc -l < README.md)
+          if [ $lines -lt 10 ]; then
+            echo "::warning title=Short README::README.md is quite short ($lines lines). Consider adding more documentation."
+          fi
+          
+          # Check for common sections
+          sections=("installation" "usage" "contributing" "license")
+          for section in "${sections[@]}"; do
+            if grep -qi "$section" README.md; then
+              echo "✅ Found section: $section"
+            else
+              echo "ℹ️  Consider adding section: $section"
+            fi
+          done
+        fi
+
+  security-files-check:
+    name: Security Files Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check security-related files
+      run: |
+        echo "Checking for security-related files..."
+        
+        security_files=(
+          ".github/SECURITY.md"
+          "SECURITY.md"
+          ".github/CODEOWNERS"
+          "CODEOWNERS"
+        )
+        
+        for file in "${security_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ Found: $file"
+          else
+            echo "ℹ️  Consider adding: $file"
+          fi
+        done
+
+  code-quality-check:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check for code quality configurations
+      run: |
+        echo "Checking for code quality configurations..."
+        
+        # Language-specific quality configs
+        configs=(
+          ".eslintrc*:JavaScript/TypeScript"
+          "pyproject.toml:Python"
+          "setup.cfg:Python"
+          ".flake8:Python"
+          "Cargo.toml:Rust"
+          "go.mod:Go"
+          "pom.xml:Maven/Java"
+          "build.gradle*:Gradle/Java"
+          "package.json:Node.js"
+          "composer.json:PHP"
+        )
+        
+        for config in "${configs[@]}"; do
+          file="${config%:*}"
+          lang="${config#*:}"
+          
+          if ls $file 1> /dev/null 2>&1; then
+            echo "✅ Found $lang config: $file"
+          fi
+        done
+
+  generate-health-report:
+    name: Generate Health Report
+    runs-on: ubuntu-latest
+    needs: [link-health-check, badge-validation, repository-structure-check, security-files-check, code-quality-check]
+    if: always()
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Generate comprehensive health report
+      run: |
+        echo "# Repository Health Report" > health-report.md
+        echo "" >> health-report.md
+        echo "**Repository:** ${{ github.repository }}" >> health-report.md
+        echo "**Generated:** $(date -u)" >> health-report.md
+        echo "**Branch:** ${{ github.ref_name }}" >> health-report.md
+        echo "" >> health-report.md
+        
+        echo "## Health Check Results" >> health-report.md
+        echo "" >> health-report.md
+        
+        # Check job statuses
+        if [ "${{ needs.link-health-check.result }}" = "success" ]; then
+          echo "✅ **Link Health Check:** PASSED" >> health-report.md
+        else
+          echo "❌ **Link Health Check:** FAILED" >> health-report.md
+        fi
+        
+        if [ "${{ needs.badge-validation.result }}" = "success" ]; then
+          echo "✅ **Badge Validation:** PASSED" >> health-report.md
+        else
+          echo "❌ **Badge Validation:** FAILED" >> health-report.md
+        fi
+        
+        if [ "${{ needs.repository-structure-check.result }}" = "success" ]; then
+          echo "✅ **Repository Structure:** PASSED" >> health-report.md
+        else
+          echo "❌ **Repository Structure:** FAILED" >> health-report.md
+        fi
+        
+        if [ "${{ needs.security-files-check.result }}" = "success" ]; then
+          echo "✅ **Security Files Check:** PASSED" >> health-report.md
+        else
+          echo "❌ **Security Files Check:** FAILED" >> health-report.md
+        fi
+        
+        if [ "${{ needs.code-quality-check.result }}" = "success" ]; then
+          echo "✅ **Code Quality Check:** PASSED" >> health-report.md
+        else
+          echo "❌ **Code Quality Check:** FAILED" >> health-report.md
+        fi
+        
+        echo "" >> health-report.md
+        echo "## Recommendations" >> health-report.md
+        echo "" >> health-report.md
+        echo "- Ensure all links are working and up-to-date" >> health-report.md
+        echo "- Keep badges current and use HTTPS" >> health-report.md
+        echo "- Maintain essential repository files" >> health-report.md
+        echo "- Add security documentation if missing" >> health-report.md
+        echo "- Configure appropriate code quality tools" >> health-report.md
+
+    - name: Upload health report
+      uses: actions/upload-artifact@v4
+      with:
+        name: repository-health-report
+        path: health-report.md
+        retention-days: 90
+
+    - name: Create issue on health check failure
+      if: failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = 'Repository Health Check Failed';
+          const body = `
+          ## Repository Health Check Failed
+          
+          The automated repository health check has detected issues that need attention.
+          
+          **Failed on:** ${new Date().toISOString()}
+          **Branch:** ${{ github.ref_name }}
+          **Workflow:** ${{ github.workflow }}
+          **Run:** ${{ github.run_number }}
+          
+          Please review the workflow run details and the health report artifact for specific issues.
+          
+          **Next Steps:**
+          1. Review the workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          2. Download and review the health report artifact
+          3. Address any identified issues
+          4. Re-run the health check workflow
+          
+          ---
+          *This issue was automatically created by the Repository Health Check workflow.*
+          `;
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['automated', 'health-check', 'maintenance']
+          });

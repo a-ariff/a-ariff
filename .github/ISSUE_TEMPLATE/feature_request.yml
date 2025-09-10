@@ -1,0 +1,171 @@
+name: 🚀 Feature Request
+description: Suggest a new feature or enhancement
+title: "[FEATURE] Brief description of the feature"
+labels: ["enhancement", "needs-triage"]
+assignees:
+  - a-ariff
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide detailed information to help us understand your request.
+
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Pre-submission Checklist
+      description: Please verify you have completed these steps
+      options:
+        - label: I have searched existing issues/features to ensure this is not a duplicate
+          required: true
+        - label: I have read the project documentation
+          required: true
+        - label: This feature aligns with the project's goals
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A brief summary of the feature you're requesting
+      placeholder: Provide a clear, concise summary of the feature
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: |
+        Describe the problem you're facing that this feature would solve.
+        Is your feature request related to a problem? Please describe.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like
+      placeholder: |
+        A clear and concise description of what you want to happen.
+        How should this feature work?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions?
+      placeholder: |
+        Describe any alternative solutions or features you've considered.
+        Are there existing workarounds?
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What category does this feature fall into?
+      options:
+        - PowerShell Script Enhancement
+        - New PowerShell Module
+        - Azure Automation
+        - Intune Management
+        - Security Enhancement
+        - Documentation Improvement
+        - DevOps/CI-CD Enhancement
+        - Docker/Container Feature
+        - Network Automation
+        - Monitoring/Reporting
+        - Configuration Management
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Critical - Blocking current work
+        - High - Would significantly improve workflow
+        - Medium - Nice to have improvement
+        - Low - Minor enhancement
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: environments
+    attributes:
+      label: Target Environments
+      description: Which environments should this feature support?
+      options:
+        - label: Windows 10/11
+        - label: Windows Server
+        - label: macOS
+        - label: Linux
+        - label: Azure Cloud
+        - label: On-premises
+        - label: Hybrid environments
+        - label: Docker containers
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use Cases
+      description: Describe specific use cases for this feature
+      placeholder: |
+        Provide concrete examples of how this feature would be used:
+        1. Use case 1: ...
+        2. Use case 2: ...
+        3. Use case 3: ...
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What would constitute a successful implementation?
+      placeholder: |
+        Define clear acceptance criteria:
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Notes
+      description: Any technical considerations or implementation ideas?
+      placeholder: |
+        If you have technical insights or implementation suggestions:
+        - Dependencies that might be needed
+        - Technical challenges to consider
+        - Integration points
+        - Performance considerations
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      description: Would you like to contribute to this feature?
+      options:
+        - label: I would like to implement this feature
+        - label: I can help with testing/validation
+        - label: I can provide subject matter expertise
+        - label: I can help with documentation
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional context, mockups, or examples
+      placeholder: |
+        Add any other context about the feature request:
+        - Screenshots or mockups
+        - Links to relevant documentation
+        - Examples from other projects
+        - Business justification

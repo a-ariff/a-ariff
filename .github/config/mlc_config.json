@@ -1,0 +1,23 @@
+{
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    ".git/"
+  ],
+  "httpStatusCodes": {
+    "429": "warn"
+  },
+  "timeout": "30s",
+  "retryCount": 3,
+  "retryOn429": true,
+  "excludePatterns": [
+    "mailto:",
+    "tel:",
+    "ftp:",
+    "file:",
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0"
+  ]
+}
