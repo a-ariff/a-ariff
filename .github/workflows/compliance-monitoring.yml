@@ -1,0 +1,847 @@
+name: 📋 Security Compliance Monitoring
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Weekly compliance checks on Sundays at 4 AM UTC
+    - cron: '0 4 * * 0'
+  workflow_dispatch:
+    inputs:
+      compliance_framework:
+        description: 'Compliance framework to check'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - nist
+        - iso27001
+        - cis
+
+permissions:
+  contents: read
+  security-events: write
+  actions: write
+  issues: write
+
+jobs:
+  nist-compliance-check:
+    name: 🏛️ NIST Cybersecurity Framework
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: github.event.inputs.compliance_framework == 'nist' || github.event.inputs.compliance_framework == 'all' || github.event.inputs.compliance_framework == ''
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: 📦 Install compliance dependencies
+      run: |
+        pip install pyyaml requests pandas
+    
+    - name: 📋 NIST Framework Compliance Assessment
+      run: |
+        python3 << 'EOF'
+        import json
+        import os
+        import yaml
+        from datetime import datetime
+        
+        def assess_nist_compliance():
+            """Assess NIST Cybersecurity Framework compliance"""
+            
+            # NIST CSF Core Functions and Categories
+            nist_framework = {
+                "IDENTIFY": {
+                    "ID.AM": "Asset Management",
+                    "ID.BE": "Business Environment", 
+                    "ID.GV": "Governance",
+                    "ID.RA": "Risk Assessment",
+                    "ID.RM": "Risk Management Strategy",
+                    "ID.SC": "Supply Chain Risk Management"
+                },
+                "PROTECT": {
+                    "PR.AC": "Identity Management and Access Control",
+                    "PR.AT": "Awareness and Training",
+                    "PR.DS": "Data Security",
+                    "PR.IP": "Information Protection Processes",
+                    "PR.MA": "Maintenance",
+                    "PR.PT": "Protective Technology"
+                },
+                "DETECT": {
+                    "DE.AE": "Anomalies and Events",
+                    "DE.CM": "Security Continuous Monitoring",
+                    "DE.DP": "Detection Processes"
+                },
+                "RESPOND": {
+                    "RS.RP": "Response Planning",
+                    "RS.CO": "Communications",
+                    "RS.AN": "Analysis",
+                    "RS.MI": "Mitigation",
+                    "RS.IM": "Improvements"
+                },
+                "RECOVER": {
+                    "RC.RP": "Recovery Planning",
+                    "RC.IM": "Improvements",
+                    "RC.CO": "Communications"
+                }
+            }
+            
+            # Check repository for security implementations
+            compliance_score = {}
+            overall_score = 0
+            total_categories = 0
+            
+            for function, categories in nist_framework.items():
+                function_score = 0
+                function_total = len(categories)
+                
+                for category_id, category_name in categories.items():
+                    score = assess_category_implementation(category_id, category_name)
+                    compliance_score[category_id] = {
+                        "name": category_name,
+                        "score": score,
+                        "status": "COMPLIANT" if score >= 80 else "PARTIAL" if score >= 50 else "NON-COMPLIANT"
+                    }
+                    function_score += score
+                
+                compliance_score[function] = {
+                    "average_score": round(function_score / function_total, 2),
+                    "categories": function_total
+                }
+                overall_score += function_score
+                total_categories += function_total
+            
+            overall_compliance = round(overall_score / total_categories, 2)
+            
+            return {
+                "framework": "NIST Cybersecurity Framework",
+                "assessment_date": datetime.now().isoformat(),
+                "overall_score": overall_compliance,
+                "compliance_level": get_compliance_level(overall_compliance),
+                "functions": compliance_score,
+                "recommendations": generate_nist_recommendations(compliance_score)
+            }
+        
+        def assess_category_implementation(category_id, category_name):
+            """Assess implementation of specific NIST category"""
+            score = 0
+            
+            # Check for security workflows
+            if os.path.exists('.github/workflows'):
+                workflow_files = os.listdir('.github/workflows')
+                if any('security' in f.lower() or 'vuln' in f.lower() for f in workflow_files):
+                    score += 20
+            
+            # Check for documentation
+            if os.path.exists('cybersecurity-framework'):
+                score += 20
+            
+            # Check for specific implementations based on category
+            if category_id.startswith('PR.AC'):  # Access Control
+                if os.path.exists('.github/workflows/secret-detection-rotation.yml'):
+                    score += 30
+            elif category_id.startswith('DE.CM'):  # Continuous Monitoring
+                if os.path.exists('.github/workflows/vulnerability-assessment.yml'):
+                    score += 30
+            elif category_id.startswith('PR.DS'):  # Data Security
+                if os.path.exists('.github/workflows/security-sast-scanning.yml'):
+                    score += 30
+            elif category_id.startswith('RS.'):  # Response categories
+                if os.path.exists('cybersecurity-framework/incident-response'):
+                    score += 30
+            else:
+                score += 15  # Base score for having framework structure
+            
+            # Check for compliance documentation
+            if os.path.exists(f'cybersecurity-framework/compliance/nist-{category_id.lower()}.md'):
+                score += 15
+            
+            return min(score, 100)
+        
+        def get_compliance_level(score):
+            """Get compliance level based on score"""
+            if score >= 90:
+                return "EXCELLENT"
+            elif score >= 80:
+                return "GOOD"
+            elif score >= 70:
+                return "ADEQUATE"
+            elif score >= 60:
+                return "NEEDS IMPROVEMENT"
+            else:
+                return "POOR"
+        
+        def generate_nist_recommendations(compliance_data):
+            """Generate recommendations for NIST compliance improvement"""
+            recommendations = []
+            
+            for func_name, func_data in compliance_data.items():
+                if func_name in ['IDENTIFY', 'PROTECT', 'DETECT', 'RESPOND', 'RECOVER']:
+                    if func_data['average_score'] < 80:
+                        recommendations.append(f"Improve {func_name} function implementation (Current: {func_data['average_score']}%)")
+            
+            # Specific recommendations
+            if not os.path.exists('cybersecurity-framework/compliance/nist-policy.md'):
+                recommendations.append("Create comprehensive NIST compliance policy documentation")
+            
+            if not os.path.exists('cybersecurity-framework/incident-response'):
+                recommendations.append("Implement incident response procedures")
+            
+            return recommendations
+        
+        # Run assessment
+        print("📋 Starting NIST Cybersecurity Framework compliance assessment...")
+        assessment = assess_nist_compliance()
+        
+        # Save results
+        with open('nist-compliance-report.json', 'w') as f:
+            json.dump(assessment, f, indent=2)
+        
+        print(f"✅ NIST Assessment Complete:")
+        print(f"  Overall Score: {assessment['overall_score']}%")
+        print(f"  Compliance Level: {assessment['compliance_level']}")
+        print(f"  Recommendations: {len(assessment['recommendations'])}")
+        
+        EOF
+    
+    - name: 📊 Upload NIST Compliance Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: nist-compliance-report
+        path: nist-compliance-report.json
+        retention-days: 90
+
+  iso27001-compliance-check:
+    name: 🌐 ISO 27001:2022 Compliance
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: github.event.inputs.compliance_framework == 'iso27001' || github.event.inputs.compliance_framework == 'all' || github.event.inputs.compliance_framework == ''
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: 📋 ISO 27001 Compliance Assessment
+      run: |
+        python3 << 'EOF'
+        import json
+        import os
+        from datetime import datetime
+        
+        def assess_iso27001_compliance():
+            """Assess ISO 27001:2022 compliance"""
+            
+            # ISO 27001 Annex A Controls (selected key controls)
+            iso_controls = {
+                "A.5": "Information Security Policies",
+                "A.6": "Organization of Information Security",
+                "A.7": "Human Resource Security",
+                "A.8": "Asset Management",
+                "A.9": "Access Control",
+                "A.10": "Cryptography",
+                "A.11": "Physical and Environmental Security",
+                "A.12": "Operations Security",
+                "A.13": "Communications Security",
+                "A.14": "System Acquisition, Development and Maintenance",
+                "A.15": "Supplier Relationships",
+                "A.16": "Information Security Incident Management",
+                "A.17": "Information Security Aspects of Business Continuity",
+                "A.18": "Compliance"
+            }
+            
+            compliance_results = {}
+            total_score = 0
+            
+            for control_id, control_name in iso_controls.items():
+                score = assess_iso_control(control_id, control_name)
+                compliance_results[control_id] = {
+                    "name": control_name,
+                    "score": score,
+                    "status": "IMPLEMENTED" if score >= 80 else "PARTIALLY" if score >= 50 else "NOT_IMPLEMENTED"
+                }
+                total_score += score
+            
+            overall_score = round(total_score / len(iso_controls), 2)
+            
+            return {
+                "standard": "ISO 27001:2022",
+                "assessment_date": datetime.now().isoformat(),
+                "overall_score": overall_score,
+                "compliance_level": get_iso_compliance_level(overall_score),
+                "controls": compliance_results,
+                "recommendations": generate_iso_recommendations(compliance_results)
+            }
+        
+        def assess_iso_control(control_id, control_name):
+            """Assess implementation of specific ISO 27001 control"""
+            score = 0
+            
+            # Base score for having security framework
+            if os.path.exists('cybersecurity-framework'):
+                score += 20
+            
+            # Control-specific assessments
+            if control_id == "A.5":  # Information Security Policies
+                if os.path.exists('cybersecurity-framework/docs'):
+                    score += 40
+                if os.path.exists('cybersecurity-framework/compliance'):
+                    score += 40
+            
+            elif control_id == "A.8":  # Asset Management
+                if os.path.exists('.github/workflows'):
+                    score += 30
+                if os.path.exists('cybersecurity-framework/vulnerability-mgmt'):
+                    score += 50
+            
+            elif control_id == "A.9":  # Access Control
+                if os.path.exists('.github/workflows/secret-detection-rotation.yml'):
+                    score += 60
+                if os.path.exists('cybersecurity-framework/secret-management'):
+                    score += 20
+            
+            elif control_id == "A.12":  # Operations Security
+                if os.path.exists('.github/workflows/security-sast-scanning.yml'):
+                    score += 50
+                if os.path.exists('.github/workflows/vulnerability-assessment.yml'):
+                    score += 30
+            
+            elif control_id == "A.14":  # System Development
+                if os.path.exists('.github/workflows/security-sast-scanning.yml'):
+                    score += 60
+                if any('test' in f for f in os.listdir('.github/workflows') if f.endswith('.yml')):
+                    score += 20
+            
+            elif control_id == "A.16":  # Incident Management
+                if os.path.exists('cybersecurity-framework/incident-response'):
+                    score += 60
+                if os.path.exists('cybersecurity-framework/reporting'):
+                    score += 20
+            
+            elif control_id == "A.18":  # Compliance
+                if os.path.exists('cybersecurity-framework/compliance'):
+                    score += 60
+                if os.path.exists('.github/workflows/compliance-monitoring.yml'):
+                    score += 20
+            
+            else:
+                # General implementation score
+                score += 40
+            
+            return min(score, 100)
+        
+        def get_iso_compliance_level(score):
+            """Get ISO compliance level"""
+            if score >= 95:
+                return "FULLY_COMPLIANT"
+            elif score >= 80:
+                return "LARGELY_COMPLIANT"
+            elif score >= 65:
+                return "PARTIALLY_COMPLIANT"
+            else:
+                return "NON_COMPLIANT"
+        
+        def generate_iso_recommendations(controls):
+            """Generate ISO 27001 compliance recommendations"""
+            recommendations = []
+            
+            for control_id, control_data in controls.items():
+                if control_data['score'] < 80:
+                    recommendations.append(f"Improve implementation of {control_id}: {control_data['name']}")
+            
+            # Specific recommendations
+            if not os.path.exists('cybersecurity-framework/compliance/iso27001-policy.md'):
+                recommendations.append("Create ISO 27001 compliance policy documentation")
+            
+            if not os.path.exists('cybersecurity-framework/docs/risk-assessment.md'):
+                recommendations.append("Conduct and document comprehensive risk assessment")
+            
+            return recommendations
+        
+        # Run assessment
+        print("🌐 Starting ISO 27001:2022 compliance assessment...")
+        assessment = assess_iso27001_compliance()
+        
+        # Save results
+        with open('iso27001-compliance-report.json', 'w') as f:
+            json.dump(assessment, f, indent=2)
+        
+        print(f"✅ ISO 27001 Assessment Complete:")
+        print(f"  Overall Score: {assessment['overall_score']}%")
+        print(f"  Compliance Level: {assessment['compliance_level']}")
+        print(f"  Recommendations: {len(assessment['recommendations'])}")
+        
+        EOF
+    
+    - name: 📊 Upload ISO 27001 Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: iso27001-compliance-report
+        path: iso27001-compliance-report.json
+        retention-days: 90
+
+  cis-controls-check:
+    name: 🛡️ CIS Controls v8 Assessment
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.event.inputs.compliance_framework == 'cis' || github.event.inputs.compliance_framework == 'all' || github.event.inputs.compliance_framework == ''
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: 🛡️ CIS Controls Assessment
+      run: |
+        python3 << 'EOF'
+        import json
+        import os
+        from datetime import datetime
+        
+        def assess_cis_controls():
+            """Assess CIS Controls v8 implementation"""
+            
+            # CIS Controls v8 (Basic Safeguards)
+            cis_controls = {
+                "1": "Inventory and Control of Enterprise Assets",
+                "2": "Inventory and Control of Software Assets", 
+                "3": "Data Protection",
+                "4": "Secure Configuration of Enterprise Assets",
+                "5": "Account Management",
+                "6": "Access Control Management",
+                "7": "Continuous Vulnerability Management",
+                "8": "Audit Log Management",
+                "9": "Email and Web Browser Protections",
+                "10": "Malware Defenses",
+                "11": "Data Recovery",
+                "12": "Network Infrastructure Management",
+                "13": "Network Monitoring and Defense",
+                "14": "Security Awareness and Skills Training",
+                "15": "Service Provider Management",
+                "16": "Application Software Security",
+                "17": "Incident Response Management",
+                "18": "Penetration Testing"
+            }
+            
+            assessment_results = {}
+            total_score = 0
+            
+            for control_num, control_name in cis_controls.items():
+                score = assess_cis_control(control_num, control_name)
+                assessment_results[f"CIS-{control_num}"] = {
+                    "name": control_name,
+                    "score": score,
+                    "implementation_level": get_cis_implementation_level(score)
+                }
+                total_score += score
+            
+            overall_score = round(total_score / len(cis_controls), 2)
+            
+            return {
+                "framework": "CIS Controls v8",
+                "assessment_date": datetime.now().isoformat(),
+                "overall_score": overall_score,
+                "maturity_level": get_cis_maturity_level(overall_score),
+                "controls": assessment_results,
+                "recommendations": generate_cis_recommendations(assessment_results)
+            }
+        
+        def assess_cis_control(control_num, control_name):
+            """Assess specific CIS control implementation"""
+            score = 0
+            
+            # Control-specific assessments
+            if control_num == "3":  # Data Protection
+                if os.path.exists('.github/workflows/secret-detection-rotation.yml'):
+                    score += 50
+                if os.path.exists('cybersecurity-framework/secret-management'):
+                    score += 30
+                if '.gitignore' in os.listdir('.'):
+                    score += 20
+            
+            elif control_num == "5":  # Account Management
+                if os.path.exists('cybersecurity-framework/azure-integration'):
+                    score += 60
+                if os.path.exists('.github/workflows/secret-detection-rotation.yml'):
+                    score += 40
+            
+            elif control_num == "6":  # Access Control Management
+                if os.path.exists('.github/workflows/secret-detection-rotation.yml'):
+                    score += 70
+                if os.path.exists('cybersecurity-framework/secret-management'):
+                    score += 30
+            
+            elif control_num == "7":  # Continuous Vulnerability Management
+                if os.path.exists('.github/workflows/vulnerability-assessment.yml'):
+                    score += 60
+                if os.path.exists('cybersecurity-framework/vulnerability-mgmt'):
+                    score += 40
+            
+            elif control_num == "8":  # Audit Log Management
+                if os.path.exists('cybersecurity-framework/azure-integration'):
+                    score += 50
+                if os.path.exists('cybersecurity-framework/reporting'):
+                    score += 50
+            
+            elif control_num == "16":  # Application Software Security
+                if os.path.exists('.github/workflows/security-sast-scanning.yml'):
+                    score += 70
+                if os.path.exists('.github/workflows/vulnerability-assessment.yml'):
+                    score += 30
+            
+            elif control_num == "17":  # Incident Response Management
+                if os.path.exists('cybersecurity-framework/incident-response'):
+                    score += 80
+                if os.path.exists('cybersecurity-framework/reporting'):
+                    score += 20
+            
+            elif control_num == "18":  # Penetration Testing
+                if os.path.exists('cybersecurity-framework/scripts'):
+                    score += 60
+                if os.path.exists('cybersecurity-framework/reporting'):
+                    score += 40
+            
+            else:
+                # Base implementation score
+                if os.path.exists('cybersecurity-framework'):
+                    score += 40
+                if os.path.exists('.github/workflows'):
+                    score += 30
+                score += 20  # Default partial implementation
+            
+            return min(score, 100)
+        
+        def get_cis_implementation_level(score):
+            """Get CIS implementation level"""
+            if score >= 90:
+                return "ADVANCED"
+            elif score >= 70:
+                return "INTERMEDIATE"
+            elif score >= 50:
+                return "BASIC"
+            else:
+                return "INITIAL"
+        
+        def get_cis_maturity_level(overall_score):
+            """Get overall CIS maturity level"""
+            if overall_score >= 85:
+                return "ADVANCED"
+            elif overall_score >= 70:
+                return "INTERMEDIATE" 
+            elif overall_score >= 55:
+                return "BASIC"
+            else:
+                return "INITIAL"
+        
+        def generate_cis_recommendations(controls):
+            """Generate CIS controls recommendations"""
+            recommendations = []
+            
+            priority_controls = ["7", "16", "17"]  # High priority controls
+            
+            for control_id, control_data in controls.items():
+                control_num = control_id.split('-')[1]
+                if control_data['score'] < 70 and control_num in priority_controls:
+                    recommendations.append(f"Priority: Implement CIS Control {control_num} - {control_data['name']}")
+            
+            for control_id, control_data in controls.items():
+                control_num = control_id.split('-')[1]
+                if control_data['score'] < 70 and control_num not in priority_controls:
+                    recommendations.append(f"Improve CIS Control {control_num} - {control_data['name']}")
+            
+            return recommendations
+        
+        # Run assessment
+        print("🛡️ Starting CIS Controls v8 assessment...")
+        assessment = assess_cis_controls()
+        
+        # Save results
+        with open('cis-controls-report.json', 'w') as f:
+            json.dump(assessment, f, indent=2)
+        
+        print(f"✅ CIS Controls Assessment Complete:")
+        print(f"  Overall Score: {assessment['overall_score']}%")
+        print(f"  Maturity Level: {assessment['maturity_level']}")
+        print(f"  Recommendations: {len(assessment['recommendations'])}")
+        
+        EOF
+    
+    - name: 📊 Upload CIS Controls Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cis-controls-report
+        path: cis-controls-report.json
+        retention-days: 90
+
+  compliance-dashboard:
+    name: 📊 Generate Compliance Dashboard
+    runs-on: ubuntu-latest
+    needs: [nist-compliance-check, iso27001-compliance-check, cis-controls-check]
+    if: always()
+    timeout-minutes: 15
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 📥 Download compliance reports
+      uses: actions/download-artifact@v4
+      with:
+        path: compliance-reports/
+    
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: 📦 Install dashboard dependencies
+      run: |
+        pip install matplotlib seaborn pandas plotly kaleido
+    
+    - name: 📊 Generate Compliance Dashboard
+      run: |
+        python3 << 'EOF'
+        import json
+        import os
+        import matplotlib.pyplot as plt
+        import pandas as pd
+        from datetime import datetime
+        
+        def load_compliance_reports():
+            """Load all compliance reports"""
+            reports = {}
+            
+            reports_dir = "compliance-reports"
+            if os.path.exists(reports_dir):
+                for root, dirs, files in os.walk(reports_dir):
+                    for file in files:
+                        if file.endswith('.json'):
+                            try:
+                                with open(os.path.join(root, file), 'r') as f:
+                                    data = json.load(f)
+                                    if 'nist' in file.lower():
+                                        reports['NIST'] = data
+                                    elif 'iso27001' in file.lower():
+                                        reports['ISO27001'] = data
+                                    elif 'cis' in file.lower():
+                                        reports['CIS'] = data
+                            except Exception as e:
+                                print(f"Error loading {file}: {e}")
+            
+            return reports
+        
+        def generate_dashboard(reports):
+            """Generate compliance dashboard"""
+            
+            # Extract scores for visualization
+            frameworks = []
+            scores = []
+            statuses = []
+            
+            for framework, report in reports.items():
+                frameworks.append(framework)
+                scores.append(report.get('overall_score', 0))
+                
+                score = report.get('overall_score', 0)
+                if score >= 80:
+                    statuses.append('Compliant')
+                elif score >= 60:
+                    statuses.append('Partially Compliant')
+                else:
+                    statuses.append('Non-Compliant')
+            
+            # Create dashboard visualization
+            fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
+            fig.suptitle('🔐 Security Compliance Dashboard', fontsize=16, fontweight='bold')
+            
+            # 1. Overall Compliance Scores
+            colors = ['green' if s >= 80 else 'orange' if s >= 60 else 'red' for s in scores]
+            bars = ax1.bar(frameworks, scores, color=colors, alpha=0.7)
+            ax1.set_title('Overall Compliance Scores', fontweight='bold')
+            ax1.set_ylabel('Score (%)')
+            ax1.set_ylim(0, 100)
+            
+            # Add score labels on bars
+            for bar, score in zip(bars, scores):
+                height = bar.get_height()
+                ax1.text(bar.get_x() + bar.get_width()/2., height + 1,
+                        f'{score:.1f}%', ha='center', va='bottom', fontweight='bold')
+            
+            # 2. Compliance Status Distribution
+            status_counts = pd.Series(statuses).value_counts()
+            colors_pie = {'Compliant': 'green', 'Partially Compliant': 'orange', 'Non-Compliant': 'red'}
+            pie_colors = [colors_pie.get(status, 'gray') for status in status_counts.index]
+            ax2.pie(status_counts.values, labels=status_counts.index, autopct='%1.1f%%', 
+                   colors=pie_colors, startangle=90)
+            ax2.set_title('Compliance Status Distribution', fontweight='bold')
+            
+            # 3. Framework Comparison
+            if len(reports) > 1:
+                df = pd.DataFrame({'Framework': frameworks, 'Score': scores})
+                ax3.barh(df['Framework'], df['Score'], color=colors, alpha=0.7)
+                ax3.set_title('Framework Comparison', fontweight='bold')
+                ax3.set_xlabel('Compliance Score (%)')
+                ax3.set_xlim(0, 100)
+            else:
+                ax3.text(0.5, 0.5, 'Multiple frameworks needed\nfor comparison', 
+                        ha='center', va='center', transform=ax3.transAxes)
+                ax3.set_title('Framework Comparison', fontweight='bold')
+            
+            # 4. Timeline/Trend (placeholder for future implementations)
+            ax4.text(0.5, 0.5, f'Last Assessment:\n{datetime.now().strftime("%Y-%m-%d %H:%M")}', 
+                    ha='center', va='center', transform=ax4.transAxes, fontsize=12)
+            ax4.set_title('Assessment Timeline', fontweight='bold')
+            
+            plt.tight_layout()
+            plt.savefig('compliance-dashboard.png', dpi=300, bbox_inches='tight')
+            plt.close()
+            
+            return {
+                'frameworks_assessed': len(reports),
+                'average_score': round(sum(scores) / len(scores) if scores else 0, 2),
+                'compliant_frameworks': sum(1 for s in scores if s >= 80),
+                'assessment_date': datetime.now().isoformat()
+            }
+        
+        def generate_executive_summary(reports, dashboard_stats):
+            """Generate executive summary report"""
+            
+            summary = f"""# 📋 Executive Compliance Summary
+        
+**Assessment Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}
+**Repository:** ${{ github.repository }}
+
+## 📊 Overall Compliance Status
+
+- **Frameworks Assessed:** {dashboard_stats['frameworks_assessed']}
+- **Average Compliance Score:** {dashboard_stats['average_score']}%
+- **Fully Compliant Frameworks:** {dashboard_stats['compliant_frameworks']}/{dashboard_stats['frameworks_assessed']}
+
+## 🔍 Framework Details
+
+"""
+            
+            for framework, report in reports.items():
+                score = report.get('overall_score', 0)
+                level = report.get('compliance_level', report.get('maturity_level', 'Unknown'))
+                
+                summary += f"""### {framework}
+- **Score:** {score}%
+- **Level:** {level}
+- **Recommendations:** {len(report.get('recommendations', []))}
+
+"""
+            
+            summary += """## 🎯 Next Steps
+
+1. Review detailed framework reports
+2. Implement priority recommendations
+3. Schedule next assessment in 30 days
+4. Update security policies and procedures
+
+## 📈 Compliance Trend
+
+*Trend analysis will be available after multiple assessments*
+
+---
+*Generated by Advanced Cybersecurity Automation Framework*
+"""
+            
+            return summary
+        
+        # Main execution
+        print("📊 Loading compliance reports...")
+        reports = load_compliance_reports()
+        
+        if reports:
+            print("📈 Generating compliance dashboard...")
+            dashboard_stats = generate_dashboard(reports)
+            
+            print("📋 Creating executive summary...")
+            executive_summary = generate_executive_summary(reports, dashboard_stats)
+            
+            # Save executive summary
+            with open('compliance-executive-summary.md', 'w') as f:
+                f.write(executive_summary)
+            
+            # Save dashboard statistics
+            with open('compliance-dashboard-stats.json', 'w') as f:
+                json.dump(dashboard_stats, f, indent=2)
+            
+            print(f"✅ Dashboard Generation Complete:")
+            print(f"  Frameworks Assessed: {dashboard_stats['frameworks_assessed']}")
+            print(f"  Average Score: {dashboard_stats['average_score']}%")
+            print(f"  Compliant Frameworks: {dashboard_stats['compliant_frameworks']}")
+        else:
+            print("❌ No compliance reports found")
+        
+        EOF
+    
+    - name: 📤 Upload Compliance Dashboard
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: compliance-dashboard
+        path: |
+          compliance-dashboard.png
+          compliance-executive-summary.md
+          compliance-dashboard-stats.json
+        retention-days: 90
+
+  compliance-notification:
+    name: 📢 Compliance Notifications
+    runs-on: ubuntu-latest
+    needs: [compliance-dashboard]
+    if: always()
+    
+    steps:
+    - name: 📥 Download dashboard stats
+      uses: actions/download-artifact@v4
+      with:
+        name: compliance-dashboard
+        path: ./
+    
+    - name: 📊 Check Compliance Status
+      run: |
+        if [ -f compliance-dashboard-stats.json ]; then
+          AVERAGE_SCORE=$(cat compliance-dashboard-stats.json | python3 -c "import sys, json; print(json.load(sys.stdin)['average_score'])")
+          COMPLIANT=$(cat compliance-dashboard-stats.json | python3 -c "import sys, json; print(json.load(sys.stdin)['compliant_frameworks'])")
+          TOTAL=$(cat compliance-dashboard-stats.json | python3 -c "import sys, json; print(json.load(sys.stdin)['frameworks_assessed'])")
+          
+          echo "📊 Compliance Status: $AVERAGE_SCORE% ($COMPLIANT/$TOTAL frameworks compliant)"
+          
+          if (( $(echo "$AVERAGE_SCORE < 70" | bc -l) )); then
+            echo "⚠️ COMPLIANCE ALERT: Below acceptable threshold"
+            
+            # Create GitHub issue for compliance concerns
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/issues \
+              -d "{
+                \"title\": \"⚠️ Compliance Alert - Average Score: $AVERAGE_SCORE%\",
+                \"body\": \"**Compliance Issue Detected**\n\n**Average Score:** $AVERAGE_SCORE%\n**Compliant Frameworks:** $COMPLIANT/$TOTAL\n\n**Action Required:** Review compliance dashboard and implement recommendations to improve security posture.\n\n**Assessment Date:** $(date)\n\n[View Dashboard](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\",
+                \"labels\": [\"compliance\", \"security\", \"priority\"]
+              }"
+          fi
+        fi

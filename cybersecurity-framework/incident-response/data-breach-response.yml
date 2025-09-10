@@ -1,0 +1,422 @@
+name: "Data Breach Incident Response Playbook"
+version: "1.0.0"
+framework: "Advanced Cybersecurity Automation Framework"
+last_updated: "2024-01-10"
+author: "Ariff Mohamed"
+
+metadata:
+  incident_type: "Data Breach"
+  severity_levels: ["Critical", "High", "Medium", "Low"]
+  automation_level: "High"
+  mttr_target: "30 minutes"
+  compliance_frameworks: ["GDPR", "CCPA", "HIPAA", "SOX"]
+
+triggers:
+  - "Unauthorized database access"
+  - "Data exfiltration alerts"
+  - "Insider threat indicators"
+  - "External breach notification"
+  - "Anomalous data access patterns"
+  - "Failed DLP policy violations"
+
+prerequisites:
+  tools:
+    - "Azure Sentinel"
+    - "Microsoft Defender"
+    - "Azure Security Center"
+    - "Log Analytics Workspace"
+    - "PowerShell 7.0+"
+    - "Azure CLI"
+  
+  permissions:
+    - "Security Administrator"
+    - "Security Reader"
+    - "Log Analytics Contributor"
+    - "Azure Sentinel Contributor"
+  
+  contact_lists:
+    - "Incident Response Team"
+    - "Legal Counsel"
+    - "Public Relations"
+    - "Executive Leadership"
+
+phases:
+  
+  1_preparation:
+    name: "Preparation Phase"
+    automation: "High"
+    steps:
+      - id: "prep_001"
+        action: "Verify incident response team availability"
+        automation: true
+        script: |
+          # Check team availability
+          $team = @("security-team@company.com", "legal@company.com", "pr@company.com")
+          foreach ($member in $team) {
+            # Send availability check
+            Send-MailMessage -To $member -Subject "IR Team Availability Check" -Body "Please confirm availability"
+          }
+        
+      - id: "prep_002"
+        action: "Initialize incident documentation"
+        automation: true
+        script: |
+          # Create incident folder structure
+          $incidentId = "INC-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+          New-Item -ItemType Directory -Path "incidents/$incidentId" -Force
+          
+          # Initialize incident log
+          @{
+            IncidentId = $incidentId
+            StartTime = Get-Date
+            Type = "Data Breach"
+            Status = "Active"
+            Severity = $env:INCIDENT_SEVERITY
+            Timeline = @()
+          } | ConvertTo-Json | Out-File "incidents/$incidentId/incident-log.json"
+
+  2_identification:
+    name: "Identification Phase"
+    automation: "High"
+    steps:
+      - id: "ident_001"
+        action: "Classify incident severity"
+        automation: true
+        script: |
+          # Automated severity assessment
+          $severity = "Low"
+          
+          # Check data types involved
+          $sensitiveDataTypes = @("PII", "PHI", "Financial", "Classified")
+          $affectedDataTypes = Get-AffectedDataTypes
+          
+          if ($affectedDataTypes | Where-Object { $_ -in $sensitiveDataTypes }) {
+            $severity = "High"
+          }
+          
+          # Check volume of affected records
+          $recordCount = Get-AffectedRecordCount
+          if ($recordCount -gt 10000) {
+            $severity = "Critical"
+          } elseif ($recordCount -gt 1000) {
+            $severity = "High"
+          }
+          
+          Set-IncidentSeverity -Severity $severity
+        
+      - id: "ident_002"
+        action: "Identify affected systems and data"
+        automation: true
+        script: |
+          # Query Sentinel for related events
+          $kqlQuery = @"
+          union SecurityEvent, AuditLogs, SigninLogs
+          | where TimeGenerated > ago(24h)
+          | where Account contains "$env:SUSPECTED_USER" or IPAddress == "$env:SUSPECTED_IP"
+          | summarize EventCount = count() by Computer, Account, Activity
+          | order by EventCount desc
+          "@
+          
+          $affectedSystems = Invoke-AzOperationalInsightsQuery -WorkspaceId $workspaceId -Query $kqlQuery
+          
+          # Document affected systems
+          $affectedSystems | ConvertTo-Json | Out-File "incidents/$incidentId/affected-systems.json"
+        
+      - id: "ident_003"
+        action: "Collect initial evidence"
+        automation: true
+        script: |
+          # Preserve logs and evidence
+          $evidenceCollection = @{
+            Timestamp = Get-Date
+            Sources = @()
+          }
+          
+          # Collect security logs
+          $securityLogs = Get-WinEvent -LogName Security | Where-Object { $_.TimeCreated -gt (Get-Date).AddHours(-24) }
+          $evidenceCollection.Sources += "Windows Security Logs"
+          
+          # Collect network logs
+          $networkLogs = Get-NetTCPConnection | Where-Object { $_.State -eq "Established" }
+          $evidenceCollection.Sources += "Network Connections"
+          
+          # Export evidence
+          $evidenceCollection | ConvertTo-Json | Out-File "incidents/$incidentId/evidence-collection.json"
+
+  3_containment:
+    name: "Containment Phase"
+    automation: "High"
+    steps:
+      - id: "contain_001"
+        action: "Isolate affected systems"
+        automation: true
+        priority: "Critical"
+        script: |
+          # Automated system isolation
+          foreach ($system in $affectedSystems) {
+            try {
+              # Disable network access
+              Invoke-Command -ComputerName $system -ScriptBlock {
+                Disable-NetAdapter -Name "*" -Confirm:$false
+              }
+              
+              Write-Log "System $system isolated successfully"
+            }
+            catch {
+              Write-Log "Failed to isolate system $system: $($_.Exception.Message)"
+              # Escalate to manual intervention
+              Send-Alert -Message "Manual isolation required for $system" -Severity "High"
+            }
+          }
+        
+      - id: "contain_002"
+        action: "Revoke compromised credentials"
+        automation: true
+        priority: "Critical"
+        script: |
+          # Revoke Azure AD tokens and reset passwords
+          Connect-AzureAD
+          
+          foreach ($user in $compromisedUsers) {
+            try {
+              # Revoke all refresh tokens
+              Revoke-AzureADUserAllRefreshToken -ObjectId $user
+              
+              # Reset password
+              $newPassword = ConvertTo-SecureString -String (Generate-RandomPassword) -AsPlainText -Force
+              Set-AzureADUserPassword -ObjectId $user -Password $newPassword -ForceChangePasswordNextLogin $true
+              
+              # Disable account temporarily
+              Set-AzureADUser -ObjectId $user -AccountEnabled $false
+              
+              Write-Log "Credentials revoked for user $user"
+            }
+            catch {
+              Write-Log "Failed to revoke credentials for $user: $($_.Exception.Message)"
+            }
+          }
+        
+      - id: "contain_003"
+        action: "Block malicious IP addresses"
+        automation: true
+        script: |
+          # Update Azure NSG rules to block malicious IPs
+          $maliciousIPs = Get-MaliciousIPs
+          
+          foreach ($ip in $maliciousIPs) {
+            try {
+              # Add deny rule to NSG
+              $nsg = Get-AzNetworkSecurityGroup -Name "security-nsg" -ResourceGroupName "security-rg"
+              Add-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+                -Name "Block-$($ip -replace '\.', '-')" `
+                -Description "Block malicious IP from data breach incident" `
+                -Access Deny `
+                -Protocol "*" `
+                -Direction Inbound `
+                -Priority (Get-NextAvailablePriority) `
+                -SourceAddressPrefix $ip `
+                -SourcePortRange "*" `
+                -DestinationAddressPrefix "*" `
+                -DestinationPortRange "*"
+              
+              Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+              
+              Write-Log "Blocked malicious IP: $ip"
+            }
+            catch {
+              Write-Log "Failed to block IP $ip: $($_.Exception.Message)"
+            }
+          }
+
+  4_eradication:
+    name: "Eradication Phase"
+    automation: "Medium"
+    steps:
+      - id: "erad_001"
+        action: "Remove malware and backdoors"
+        automation: false
+        manual_required: true
+        script: |
+          # This requires manual analysis and removal
+          Write-Log "Manual eradication required - escalating to security analyst"
+          
+          # Run automated malware scan
+          Start-MpScan -ScanType FullScan
+          
+          # Check for persistence mechanisms
+          $suspiciousServices = Get-Service | Where-Object { $_.Name -notmatch "^(Windows|Microsoft)" -and $_.Status -eq "Running" }
+          $suspiciousServices | ConvertTo-Json | Out-File "incidents/$incidentId/suspicious-services.json"
+        
+      - id: "erad_002"
+        action: "Patch vulnerabilities"
+        automation: true
+        script: |
+          # Install security updates
+          Install-WindowsUpdate -AcceptAll -AutoReboot
+          
+          # Update antivirus definitions
+          Update-MpSignature
+          
+          # Check for application updates
+          Get-Package | Where-Object { $_.Version -lt (Get-LatestVersion $_.Name) } |
+            Update-Package -Force
+
+  5_recovery:
+    name: "Recovery Phase"
+    automation: "Medium"
+    steps:
+      - id: "recov_001"
+        action: "Restore affected systems"
+        automation: false
+        manual_required: true
+        verification_required: true
+        script: |
+          # Gradual system restoration with monitoring
+          Write-Log "Beginning system restoration process"
+          
+          # Verify system integrity
+          sfc /scannow
+          
+          # Restore from clean backup if needed
+          # This requires manual verification of backup integrity
+        
+      - id: "recov_002"
+        action: "Re-enable user accounts"
+        automation: false
+        approval_required: true
+        script: |
+          # Re-enable accounts after verification
+          foreach ($user in $compromisedUsers) {
+            # Require management approval before re-enabling
+            $approval = Request-Approval -User $user -Reason "Data breach recovery"
+            
+            if ($approval.Approved) {
+              Set-AzureADUser -ObjectId $user -AccountEnabled $true
+              Write-Log "Re-enabled account for user $user"
+            }
+          }
+        
+      - id: "recov_003"
+        action: "Monitor for suspicious activity"
+        automation: true
+        duration: "72 hours"
+        script: |
+          # Enhanced monitoring for 72 hours
+          $monitoringQuery = @"
+          union SecurityEvent, AuditLogs, SigninLogs
+          | where TimeGenerated > ago(1h)
+          | where Account in ("$($compromisedUsers -join '","')")
+          | where EventID in (4625, 4648, 4672)  // Failed logon, explicit credentials, special privileges
+          "@
+          
+          # Schedule hourly monitoring
+          $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(60) -RepetitionInterval (New-TimeSpan -Hours 1)
+          Register-ScheduledTask -TaskName "PostBreachMonitoring" -Trigger $trigger -Action $monitoringAction
+
+  6_lessons_learned:
+    name: "Lessons Learned Phase"
+    automation: "Low"
+    steps:
+      - id: "learn_001"
+        action: "Conduct post-incident review"
+        automation: false
+        required_attendees: ["Security Team", "IT Management", "Legal", "Affected Business Units"]
+        timeline: "Within 7 days"
+        
+      - id: "learn_002"
+        action: "Update security controls"
+        automation: false
+        script: |
+          # Document recommended improvements
+          $improvements = @{
+            TechnicalControls = @()
+            ProcessImprovements = @()
+            TrainingNeeds = @()
+            PolicyUpdates = @()
+          }
+          
+          # Generate improvement report
+          $improvements | ConvertTo-Json | Out-File "incidents/$incidentId/improvement-recommendations.json"
+        
+      - id: "learn_003"
+        action: "Update incident response procedures"
+        automation: false
+        script: |
+          # Update playbook based on lessons learned
+          Write-Log "Reviewing playbook effectiveness"
+          
+          # Track metrics
+          $metrics = @{
+            TimeToDetection = (Get-Date) - $incidentStartTime
+            TimeToContainment = $containmentTime - $incidentStartTime
+            TimeToRecovery = $recoveryTime - $incidentStartTime
+            AutomationEffectiveness = Calculate-AutomationEffectiveness
+          }
+          
+          $metrics | ConvertTo-Json | Out-File "incidents/$incidentId/incident-metrics.json"
+
+notifications:
+  immediate:
+    - "Security Operations Center"
+    - "Incident Commander"
+    - "CISO"
+  
+  escalation_1h:
+    - "Executive Leadership"
+    - "Legal Counsel"
+  
+  escalation_4h:
+    - "Public Relations"
+    - "External Counsel"
+  
+  regulatory:
+    delay: "72 hours"
+    authorities:
+      - "Data Protection Authority"
+      - "Industry Regulators"
+    
+  customer:
+    delay: "As required by regulation"
+    method: "Email, Website, Press Release"
+
+compliance_requirements:
+  gdpr:
+    notification_timeline: "72 hours to DPA, 30 days to individuals"
+    documentation_required: true
+    impact_assessment: true
+  
+  ccpa:
+    notification_timeline: "As soon as practicable"
+    attorney_general: true
+  
+  hipaa:
+    notification_timeline: "60 days"
+    hhs_notification: true
+    media_notification: true
+
+automation_scripts:
+  evidence_collection: "./scripts/collect-evidence.ps1"
+  system_isolation: "./scripts/isolate-systems.ps1"
+  credential_reset: "./scripts/reset-credentials.ps1"
+  network_blocking: "./scripts/block-malicious-ips.ps1"
+  monitoring_setup: "./scripts/setup-enhanced-monitoring.ps1"
+
+testing:
+  last_tested: "2024-01-01"
+  next_test: "2024-04-01"
+  test_scenarios:
+    - "Insider threat simulation"
+    - "External attacker simulation"
+    - "Supply chain compromise"
+    - "Cloud misconfiguration"
+
+metrics:
+  target_mttr: "30 minutes"
+  target_automation_rate: "80%"
+  target_false_positive_rate: "5%"
+
+version_history:
+  - version: "1.0.0"
+    date: "2024-01-10"
+    changes: "Initial playbook creation"
+    author: "Ariff Mohamed"

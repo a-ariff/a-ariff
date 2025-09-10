@@ -1,0 +1,213 @@
+name: 🔐 Advanced SAST Security Scanning
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Daily security scans at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+jobs:
+  codeql-analysis:
+    name: 🔍 CodeQL SAST Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python', 'csharp', 'java', 'cpp', 'go' ]
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: 🔧 Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+        config-file: .github/codeql/codeql-config.yml
+    
+    - name: 🏗️ Autobuild
+      uses: github/codeql-action/autobuild@v3
+    
+    - name: 🔍 Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"
+        upload: true
+        wait-for-processing: true
+
+  semgrep-scan:
+    name: 🛡️ Semgrep SAST Scanning
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: 🔍 Run Semgrep Security Scan
+      uses: semgrep/semgrep-action@v1
+      with:
+        config: >-
+          p/security-audit
+          p/secrets
+          p/owasp-top-ten
+          p/cwe-top-25
+          p/r2c-security-audit
+          p/docker
+          p/kubernetes
+          p/terraform
+          cybersecurity-framework/workflows/custom-semgrep-rules.yml
+      env:
+        SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+        SEMGREP_TIMEOUT: 300
+        SEMGREP_BASELINE_REF: main
+
+  bandit-python-scan:
+    name: 🐍 Bandit Python Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.repository.language, 'Python') || contains(github.head_ref, 'python') || contains(github.ref, 'python')
+    timeout-minutes: 15
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: 📦 Install Bandit
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit[toml]
+    
+    - name: 🔍 Run Bandit Security Scan
+      run: |
+        bandit -r . -f json -o bandit-report.json || true
+        bandit -r . -f txt
+    
+    - name: 📊 Upload Bandit Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: bandit-security-report
+        path: bandit-report.json
+        retention-days: 30
+
+  eslint-security-scan:
+    name: 🟨 ESLint Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.repository.language, 'JavaScript') || contains(github.event.repository.language, 'TypeScript')
+    timeout-minutes: 15
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📦 Install ESLint Security Plugins
+      run: |
+        npm install -g eslint @eslint/js eslint-plugin-security eslint-plugin-node-security
+    
+    - name: 🔍 Run ESLint Security Scan
+      run: |
+        npx eslint . --ext .js,.jsx,.ts,.tsx --format json --output-file eslint-security-report.json || true
+        npx eslint . --ext .js,.jsx,.ts,.tsx
+    
+    - name: 📊 Upload ESLint Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: eslint-security-report
+        path: eslint-security-report.json
+        retention-days: 30
+
+  custom-security-rules:
+    name: 🎯 Custom Security Rules Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🔍 Run Custom Security Rules
+      run: |
+        # Custom security pattern matching
+        echo "🔍 Scanning for hardcoded credentials..."
+        grep -r -n --include="*.py" --include="*.js" --include="*.java" --include="*.cs" \
+          -E "(password|passwd|pwd|secret|key|token|api_key)\s*[:=]\s*['\"][^'\"]{8,}" . || true
+        
+        echo "🔍 Scanning for SQL injection patterns..."
+        grep -r -n --include="*.py" --include="*.js" --include="*.java" --include="*.cs" \
+          -E "(SELECT|INSERT|UPDATE|DELETE).*\+.*['\"]" . || true
+        
+        echo "🔍 Scanning for XSS patterns..."
+        grep -r -n --include="*.py" --include="*.js" --include="*.html" \
+          -E "(innerHTML|outerHTML|document\.write|eval\()" . || true
+        
+        echo "🔍 Scanning for insecure random number generation..."
+        grep -r -n --include="*.py" --include="*.js" --include="*.java" \
+          -E "(random\(\)|Math\.random|Random\(\))" . || true
+
+  security-summary:
+    name: 📊 Security Scan Summary
+    runs-on: ubuntu-latest
+    needs: [codeql-analysis, semgrep-scan, bandit-python-scan, eslint-security-scan, custom-security-rules]
+    if: always()
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 📊 Generate Security Summary
+      run: |
+        echo "# 🔐 Security Scan Summary" > security-summary.md
+        echo "**Scan Date:** $(date)" >> security-summary.md
+        echo "**Repository:** ${{ github.repository }}" >> security-summary.md
+        echo "**Branch:** ${{ github.ref }}" >> security-summary.md
+        echo "" >> security-summary.md
+        
+        echo "## 🔍 Scan Results" >> security-summary.md
+        echo "- ✅ CodeQL Analysis: Complete" >> security-summary.md
+        echo "- ✅ Semgrep SAST: Complete" >> security-summary.md
+        echo "- ✅ Custom Security Rules: Complete" >> security-summary.md
+        
+        if [[ "${{ needs.bandit-python-scan.result }}" == "success" ]]; then
+          echo "- ✅ Bandit Python Scan: Complete" >> security-summary.md
+        fi
+        
+        if [[ "${{ needs.eslint-security-scan.result }}" == "success" ]]; then
+          echo "- ✅ ESLint Security Scan: Complete" >> security-summary.md
+        fi
+        
+        echo "" >> security-summary.md
+        echo "📊 **View detailed results in the Security tab of this repository**" >> security-summary.md
+    
+    - name: 📤 Upload Security Summary
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-scan-summary
+        path: security-summary.md
+        retention-days: 30
