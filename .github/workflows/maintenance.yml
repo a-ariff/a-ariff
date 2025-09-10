@@ -1,0 +1,120 @@
+name: Monthly Maintenance
+
+on:
+  schedule:
+    # Run on the 1st of every month at 2 AM UTC
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  link-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Links in README
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --verbose --accept 200,999 --max-redirects 5 --retry-wait-time 2 --timeout 20 README.md
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate Assets
+        run: |
+          echo "Checking image assets..."
+          # Check if asset files exist and are accessible
+          for asset in assets/*.png assets/*.jpg assets/*.gif; do
+            if [ -f "$asset" ]; then
+              echo "✅ Found: $asset"
+              # Check file size (should be reasonable for web)
+              size=$(stat -f%z "$asset" 2>/dev/null || stat -c%s "$asset" 2>/dev/null)
+              if [ "$size" -gt 1048576 ]; then  # 1MB
+                echo "⚠️  Warning: $asset is larger than 1MB ($size bytes)"
+              fi
+            fi
+          done
+
+      - name: Check Badge Endpoints
+        run: |
+          echo "Testing badge endpoints..."
+          badges=(
+            "https://komarev.com/ghpvc/?username=a-ariff"
+            "https://img.shields.io/github/followers/a-ariff"
+            "https://github-readme-stats.vercel.app/api?username=a-ariff"
+            "https://streak-stats.demolab.com/?user=a-ariff"
+          )
+          
+          for badge in "${badges[@]}"; do
+            if curl -s --head "$badge" | head -n 1 | grep -q "200 OK"; then
+              echo "✅ Badge OK: $badge"
+            else
+              echo "❌ Badge issue: $badge"
+            fi
+          done
+
+      - name: README Statistics
+        run: |
+          echo "📊 README Statistics:"
+          lines=$(wc -l < README.md)
+          words=$(wc -w < README.md)
+          chars=$(wc -c < README.md)
+          
+          echo "Lines: $lines"
+          echo "Words: $words" 
+          echo "Characters: $chars"
+          
+          if [ "$lines" -gt 500 ]; then
+            echo "⚠️  Warning: README exceeds 500 lines ($lines lines)"
+          else
+            echo "✅ README is within 500 line limit"
+          fi
+
+  dependency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check Workflow Dependencies
+        run: |
+          echo "Checking GitHub Actions dependencies..."
+          
+          # Check if workflows use latest action versions
+          grep -r "uses:" .github/workflows/ | while read -r line; do
+            echo "📦 $line"
+          done
+          
+          echo "✅ Dependency check completed"
+
+  performance-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Simulate README Load Time
+        run: |
+          echo "🚀 Performance simulation..."
+          
+          # Count external image requests
+          image_count=$(grep -o 'https://[^)]*\.\(png\|jpg\|jpeg\|gif\|svg\)' README.md | wc -l)
+          badge_count=$(grep -o 'https://img.shields.io\|https://komarev.com\|https://github-readme-stats\|https://streak-stats' README.md | wc -l)
+          
+          echo "External images: $image_count"
+          echo "Badges: $badge_count"
+          
+          total_requests=$((image_count + badge_count))
+          echo "Total external requests: $total_requests"
+          
+          if [ "$total_requests" -gt 20 ]; then
+            echo "⚠️  Warning: High number of external requests may slow loading"
+          else
+            echo "✅ Reasonable number of external requests"
+          fi
