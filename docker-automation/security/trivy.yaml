@@ -1,0 +1,74 @@
+# Trivy Security Scanner Configuration
+# Advanced vulnerability scanning for containers
+
+# Global configuration
+global:
+  timeout: 5m
+  format: json
+  exit-code: 1
+  severity: MEDIUM,HIGH,CRITICAL
+
+# Vulnerability scanning configuration
+vulnerability:
+  type: os,library
+  scanners: vuln,config,secret,license
+  offline-scan: false
+  skip-files:
+    - "**/*.test"
+    - "**/test/**"
+    - "**/.git/**"
+  skip-dirs:
+    - "/tmp"
+    - "/var/tmp"
+    - "/dev"
+    - "/proc"
+    - "/sys"
+
+# Secret scanning configuration
+secret:
+  config: /etc/trivy/secret.yaml
+
+# License scanning configuration
+license:
+  forbidden:
+    - GPL-2.0
+    - GPL-3.0
+    - AGPL-1.0
+    - AGPL-3.0
+
+# Misconfiguration scanning
+config:
+  file-patterns:
+    - "*.yaml"
+    - "*.yml" 
+    - "*.json"
+    - "Dockerfile*"
+    - "*.tf"
+    - "*.hcl"
+
+# Database configuration
+db:
+  repository: ghcr.io/aquasecurity/trivy-db
+  skip-update: false
+
+# Cache configuration
+cache:
+  dir: /tmp/trivy
+
+# Report configuration
+report:
+  format: sarif
+  template: "@contrib/sarif.tpl"
+
+# Ignore unfixed vulnerabilities in specific images
+ignore-unfixed: false
+
+# Custom policies directory
+policy:
+  bundle-repository: ghcr.io/aquasecurity/trivy-policies
+  
+# Exit codes
+exit-code: 0  # Don't fail CI on vulnerabilities, just report
+
+# Output configuration
+output: /tmp/trivy-results.json

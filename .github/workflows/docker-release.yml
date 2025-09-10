@@ -1,0 +1,344 @@
+name: Container Release and Deployment
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to deploy'
+        required: true
+        type: string
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+        - staging
+        - production
+
+env:
+  REGISTRY_DOCKERHUB: docker.io
+  REGISTRY_GHCR: ghcr.io
+  IMAGE_NAME_PREFIX: a-ariff
+
+permissions:
+  contents: read
+  packages: write
+  deployments: write
+
+jobs:
+  # Promote images to release tags
+  promote-images:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ["powershell-tools", "security-lab", "dev-environment"]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY_DOCKERHUB }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY_GHCR }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "release_tag=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Pull and retag images
+        run: |
+          # Pull latest images
+          docker pull ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:latest
+          
+          # Tag for release
+          docker tag \
+            ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:latest \
+            ${{ env.REGISTRY_DOCKERHUB }}/${{ env.IMAGE_NAME_PREFIX }}/${{ matrix.image }}:${{ steps.tag.outputs.release_tag }}
+          
+          docker tag \
+            ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:latest \
+            ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ steps.tag.outputs.release_tag }}
+          
+          # Push release tags
+          docker push ${{ env.REGISTRY_DOCKERHUB }}/${{ env.IMAGE_NAME_PREFIX }}/${{ matrix.image }}:${{ steps.tag.outputs.release_tag }}
+          docker push ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ steps.tag.outputs.release_tag }}
+
+  # Security verification for release
+  release-security-check:
+    needs: promote-images
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ["powershell-tools", "security-lab", "dev-environment"]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "release_tag=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Trivy security scan on release
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ steps.tag.outputs.release_tag }}
+          format: 'json'
+          output: 'trivy-release-${{ matrix.image }}.json'
+
+      - name: Check for critical vulnerabilities
+        run: |
+          # Parse Trivy results and fail if critical vulnerabilities found
+          CRITICAL_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "CRITICAL")] | length' trivy-release-${{ matrix.image }}.json)
+          HIGH_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH")] | length' trivy-release-${{ matrix.image }}.json)
+          
+          echo "Critical vulnerabilities: $CRITICAL_COUNT"
+          echo "High vulnerabilities: $HIGH_COUNT"
+          
+          if [ "$CRITICAL_COUNT" -gt 0 ]; then
+            echo "❌ Critical vulnerabilities found in release image!"
+            jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity == "CRITICAL") | "- \(.VulnerabilityID): \(.Title)"' trivy-release-${{ matrix.image }}.json
+            exit 1
+          fi
+          
+          if [ "$HIGH_COUNT" -gt 5 ]; then
+            echo "⚠️ Too many high severity vulnerabilities found ($HIGH_COUNT > 5)"
+            echo "Consider patching before release"
+            exit 1
+          fi
+          
+          echo "✅ Security scan passed for release"
+
+      - name: Upload release scan results
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-security-scan-${{ matrix.image }}
+          path: trivy-release-${{ matrix.image }}.json
+
+  # Generate release artifacts
+  generate-release-artifacts:
+    needs: [promote-images, release-security-check]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "release_tag=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create deployment package
+        run: |
+          mkdir -p release-package
+          
+          # Copy Docker Compose files
+          cp -r docker-automation/compose release-package/
+          cp -r docker-automation/config release-package/
+          cp -r docker-automation/scripts release-package/
+          
+          # Create environment-specific configs
+          envsubst < docker-automation/compose/powershell-tools.yml > release-package/compose/powershell-tools-${{ steps.tag.outputs.release_tag }}.yml
+          envsubst < docker-automation/compose/security-lab.yml > release-package/compose/security-lab-${{ steps.tag.outputs.release_tag }}.yml
+          envsubst < docker-automation/compose/dev-environment.yml > release-package/compose/dev-environment-${{ steps.tag.outputs.release_tag }}.yml
+          
+          # Create deployment scripts
+          cat > release-package/deploy.sh << 'EOF'
+          #!/bin/bash
+          set -e
+          
+          RELEASE_TAG="${RELEASE_TAG:-${{ steps.tag.outputs.release_tag }}}"
+          ENVIRONMENT="${ENVIRONMENT:-staging}"
+          
+          echo "🚀 Deploying Docker Automation Suite $RELEASE_TAG to $ENVIRONMENT"
+          
+          # Set image tags
+          export TAG="$RELEASE_TAG"
+          export REGISTRY="ghcr.io"
+          
+          # Deploy based on environment
+          case "$ENVIRONMENT" in
+            "development"|"dev")
+              docker-compose -f compose/dev-environment-$RELEASE_TAG.yml up -d
+              ;;
+            "staging")
+              docker-compose -f compose/powershell-tools-$RELEASE_TAG.yml up -d
+              docker-compose -f compose/security-lab-$RELEASE_TAG.yml up -d
+              ;;
+            "production")
+              echo "⚠️  Production deployment requires manual approval"
+              echo "Run with CONFIRMED=true to proceed"
+              if [ "$CONFIRMED" != "true" ]; then
+                exit 1
+              fi
+              docker-compose -f compose/powershell-tools-$RELEASE_TAG.yml up -d
+              ;;
+            *)
+              echo "❌ Unknown environment: $ENVIRONMENT"
+              exit 1
+              ;;
+          esac
+          
+          echo "✅ Deployment completed successfully"
+          EOF
+          
+          chmod +x release-package/deploy.sh
+          
+          # Create README for release
+          cat > release-package/README.md << EOF
+          # Docker Automation Suite Release ${{ steps.tag.outputs.release_tag }}
+          
+          This package contains the Docker automation and CI/CD pipeline suite for PowerShell tools and security lab environments.
+          
+          ## Quick Start
+          
+          \`\`\`bash
+          # Deploy to development
+          ENVIRONMENT=dev ./deploy.sh
+          
+          # Deploy to staging
+          ENVIRONMENT=staging ./deploy.sh
+          
+          # Deploy to production (requires confirmation)
+          ENVIRONMENT=production CONFIRMED=true ./deploy.sh
+          \`\`\`
+          
+          ## Contents
+          
+          - \`compose/\` - Docker Compose configurations
+          - \`config/\` - Configuration files
+          - \`scripts/\` - Automation scripts
+          - \`deploy.sh\` - Deployment script
+          
+          ## Images Included
+          
+          - \`ghcr.io/${{ github.repository_owner }}/powershell-tools:${{ steps.tag.outputs.release_tag }}\`
+          - \`ghcr.io/${{ github.repository_owner }}/security-lab:${{ steps.tag.outputs.release_tag }}\`
+          - \`ghcr.io/${{ github.repository_owner }}/dev-environment:${{ steps.tag.outputs.release_tag }}\`
+          
+          ## Security
+          
+          All images have been scanned for vulnerabilities and meet security requirements for this release.
+          EOF
+
+      - name: Create release archive
+        run: |
+          tar -czf docker-automation-suite-${{ steps.tag.outputs.release_tag }}.tar.gz -C release-package .
+          zip -r docker-automation-suite-${{ steps.tag.outputs.release_tag }}.zip release-package/
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts-${{ steps.tag.outputs.release_tag }}
+          path: |
+            docker-automation-suite-${{ steps.tag.outputs.release_tag }}.tar.gz
+            docker-automation-suite-${{ steps.tag.outputs.release_tag }}.zip
+
+      - name: Upload to release (if release event)
+        if: github.event_name == 'release'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: docker-automation-suite-${{ steps.tag.outputs.release_tag }}.tar.gz
+          asset_name: docker-automation-suite-${{ steps.tag.outputs.release_tag }}.tar.gz
+          asset_content_type: application/gzip
+
+  # Deploy to staging/production
+  deploy:
+    needs: [promote-images, release-security-check, generate-release-artifacts]
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'staging' }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Determine release tag and environment
+        id: deploy
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "release_tag=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+            echo "environment=staging" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+            echo "environment=${{ inputs.environment }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const deployment = await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: '${{ steps.deploy.outputs.release_tag }}',
+              environment: '${{ steps.deploy.outputs.environment }}',
+              description: 'Docker Automation Suite deployment',
+              auto_merge: false,
+              required_contexts: []
+            });
+            
+            core.setOutput('deployment_id', deployment.data.id);
+
+      - name: Simulate deployment (replace with actual deployment logic)
+        run: |
+          echo "🚀 Deploying to ${{ steps.deploy.outputs.environment }}"
+          echo "Release: ${{ steps.deploy.outputs.release_tag }}"
+          echo "Images:"
+          echo "  - ghcr.io/${{ github.repository_owner }}/powershell-tools:${{ steps.deploy.outputs.release_tag }}"
+          echo "  - ghcr.io/${{ github.repository_owner }}/security-lab:${{ steps.deploy.outputs.release_tag }}"
+          echo "  - ghcr.io/${{ github.repository_owner }}/dev-environment:${{ steps.deploy.outputs.release_tag }}"
+          
+          # Simulate deployment time
+          sleep 10
+          
+          echo "✅ Deployment completed successfully"
+
+      - name: Update deployment status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const state = '${{ job.status }}' === 'success' ? 'success' : 'failure';
+            
+            await github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: '${{ steps.create-deployment.outputs.deployment_id }}',
+              state: state,
+              description: state === 'success' ? 'Deployment successful' : 'Deployment failed',
+              environment_url: `https://${{ steps.deploy.outputs.environment }}.example.com`
+            });

@@ -1,0 +1,229 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: powershell-automation
+  labels:
+    name: powershell-automation
+    purpose: automation-tools
+    security: enhanced
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: powershell-tools
+  namespace: powershell-automation
+  labels:
+    app: powershell-tools
+    tier: automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: powershell-tools
+  template:
+    metadata:
+      labels:
+        app: powershell-tools
+        tier: automation
+    spec:
+      serviceAccountName: powershell-tools
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: powershell-tools
+        image: ghcr.io/a-ariff/powershell-tools:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5985
+          name: winrm-http
+        - containerPort: 5986
+          name: winrm-https
+        - containerPort: 22
+          name: ssh
+        env:
+        - name: WORKSPACE
+          value: "/workspace"
+        - name: USER
+          value: "psuser"
+        - name: AZURE_CONFIG_DIR
+          value: "/workspace/config/azure"
+        volumeMounts:
+        - name: workspace
+          mountPath: /workspace
+        - name: azure-config
+          mountPath: /workspace/config/azure
+        - name: scripts
+          mountPath: /workspace/scripts
+          readOnly: true
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          exec:
+            command:
+            - pwsh
+            - -File
+            - /usr/local/bin/healthcheck.ps1
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - pwsh
+            - -File
+            - /usr/local/bin/healthcheck.ps1
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+      volumes:
+      - name: workspace
+        persistentVolumeClaim:
+          claimName: powershell-workspace-pvc
+      - name: azure-config
+        secret:
+          secretName: azure-config
+          optional: true
+      - name: scripts
+        configMap:
+          name: powershell-scripts
+          defaultMode: 0755
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: powershell-tools-service
+  namespace: powershell-automation
+  labels:
+    app: powershell-tools
+spec:
+  selector:
+    app: powershell-tools
+  ports:
+  - name: winrm-http
+    port: 5985
+    targetPort: 5985
+    protocol: TCP
+  - name: winrm-https
+    port: 5986
+    targetPort: 5986
+    protocol: TCP
+  - name: ssh
+    port: 22
+    targetPort: 22
+    protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: powershell-workspace-pvc
+  namespace: powershell-automation
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: powershell-tools
+  namespace: powershell-automation
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: powershell-tools-role
+  namespace: powershell-automation
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: powershell-tools-binding
+  namespace: powershell-automation
+subjects:
+- kind: ServiceAccount
+  name: powershell-tools
+  namespace: powershell-automation
+roleRef:
+  kind: Role
+  name: powershell-tools-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: powershell-scripts
+  namespace: powershell-automation
+data:
+  azure-resource-monitor.ps1: |
+    #!/usr/bin/env pwsh
+    # Kubernetes-compatible Azure Resource Monitor
+    Write-Host "Azure Resource Monitor - Kubernetes Edition"
+    # Add your PowerShell automation scripts here
+    
+  container-security-scan.ps1: |
+    #!/usr/bin/env pwsh
+    # Kubernetes-compatible Container Security Scanner
+    Write-Host "Container Security Scanner - Kubernetes Edition"
+    # Add your security scanning scripts here
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: powershell-tools-netpol
+  namespace: powershell-automation
+spec:
+  podSelector:
+    matchLabels:
+      app: powershell-tools
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: powershell-automation
+    ports:
+    - protocol: TCP
+      port: 5985
+    - protocol: TCP
+      port: 5986
+    - protocol: TCP
+      port: 22
+  egress:
+  - to: []
+    ports:
+    - protocol: TCP
+      port: 53
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 443
+    - protocol: TCP
+      port: 80

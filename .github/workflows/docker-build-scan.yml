@@ -1,0 +1,280 @@
+name: Docker Build and Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths: 
+      - 'docker-automation/**'
+      - '.github/workflows/docker-*.yml'
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - 'docker-automation/**'
+      - '.github/workflows/docker-*.yml'
+  schedule:
+    # Weekly vulnerability scan
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: 'Force rebuild all images'
+        required: false
+        default: 'false'
+        type: boolean
+      skip_security_scan:
+        description: 'Skip security scanning'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  REGISTRY_DOCKERHUB: docker.io
+  REGISTRY_GHCR: ghcr.io
+  IMAGE_NAME_PREFIX: a-ariff
+
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+
+jobs:
+  # Detect changes and set build matrix
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      images: ${{ steps.changes.outputs.images }}
+      changed: ${{ steps.changes.outputs.changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed files
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" == "schedule" ] || [ "${{ inputs.force_rebuild }}" == "true" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "images=[\"powershell-tools\", \"security-lab\", \"dev-environment\"]" >> $GITHUB_OUTPUT
+          else
+            # Check for changes in docker-automation directory
+            CHANGED_FILES=$(git diff --name-only HEAD^ HEAD | grep "^docker-automation/" || true)
+            if [ -n "$CHANGED_FILES" ]; then
+              echo "changed=true" >> $GITHUB_OUTPUT
+              # Determine which images to build based on changed files
+              IMAGES=()
+              if echo "$CHANGED_FILES" | grep -q "powershell-tools\|scripts/azure"; then
+                IMAGES+=("powershell-tools")
+              fi
+              if echo "$CHANGED_FILES" | grep -q "security-lab\|scripts/security"; then
+                IMAGES+=("security-lab")
+              fi
+              if echo "$CHANGED_FILES" | grep -q "dev-environment\|scripts/dev"; then
+                IMAGES+=("dev-environment")
+              fi
+              # If no specific image detected, build all
+              if [ ${#IMAGES[@]} -eq 0 ]; then
+                IMAGES=("powershell-tools" "security-lab" "dev-environment")
+              fi
+              echo "images=$(printf '%s\n' "${IMAGES[@]}" | jq -R . | jq -s .)" >> $GITHUB_OUTPUT
+            else
+              echo "changed=false" >> $GITHUB_OUTPUT
+              echo "images=[]" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+  # Build and test images
+  build-images:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ${{ fromJson(needs.detect-changes.outputs.images) }}
+      fail-fast: false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY_DOCKERHUB }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY_GHCR }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.REGISTRY_DOCKERHUB }}/${{ env.IMAGE_NAME_PREFIX }}/${{ matrix.image }}
+            ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=schedule,pattern={{date 'YYYYMMDD'}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./docker-automation
+          file: ./docker-automation/dockerfiles/${{ matrix.image }}.Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BUILD_DATE=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
+            VCS_REF=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
+
+      - name: Test image
+        run: |
+          # Pull the built image for testing
+          docker pull ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}
+          
+          # Run basic smoke test
+          case "${{ matrix.image }}" in
+            "powershell-tools")
+              docker run --rm ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }} pwsh -Command "Write-Host 'PowerShell is working'; Get-Module -ListAvailable Az"
+              ;;
+            "security-lab")
+              docker run --rm ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }} bash -c "nmap --version && trivy --version"
+              ;;
+            "dev-environment")
+              docker run --rm ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }} bash -c "node --version && python3 --version && go version"
+              ;;
+          esac
+
+  # Security scanning with Trivy
+  security-scan:
+    needs: [detect-changes, build-images]
+    if: needs.detect-changes.outputs.changed == 'true' && inputs.skip_security_scan != 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ${{ fromJson(needs.detect-changes.outputs.images) }}
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}
+          format: 'sarif'
+          output: 'trivy-results-${{ matrix.image }}.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results-${{ matrix.image }}.sarif'
+          category: 'trivy-${{ matrix.image }}'
+
+      - name: Run Trivy filesystem scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: './docker-automation'
+          format: 'sarif'
+          output: 'trivy-fs-results.sarif'
+
+      - name: Upload filesystem scan results
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-fs-results.sarif'
+          category: 'trivy-filesystem'
+
+  # Additional security scanning with Snyk
+  snyk-scan:
+    needs: [detect-changes, build-images]
+    if: needs.detect-changes.outputs.changed == 'true' && inputs.skip_security_scan != 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ${{ fromJson(needs.detect-changes.outputs.images) }}
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}
+          args: --severity-threshold=high --file=docker-automation/dockerfiles/${{ matrix.image }}.Dockerfile
+
+      - name: Upload Snyk results to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: snyk.sarif
+
+  # Generate SBOM (Software Bill of Materials)
+  generate-sbom:
+    needs: [detect-changes, build-images]
+    if: needs.detect-changes.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ${{ fromJson(needs.detect-changes.outputs.images) }}
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ env.REGISTRY_GHCR }}/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}
+          format: spdx-json
+          output-file: sbom-${{ matrix.image }}.spdx.json
+
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ matrix.image }}
+          path: sbom-${{ matrix.image }}.spdx.json
+
+  # Notify on completion
+  notify:
+    needs: [detect-changes, build-images, security-scan, snyk-scan, generate-sbom]
+    if: always() && needs.detect-changes.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Create summary
+        run: |
+          echo "## Docker Build and Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### Images processed:" >> $GITHUB_STEP_SUMMARY
+          echo '${{ needs.detect-changes.outputs.images }}' | jq -r '.[]' | while read image; do
+            echo "- $image" >> $GITHUB_STEP_SUMMARY
+          done
+          echo "### Status:" >> $GITHUB_STEP_SUMMARY
+          echo "- Build: ${{ needs.build-images.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Security Scan: ${{ needs.security-scan.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Snyk Scan: ${{ needs.snyk-scan.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- SBOM Generation: ${{ needs.generate-sbom.result }}" >> $GITHUB_STEP_SUMMARY

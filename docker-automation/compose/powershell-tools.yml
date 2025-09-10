@@ -1,0 +1,278 @@
+# PowerShell Tools Docker Compose
+# Focused on PowerShell automation and Azure integration
+
+version: '3.8'
+
+services:
+  # PowerShell automation tools
+  powershell-tools:
+    build:
+      context: ../
+      dockerfile: dockerfiles/powershell-tools.Dockerfile
+      args:
+        - BUILD_DATE=${BUILD_DATE:-$(date -u +'%Y-%m-%dT%H:%M:%SZ')}
+        - VCS_REF=${VCS_REF:-$(git rev-parse --short HEAD)}
+    image: ${REGISTRY:-localhost}/powershell-tools:${TAG:-latest}
+    container_name: powershell-tools
+    hostname: ps-automation
+    networks:
+      - powershell-network
+    ports:
+      - "5985:5985"   # WinRM HTTP
+      - "5986:5986"   # WinRM HTTPS
+      - "22:22"       # SSH
+    volumes:
+      - ps-workspace:/workspace
+      - ps-scripts:/workspace/scripts
+      - ps-logs:/workspace/logs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ../scripts:/workspace/scripts:ro
+      - ../config:/workspace/config:ro
+    environment:
+      - WORKSPACE=/workspace
+      - USER=psuser
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AZURE_CONFIG_DIR=/workspace/config/azure
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.environment.type=automation"
+    healthcheck:
+      test: ["CMD", "pwsh", "-File", "/usr/local/bin/healthcheck.ps1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Azure CLI container for additional Azure operations
+  azure-cli:
+    image: mcr.microsoft.com/azure-cli:latest
+    container_name: azure-cli-tools
+    hostname: azure-cli
+    networks:
+      - powershell-network
+    volumes:
+      - azure-config:/root/.azure
+      - ps-scripts:/scripts
+      - ps-logs:/logs
+    environment:
+      - AZURE_CONFIG_DIR=/root/.azure
+    command: tail -f /dev/null
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=azure-cli"
+
+  # SQL Server for database automation testing
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: ps-sqlserver
+    hostname: sqlserver
+    networks:
+      - powershell-network
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SQL_PASSWORD:-P@ssw0rd123}
+      - MSSQL_PID=Express
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+      - ../config/sqlserver:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=database"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q 'SELECT 1'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for session management and caching
+  redis-ps:
+    image: redis:7-alpine
+    container_name: ps-redis
+    hostname: redis
+    networks:
+      - powershell-network
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-ps-data:/data
+      - ../config/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=cache"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Nginx for reverse proxy and web interface
+  nginx-ps:
+    image: nginx:alpine
+    container_name: ps-nginx
+    hostname: nginx
+    networks:
+      - powershell-network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ../config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../config/nginx/conf.d:/etc/nginx/conf.d:ro
+      - nginx-logs:/var/log/nginx
+      - nginx-certs:/etc/nginx/certs:ro
+    depends_on:
+      - powershell-tools
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=proxy"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus for monitoring PowerShell automation
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ps-prometheus
+    hostname: prometheus
+    networks:
+      - powershell-network
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=monitoring"
+
+  # Grafana for PowerShell automation dashboards
+  grafana-ps:
+    image: grafana/grafana:latest
+    container_name: ps-grafana
+    hostname: grafana
+    networks:
+      - powershell-network
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource,grafana-azure-monitor-datasource
+    volumes:
+      - grafana-ps-data:/var/lib/grafana
+      - ../config/grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=dashboard"
+
+  # Node Exporter for system metrics
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: ps-node-exporter
+    hostname: node-exporter
+    networks:
+      - powershell-network
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.service.type=metrics"
+
+networks:
+  powershell-network:
+    driver: bridge
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+
+volumes:
+  ps-workspace:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=workspace"
+  
+  ps-scripts:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=scripts"
+  
+  ps-logs:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=logs"
+  
+  azure-config:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=azure-config"
+  
+  sqlserver-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=database"
+  
+  redis-ps-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=cache"
+  
+  nginx-logs:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=logs"
+  
+  nginx-certs:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=certificates"
+  
+  prometheus-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=monitoring"
+  
+  grafana-ps-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=powershell-tools"
+      - "powershell.volume.type=dashboard"
