@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Cybersecurity Resume Template
+% LaTeX Template for IT/Security Professionals
+% Designed for automated generation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+% Ensure proper font encoding
+\pdfgentounicode=1
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+    }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Color scheme for cybersecurity theme
+\definecolor{primarycolor}{RGB}{0, 51, 102}
+\definecolor{accentcolor}{RGB}{0, 122, 204}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape {{ personal_info.name }}} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ {{ personal_info.phone | default("") }} ~ 
+    \href{mailto:{{ personal_info.email }}}{\raisebox{-0.2\height}\faEnvelope\  {{ personal_info.email }}} ~ 
+    \href{https://linkedin.com/in/{{ personal_info.linkedin }}}{\raisebox{-0.2\height}\faLinkedin\ linkedin.com/in/{{ personal_info.linkedin }}}  ~
+    \href{https://github.com/{{ personal_info.github }}}{\raisebox{-0.2\height}\faGithub\ github.com/{{ personal_info.github }}}
+    \vspace{-8pt}
+\end{center}
+
+%----------PROFESSIONAL SUMMARY----------
+\section{Professional Summary}
+\small{
+{{ professional_summary | default("Research-driven Cloud Solutions Engineer with 10+ years of experience in cybersecurity and cloud architecture. Currently pursuing Master of Information Technology with specialization in Cybersecurity. Expertise in Azure security, threat intelligence, and automated security solutions.") }}
+}
+
+%----------EDUCATION----------
+\section{Education}
+  \resumeSubHeadingListStart
+    {% for degree in education %}
+    \resumeSubheading
+      {{{ degree.institution }}}{{{ degree.location | default("") }}}
+      {{{ degree.degree }}{% if degree.specialization %} - {{ degree.specialization }}{% endif %}}{{{ degree.date }}}
+      {% if degree.gpa %}
+      \resumeItemListStart
+        \resumeItem{GPA: {{ degree.gpa }}}
+      \resumeItemListEnd
+      {% endif %}
+    {% endfor %}
+  \resumeSubHeadingListEnd
+
+%----------CERTIFICATIONS----------
+\section{Certifications \& Professional Development}
+  \resumeSubHeadingListStart
+    {% for cert in certifications %}
+    \resumeProjectHeading
+      {\textbf{{{ cert.name }}} $|$ \emph{{{ cert.issuer }}}}{{{ cert.date }}}
+      {% if cert.credential_id %}
+      \resumeItemListStart
+        \resumeItem{Credential ID: {{ cert.credential_id }}}
+      \resumeItemListEnd
+      {% endif %}
+    {% endfor %}
+  \resumeSubHeadingListEnd
+
+%----------TECHNICAL SKILLS----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Cloud Platforms}{: {{ skills.cloud_platforms | join(", ") }}} \\
+     \textbf{Security Tools}{: {{ skills.security_tools | join(", ") }}} \\
+     \textbf{Programming Languages}{: {{ skills.programming_languages | join(", ") }}} \\
+     \textbf{Infrastructure \& DevOps}{: {{ skills.infrastructure_devops | join(", ") }}} \\
+     \textbf{Frameworks \& Libraries}{: {{ skills.frameworks | join(", ") }}}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+%----------PROFESSIONAL EXPERIENCE----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+    {% for job in professional_experience %}
+    \resumeSubheading
+      {{{ job.title }}}{{{ job.date }}}
+      {{{ job.company }}}{{{ job.location }}}
+      \resumeItemListStart
+        {% for achievement in job.achievements %}
+        \resumeItem{{{ achievement }}}
+        {% endfor %}
+      \resumeItemListEnd
+    {% endfor %}
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%----------PROJECTS----------
+\section{Featured Projects}
+    \resumeSubHeadingListStart
+      {% for project in projects %}
+      \resumeProjectHeading
+          {\textbf{{{ project.name }}} $|$ \emph{{{ project.technologies | join(", ") }}}}{{{ project.date }}}
+          \resumeItemListStart
+            {% for detail in project.details %}
+            \resumeItem{{{ detail }}}
+            {% endfor %}
+          \resumeItemListEnd
+      {% endfor %}
+    \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%----------RESEARCH & PUBLICATIONS----------
+{% if research_publications %}
+\section{Research \& Publications}
+  \resumeSubHeadingListStart
+    {% for publication in research_publications %}
+    \resumeProjectHeading
+      {\textbf{{{ publication.title }}}}{{{ publication.date }}}
+      \resumeItemListStart
+        \resumeItem{{{ publication.description }}}
+        {% if publication.venue %}
+        \resumeItem{Published in: {{ publication.venue }}}
+        {% endif %}
+      \resumeItemListEnd
+    {% endfor %}
+  \resumeSubHeadingListEnd
+{% endif %}
+
+%----------ACADEMIC RESEARCH----------
+{% if academic_info %}
+\section{Current Academic Research}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{{{ academic_info.research_focus.primary }}}}{{{ academic_info.current_degree.expected_graduation }}}
+      \resumeItemListStart
+        {% for area in academic_info.research_focus.areas %}
+        \resumeItem{{{ area }}}
+        {% endfor %}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+{% endif %}
+
+%----------ACHIEVEMENTS & AWARDS----------
+{% if achievements %}
+\section{Achievements \& Awards}
+  \resumeSubHeadingListStart
+    {% for achievement in achievements %}
+    \resumeProjectHeading
+      {\textbf{{{ achievement.title }}}}{{{ achievement.date }}}
+      \resumeItemListStart
+        \resumeItem{{{ achievement.description }}}
+      \resumeItemListEnd
+    {% endfor %}
+  \resumeSubHeadingListEnd
+{% endif %}
+
+\end{document}
