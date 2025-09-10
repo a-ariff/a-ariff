@@ -1,0 +1,848 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "title": "Advanced Cybersecurity SOAR Playbooks",
+    "description": "Comprehensive Security Orchestration, Automation & Response playbooks for Microsoft Sentinel",
+    "author": "Ariff Mohamed",
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-10",
+    "tags": ["Security", "SOAR", "Automation", "Incident Response"]
+  },
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Log Analytics workspace where Sentinel is deployed"
+      }
+    },
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID"
+      }
+    },
+    "playbookNamePrefix": {
+      "type": "string",
+      "defaultValue": "CyberFramework",
+      "metadata": {
+        "description": "Prefix for all playbook names"
+      }
+    },
+    "notificationEmail": {
+      "type": "string",
+      "metadata": {
+        "description": "Email address for security notifications"
+      }
+    },
+    "teamsWebhookUrl": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Microsoft Teams webhook URL for notifications"
+      }
+    }
+  },
+  "variables": {
+    "sentinelConnectionName": "azuresentinel",
+    "office365ConnectionName": "office365",
+    "teamsConnectionName": "teams",
+    "azureMonitorConnectionName": "azuremonitorlogs",
+    "location": "[resourceGroup().location]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[variables('sentinelConnectionName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "displayName": "Azure Sentinel Connection",
+        "customParameterValues": {},
+        "parameterValueType": "Alternative",
+        "api": {
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/azuresentinel')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[variables('office365ConnectionName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "displayName": "Office 365 Connection",
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/office365')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[variables('teamsConnectionName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "displayName": "Microsoft Teams Connection",
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/teams')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2017-07-01",
+      "name": "[concat(parameters('playbookNamePrefix'), '-DataBreachResponse')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+        "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]",
+        "[resourceId('Microsoft.Web/connections', variables('teamsConnectionName'))]"
+      ],
+      "properties": {
+        "state": "Enabled",
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_Azure_Sentinel_incident_creation_rule_was_triggered": {
+              "type": "ApiConnectionWebhook",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                  }
+                },
+                "body": {
+                  "callback_url": "@{listCallbackUrl()}"
+                },
+                "path": "/incident-creation"
+              }
+            }
+          },
+          "actions": {
+            "Initialize_Variables": {
+              "runAfter": {},
+              "type": "InitializeVariable",
+              "inputs": {
+                "variables": [
+                  {
+                    "name": "IncidentSeverity",
+                    "type": "string",
+                    "value": "@{triggerBody()?['object']?['properties']?['severity']}"
+                  },
+                  {
+                    "name": "IncidentTitle",
+                    "type": "string",
+                    "value": "@{triggerBody()?['object']?['properties']?['title']}"
+                  },
+                  {
+                    "name": "IncidentId",
+                    "type": "string",
+                    "value": "@{triggerBody()?['object']?['properties']?['incidentNumber']}"
+                  },
+                  {
+                    "name": "IncidentUrl",
+                    "type": "string",
+                    "value": "@{triggerBody()?['object']?['properties']?['incidentUrl']}"
+                  }
+                ]
+              }
+            },
+            "Check_Incident_Severity": {
+              "runAfter": {
+                "Initialize_Variables": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Switch",
+              "expression": "@variables('IncidentSeverity')",
+              "cases": {
+                "Critical": {
+                  "case": "High",
+                  "actions": {
+                    "Critical_Incident_Response": {
+                      "type": "Parallel",
+                      "branches": [
+                        {
+                          "actions": {
+                            "Send_Immediate_Email_Alert": {
+                              "type": "ApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connection": {
+                                    "name": "@parameters('$connections')['office365']['connectionId']"
+                                  }
+                                },
+                                "method": "post",
+                                "path": "/v2/Mail",
+                                "body": {
+                                  "To": "[parameters('notificationEmail')]",
+                                  "Subject": "🚨 CRITICAL SECURITY INCIDENT - @{variables('IncidentTitle')}",
+                                  "Body": "<h2>Critical Security Incident Detected</h2><p><strong>Incident ID:</strong> @{variables('IncidentId')}</p><p><strong>Title:</strong> @{variables('IncidentTitle')}</p><p><strong>Severity:</strong> @{variables('IncidentSeverity')}</p><p><strong>Time:</strong> @{utcNow()}</p><p><strong>Action Required:</strong> Immediate response required</p><p><a href='@{variables('IncidentUrl')}'>View Incident in Sentinel</a></p>",
+                                  "Importance": "High"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "actions": {
+                            "Send_Teams_Alert": {
+                              "type": "ApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connection": {
+                                    "name": "@parameters('$connections')['teams']['connectionId']"
+                                  }
+                                },
+                                "method": "post",
+                                "path": "/v1.0/teams/conversation/adaptivecard/poster/Flow bot/location/@{encodeURIComponent('Security Operations')}",
+                                "body": {
+                                  "messageBody": {
+                                    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                                    "type": "AdaptiveCard",
+                                    "version": "1.2",
+                                    "body": [
+                                      {
+                                        "type": "TextBlock",
+                                        "text": "🚨 CRITICAL SECURITY INCIDENT",
+                                        "weight": "Bolder",
+                                        "size": "Large",
+                                        "color": "Attention"
+                                      },
+                                      {
+                                        "type": "FactSet",
+                                        "facts": [
+                                          {
+                                            "title": "Incident ID:",
+                                            "value": "@{variables('IncidentId')}"
+                                          },
+                                          {
+                                            "title": "Title:",
+                                            "value": "@{variables('IncidentTitle')}"
+                                          },
+                                          {
+                                            "title": "Severity:",
+                                            "value": "@{variables('IncidentSeverity')}"
+                                          },
+                                          {
+                                            "title": "Time:",
+                                            "value": "@{utcNow()}"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "actions": [
+                                      {
+                                        "type": "Action.OpenUrl",
+                                        "title": "View in Sentinel",
+                                        "url": "@{variables('IncidentUrl')}"
+                                      }
+                                    ]
+                                  },
+                                  "recipient": {
+                                    "channelId": "19:security-operations@thread.tacv2"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "actions": {
+                            "Execute_Containment_Actions": {
+                              "type": "Http",
+                              "inputs": {
+                                "method": "POST",
+                                "uri": "https://graph.microsoft.com/v1.0/security/runHuntingQuery",
+                                "headers": {
+                                  "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                                  "Content-Type": "application/json"
+                                },
+                                "body": {
+                                  "Query": "SecurityIncident | where IncidentId == '@{variables('IncidentId')}' | extend Entities = parse_json(Entities) | mv-expand Entities | where Entities.Type == 'account' or Entities.Type == 'ip' | project EntityType = Entities.Type, EntityValue = Entities.Name"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "Update_Incident_with_Response_Actions": {
+                      "runAfter": {
+                        "Critical_Incident_Response": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "ApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connection": {
+                            "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                          }
+                        },
+                        "method": "put",
+                        "path": "/Incidents/subscriptions/@{encodeURIComponent(subscription().subscriptionId)}/resourceGroups/@{encodeURIComponent(resourceGroup().name)}/workspaces/@{encodeURIComponent(parameters('workspaceName'))}/incidents/@{encodeURIComponent(variables('IncidentId'))}",
+                        "body": {
+                          "properties": {
+                            "status": "Active",
+                            "severity": "@{variables('IncidentSeverity')}",
+                            "owner": {
+                              "assignedTo": "SOC Team",
+                              "email": "[parameters('notificationEmail')]"
+                            },
+                            "labels": [
+                              {
+                                "labelName": "AutomatedResponse",
+                                "labelType": "System"
+                              },
+                              {
+                                "labelName": "DataBreach",
+                                "labelType": "User"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "High": {
+                  "case": "Medium",
+                  "actions": {
+                    "High_Priority_Response": {
+                      "type": "Parallel",
+                      "branches": [
+                        {
+                          "actions": {
+                            "Send_Email_Notification": {
+                              "type": "ApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connection": {
+                                    "name": "@parameters('$connections')['office365']['connectionId']"
+                                  }
+                                },
+                                "method": "post",
+                                "path": "/v2/Mail",
+                                "body": {
+                                  "To": "[parameters('notificationEmail')]",
+                                  "Subject": "⚠️ High Priority Security Incident - @{variables('IncidentTitle')}",
+                                  "Body": "<h2>High Priority Security Incident</h2><p><strong>Incident ID:</strong> @{variables('IncidentId')}</p><p><strong>Title:</strong> @{variables('IncidentTitle')}</p><p><strong>Severity:</strong> @{variables('IncidentSeverity')}</p><p><strong>Time:</strong> @{utcNow()}</p><p><a href='@{variables('IncidentUrl')}'>View Incident in Sentinel</a></p>"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "actions": {
+                            "Gather_Additional_Evidence": {
+                              "type": "Http",
+                              "inputs": {
+                                "method": "POST",
+                                "uri": "https://management.azure.com/subscriptions/@{subscription().subscriptionId}/resourceGroups/@{resourceGroup().name}/providers/Microsoft.OperationalInsights/workspaces/@{parameters('workspaceName')}/query",
+                                "headers": {
+                                  "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                                  "Content-Type": "application/json"
+                                },
+                                "body": {
+                                  "query": "SecurityIncident | where IncidentId == '@{variables('IncidentId')}' | extend AlertIds = parse_json(AlertIds) | mv-expand AlertIds | join kind=inner (SecurityAlert | where SystemAlertId in (AlertIds)) on $left.AlertIds == $right.SystemAlertId | project TimeGenerated, AlertName, AlertSeverity, Description, Entities"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Standard_Response": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                        }
+                      },
+                      "method": "put",
+                      "path": "/Incidents/subscriptions/@{encodeURIComponent(subscription().subscriptionId)}/resourceGroups/@{encodeURIComponent(resourceGroup().name)}/workspaces/@{encodeURIComponent(parameters('workspaceName'))}/incidents/@{encodeURIComponent(variables('IncidentId'))}",
+                      "body": {
+                        "properties": {
+                          "status": "New",
+                          "owner": {
+                            "assignedTo": "Tier 1 Analyst"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Get_Access_Token": {
+              "runAfter": {
+                "Initialize_Variables": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "POST",
+                "uri": "https://login.microsoftonline.com/@{subscription().tenantId}/oauth2/v2.0/token",
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "body": "grant_type=client_credentials&client_id=@{appsetting('AZURE_CLIENT_ID')}&client_secret=@{appsetting('AZURE_CLIENT_SECRET')}&scope=https://management.azure.com/.default"
+              }
+            }
+          }
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "azuresentinel": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+                "connectionName": "[variables('sentinelConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/azuresentinel')]"
+              },
+              "office365": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]",
+                "connectionName": "[variables('office365ConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/office365')]"
+              },
+              "teams": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('teamsConnectionName'))]",
+                "connectionName": "[variables('teamsConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/teams')]"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2017-07-01",
+      "name": "[concat(parameters('playbookNamePrefix'), '-ThreatHunting')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+        "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]"
+      ],
+      "properties": {
+        "state": "Enabled",
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "Recurrence": {
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 4
+              },
+              "type": "Recurrence"
+            }
+          },
+          "actions": {
+            "Execute_Threat_Hunting_Queries": {
+              "type": "Parallel",
+              "branches": [
+                {
+                  "actions": {
+                    "Hunt_Suspicious_Logins": {
+                      "type": "Http",
+                      "inputs": {
+                        "method": "POST",
+                        "uri": "https://management.azure.com/subscriptions/@{subscription().subscriptionId}/resourceGroups/@{resourceGroup().name}/providers/Microsoft.OperationalInsights/workspaces/@{parameters('workspaceName')}/query",
+                        "headers": {
+                          "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                          "Content-Type": "application/json"
+                        },
+                        "body": {
+                          "query": "SigninLogs | where TimeGenerated > ago(4h) | where ResultType != 0 | summarize FailedAttempts = count() by UserPrincipalName, IPAddress | where FailedAttempts > 10 | order by FailedAttempts desc"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "actions": {
+                    "Hunt_Privilege_Escalation": {
+                      "type": "Http",
+                      "inputs": {
+                        "method": "POST",
+                        "uri": "https://management.azure.com/subscriptions/@{subscription().subscriptionId}/resourceGroups/@{resourceGroup().name}/providers/Microsoft.OperationalInsights/workspaces/@{parameters('workspaceName')}/query",
+                        "headers": {
+                          "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                          "Content-Type": "application/json"
+                        },
+                        "body": {
+                          "query": "AuditLogs | where TimeGenerated > ago(4h) | where OperationName in ('Add member to role', 'Update role') | extend InitiatedBy = tostring(InitiatedBy.user.userPrincipalName) | project TimeGenerated, OperationName, InitiatedBy, TargetResources"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "actions": {
+                    "Hunt_Malware_Activity": {
+                      "type": "Http",
+                      "inputs": {
+                        "method": "POST",
+                        "uri": "https://management.azure.com/subscriptions/@{subscription().subscriptionId}/resourceGroups/@{resourceGroup().name}/providers/Microsoft.OperationalInsights/workspaces/@{parameters('workspaceName')}/query",
+                        "headers": {
+                          "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                          "Content-Type": "application/json"
+                        },
+                        "body": {
+                          "query": "DeviceEvents | where TimeGenerated > ago(4h) | where ActionType in ('FileCreated', 'ProcessCreated') | where FileName matches regex @'.*\\.(exe|scr|bat|cmd|ps1)$' | where FolderPath contains 'Temp' or FolderPath contains 'Downloads' | summarize EventCount = count() by DeviceName, FileName, SHA256 | where EventCount > 5"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "runAfter": {
+                "Get_Access_Token": [
+                  "Succeeded"
+                ]
+              }
+            },
+            "Process_Hunting_Results": {
+              "runAfter": {
+                "Execute_Threat_Hunting_Queries": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach",
+              "foreach": "@body('Execute_Threat_Hunting_Queries')",
+              "actions": {
+                "Check_for_Findings": {
+                  "type": "Condition",
+                  "expression": {
+                    "and": [
+                      {
+                        "greater": [
+                          "@length(body(item())?['tables']?[0]?['rows'])",
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "actions": {
+                    "Create_Hunting_Incident": {
+                      "type": "ApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connection": {
+                            "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                          }
+                        },
+                        "method": "post",
+                        "path": "/Incidents/subscriptions/@{encodeURIComponent(subscription().subscriptionId)}/resourceGroups/@{encodeURIComponent(resourceGroup().name)}/workspaces/@{encodeURIComponent(parameters('workspaceName'))}/incidents",
+                        "body": {
+                          "properties": {
+                            "title": "Threat Hunting - Suspicious Activity Detected",
+                            "description": "Automated threat hunting detected suspicious activity requiring investigation",
+                            "severity": "Medium",
+                            "status": "New",
+                            "owner": {
+                              "assignedTo": "Threat Hunter"
+                            },
+                            "labels": [
+                              {
+                                "labelName": "ThreatHunting",
+                                "labelType": "User"
+                              },
+                              {
+                                "labelName": "AutomatedDetection",
+                                "labelType": "System"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Get_Access_Token": {
+              "type": "Http",
+              "inputs": {
+                "method": "POST",
+                "uri": "https://login.microsoftonline.com/@{subscription().tenantId}/oauth2/v2.0/token",
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "body": "grant_type=client_credentials&client_id=@{appsetting('AZURE_CLIENT_ID')}&client_secret=@{appsetting('AZURE_CLIENT_SECRET')}&scope=https://management.azure.com/.default"
+              }
+            }
+          }
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "azuresentinel": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+                "connectionName": "[variables('sentinelConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/azuresentinel')]"
+              },
+              "office365": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]",
+                "connectionName": "[variables('office365ConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/office365')]"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2017-07-01",
+      "name": "[concat(parameters('playbookNamePrefix'), '-VulnerabilityResponse')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+        "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]"
+      ],
+      "properties": {
+        "state": "Enabled",
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_a_vulnerability_alert_is_created": {
+              "type": "ApiConnectionWebhook",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                  }
+                },
+                "body": {
+                  "callback_url": "@{listCallbackUrl()}"
+                },
+                "path": "/alert-creation"
+              }
+            }
+          },
+          "actions": {
+            "Parse_Vulnerability_Alert": {
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@triggerBody()?['ExtendedProperties']",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "CVE": {
+                      "type": "string"
+                    },
+                    "CVSS": {
+                      "type": "string"
+                    },
+                    "Severity": {
+                      "type": "string"
+                    },
+                    "AffectedAssets": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            },
+            "Assess_Vulnerability_Risk": {
+              "runAfter": {
+                "Parse_Vulnerability_Alert": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Switch",
+              "expression": "@body('Parse_Vulnerability_Alert')?['Severity']",
+              "cases": {
+                "Critical": {
+                  "case": "Critical",
+                  "actions": {
+                    "Emergency_Response": {
+                      "type": "Parallel",
+                      "branches": [
+                        {
+                          "actions": {
+                            "Isolate_Affected_Systems": {
+                              "type": "Http",
+                              "inputs": {
+                                "method": "POST",
+                                "uri": "https://graph.microsoft.com/v1.0/security/devices/@{items('For_each_affected_asset')?['DeviceId']}/isolate",
+                                "headers": {
+                                  "Authorization": "Bearer @{body('Get_Access_Token')?['access_token']}",
+                                  "Content-Type": "application/json"
+                                },
+                                "body": {
+                                  "comment": "Emergency isolation due to critical vulnerability @{body('Parse_Vulnerability_Alert')?['CVE']}",
+                                  "isolationType": "Full"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "actions": {
+                            "Emergency_Notification": {
+                              "type": "ApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connection": {
+                                    "name": "@parameters('$connections')['office365']['connectionId']"
+                                  }
+                                },
+                                "method": "post",
+                                "path": "/v2/Mail",
+                                "body": {
+                                  "To": "[parameters('notificationEmail')]",
+                                  "Subject": "🚨 CRITICAL VULNERABILITY DETECTED - @{body('Parse_Vulnerability_Alert')?['CVE']}",
+                                  "Body": "<h2>Critical Vulnerability Alert</h2><p><strong>CVE:</strong> @{body('Parse_Vulnerability_Alert')?['CVE']}</p><p><strong>CVSS Score:</strong> @{body('Parse_Vulnerability_Alert')?['CVSS']}</p><p><strong>Affected Assets:</strong> @{length(body('Parse_Vulnerability_Alert')?['AffectedAssets'])}</p><p><strong>Status:</strong> Emergency response initiated</p><p><strong>Actions Taken:</strong> Affected systems isolated automatically</p>",
+                                  "Importance": "High"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "High": {
+                  "case": "High",
+                  "actions": {
+                    "Create_Patch_Management_Task": {
+                      "type": "Http",
+                      "inputs": {
+                        "method": "POST",
+                        "uri": "https://dev.azure.com/organization/project/_apis/wit/workitems/$Task?api-version=6.0",
+                        "headers": {
+                          "Authorization": "Basic @{base64(concat(':', parameters('azureDevOpsToken')))}",
+                          "Content-Type": "application/json-patch+json"
+                        },
+                        "body": [
+                          {
+                            "op": "add",
+                            "path": "/fields/System.Title",
+                            "value": "URGENT: Patch @{body('Parse_Vulnerability_Alert')?['CVE']} (CVSS: @{body('Parse_Vulnerability_Alert')?['CVSS']})"
+                          },
+                          {
+                            "op": "add",
+                            "path": "/fields/System.Description",
+                            "value": "High severity vulnerability requires immediate patching. CVE: @{body('Parse_Vulnerability_Alert')?['CVE']}"
+                          },
+                          {
+                            "op": "add",
+                            "path": "/fields/Microsoft.VSTS.Common.Priority",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Standard_Vulnerability_Processing": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                        }
+                      },
+                      "method": "post",
+                      "path": "/Incidents/subscriptions/@{encodeURIComponent(subscription().subscriptionId)}/resourceGroups/@{encodeURIComponent(resourceGroup().name)}/workspaces/@{encodeURIComponent(parameters('workspaceName'))}/incidents",
+                      "body": {
+                        "properties": {
+                          "title": "Vulnerability Alert - @{body('Parse_Vulnerability_Alert')?['CVE']}",
+                          "description": "Vulnerability detected requiring assessment and remediation",
+                          "severity": "@{body('Parse_Vulnerability_Alert')?['Severity']}",
+                          "status": "New"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Get_Access_Token": {
+              "type": "Http",
+              "inputs": {
+                "method": "POST",
+                "uri": "https://login.microsoftonline.com/@{subscription().tenantId}/oauth2/v2.0/token",
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "body": "grant_type=client_credentials&client_id=@{appsetting('AZURE_CLIENT_ID')}&client_secret=@{appsetting('AZURE_CLIENT_SECRET')}&scope=https://graph.microsoft.com/.default"
+              }
+            }
+          }
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "azuresentinel": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('sentinelConnectionName'))]",
+                "connectionName": "[variables('sentinelConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/azuresentinel')]"
+              },
+              "office365": {
+                "connectionId": "[resourceId('Microsoft.Web/connections', variables('office365ConnectionName'))]",
+                "connectionName": "[variables('office365ConnectionName')]",
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/office365')]"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "dataBreachPlaybookName": {
+      "type": "string",
+      "value": "[concat(parameters('playbookNamePrefix'), '-DataBreachResponse')]"
+    },
+    "threatHuntingPlaybookName": {
+      "type": "string", 
+      "value": "[concat(parameters('playbookNamePrefix'), '-ThreatHunting')]"
+    },
+    "vulnerabilityResponsePlaybookName": {
+      "type": "string",
+      "value": "[concat(parameters('playbookNamePrefix'), '-VulnerabilityResponse')]"
+    },
+    "playbookResourceGroup": {
+      "type": "string",
+      "value": "[resourceGroup().name]"
+    }
+  }
+}
