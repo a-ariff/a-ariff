@@ -75,12 +75,14 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 <div align="center">
 
+![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-Azure%20Security%20Engineer%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Azure Security Engineer](https://img.shields.io/badge/Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Azure Solutions Architect](https://img.shields.io/badge/Azure%20Solutions%20Architect%20Expert-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Research](https://img.shields.io/badge/Research-Cybersecurity%20Focus-FF6B6B?style=for-the-badge&logo=academia&logoColor=white)
+![MIT Student](https://img.shields.io/badge/MIT%20Student-2026-4ECDC4?style=for-the-badge&logo=graduation-cap&logoColor=white)
 ![CISSP](https://img.shields.io/badge/CISSP-00A651?style=for-the-badge&logo=isc2&logoColor=white)
 ![CEH](https://img.shields.io/badge/CEH-8B0000?style=for-the-badge&logo=eccouncil&logoColor=white)
 
-**🎓 Academic Excellence:** *Dean's List | Research Publication in Cybersecurity Journal | MIT Excellence Award*
+
 
 </div>
 
@@ -149,20 +151,27 @@ Features:
 
 ---
 
-## 🎯 **Professional Experience**
+## 📈 **What I'm Currently Working On**
 
-### 💼 **Cloud Solutions Engineer** | *TechCorp Enterprise* (2023-Present)
-- 🚀 Led digital transformation initiatives for 15+ Fortune 500 clients
-- 🔒 Implemented zero-trust security frameworks reducing breach risk by 70%
-- ☁️ Designed and deployed hybrid cloud solutions with 99.9% uptime
-- 📊 Managed $5M+ in cloud infrastructure optimization projects
+<div align="center">
 
-### 🔬 **Research Assistant** | *MIT Cybersecurity Lab* (2022-Present)
-- 📝 Co-authored 3 peer-reviewed papers on AI-driven threat detection
-- 🤖 Developed novel ML algorithms for behavioral anomaly detection
-- 🏆 Recipient of MIT Excellence in Research Award 2024
+```mermaid
+graph TD
+    A[🔬 Research Projects] --> B[Zero-Trust Architecture]
+    A --> C[AI/ML Security Integration]
+    D[💼 Professional Work] --> E[Enterprise Cloud Migration]
+    D --> F[Security Compliance Automation]
+    G[🎓 Academic Studies] --> H[MIT Cybersecurity Program]
+    G --> I[Research Publications]
+```
 
----
+</div>
+
+### 🎯 **Current Focus Areas:**
+- 🔬 **Research:** Zero-trust architecture optimization in hybrid cloud environments
+- 💼 **Professional:** Large-scale Azure security implementations for enterprise clients
+- 🎓 **Academic:** Advanced cybersecurity coursework and research methodology
+- 🚀 **Innovation:** AI-powered security automation and threat intelligence systems
 
 ## 🌐 **Let's Connect & Collaborate**
 
