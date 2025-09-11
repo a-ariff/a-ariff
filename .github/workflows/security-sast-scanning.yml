@@ -1,5 +1,4 @@
 name: 🔐 Advanced SAST Security Scanning
-
 on:
   push:
     branches: [ main, master, develop ]
@@ -9,12 +8,10 @@ on:
     # Daily security scans at 2 AM UTC
     - cron: '0 2 * * *'
   workflow_dispatch:
-
 permissions:
   actions: read
   contents: read
   security-events: write
-
 jobs:
   codeql-analysis:
     name: 🔍 CodeQL SAST Analysis
@@ -23,7 +20,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'python', 'csharp', 'java', 'cpp', 'go' ]
+        # Restrict to languages actually present in repository
+        language: [ 'python' ]
     
     steps:
     - name: 📥 Checkout repository
@@ -47,7 +45,6 @@ jobs:
         category: "/language:${{matrix.language}}"
         upload: true
         wait-for-processing: true
-
   semgrep-scan:
     name: 🛡️ Semgrep SAST Scanning
     runs-on: ubuntu-latest
@@ -76,7 +73,6 @@ jobs:
         SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
         SEMGREP_TIMEOUT: 300
         SEMGREP_BASELINE_REF: main
-
   bandit-python-scan:
     name: 🐍 Bandit Python Security Scan
     runs-on: ubuntu-latest
@@ -109,7 +105,6 @@ jobs:
         name: bandit-security-report
         path: bandit-report.json
         retention-days: 30
-
   eslint-security-scan:
     name: 🟨 ESLint Security Scan
     runs-on: ubuntu-latest
@@ -142,7 +137,6 @@ jobs:
         name: eslint-security-report
         path: eslint-security-report.json
         retention-days: 30
-
   custom-security-rules:
     name: 🎯 Custom Security Rules Analysis
     runs-on: ubuntu-latest
@@ -161,7 +155,7 @@ jobs:
         
         echo "🔍 Scanning for SQL injection patterns..."
         grep -r -n --include="*.py" --include="*.js" --include="*.java" --include="*.cs" \
-          -E "(SELECT|INSERT|UPDATE|DELETE).*\+.*['\"]" . || true
+          -E "(SELECT|INSERT|UPDATE|DELETE).*\+.*['\"]". || true
         
         echo "🔍 Scanning for XSS patterns..."
         grep -r -n --include="*.py" --include="*.js" --include="*.html" \
@@ -170,7 +164,6 @@ jobs:
         echo "🔍 Scanning for insecure random number generation..."
         grep -r -n --include="*.py" --include="*.js" --include="*.java" \
           -E "(random\(\)|Math\.random|Random\(\))" . || true
-
   security-summary:
     name: 📊 Security Scan Summary
     runs-on: ubuntu-latest
