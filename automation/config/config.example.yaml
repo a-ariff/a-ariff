@@ -1,0 +1,168 @@
+# Professional Portfolio & Career Development Automation Config - EXAMPLE
+# Target: IT/Cybersecurity Professionals
+# 
+# INSTRUCTIONS:
+# 1. Copy this file to config.yaml
+# 2. Set environment variables for sensitive values (see README)
+# 3. Update placeholder values with your information
+
+personal_info:
+  name: "${PORTFOLIO_NAME}"  # Environment variable: PORTFOLIO_NAME
+  title: "${PORTFOLIO_TITLE}"  # Environment variable: PORTFOLIO_TITLE
+  email: "${PORTFOLIO_EMAIL}"  # Environment variable: PORTFOLIO_EMAIL
+  location: "${PORTFOLIO_LOCATION}"  # Environment variable: PORTFOLIO_LOCATION
+  
+  # Social & Professional Links - Set via environment variables
+  github: "${GITHUB_USERNAME}"  # Environment variable: GITHUB_USERNAME
+  linkedin: "${LINKEDIN_USERNAME}"  # Environment variable: LINKEDIN_USERNAME
+  twitter: "${TWITTER_USERNAME}"  # Environment variable: TWITTER_USERNAME
+  credly: "${CREDLY_USERNAME}"  # Environment variable: CREDLY_USERNAME
+  microsoft_learn: "${MSLEARN_USERNAME}"  # Environment variable: MSLEARN_USERNAME
+  portfolio_url: "${PORTFOLIO_URL}"  # Environment variable: PORTFOLIO_URL
+
+academic_info:
+  current_degree:
+    title: "Your Degree Title"
+    specialization: "Your Specialization"
+    institution: "Your Institution"
+    expected_graduation: "YYYY"
+    current_year: 1
+  
+  research_focus:
+    primary: "Your primary research focus"
+    areas:
+      - "Research Area 1"
+      - "Research Area 2"
+      - "Research Area 3"
+      - "Research Area 4"
+
+certifications:
+  active:
+    - name: "Your Active Certification"
+      provider: "Provider Name"
+      certification_id: "CERT-ID"
+      status: "Active"
+  
+  in_progress:
+    - name: "Certification in Progress"
+      provider: "Provider Name"
+      target_date: "2025-Q2"
+
+# API Configuration
+apis:
+  github:
+    base_url: "https://api.github.com"
+    username: "${GITHUB_USERNAME}"  # Uses environment variable
+    rate_limit: 5000
+  
+  credly:
+    base_url: "https://api.credly.com"
+    profile_url: "https://www.credly.com/users/${CREDLY_USERNAME}"  # Uses environment variable
+  
+  microsoft_learn:
+    base_url: "https://learn.microsoft.com/api"
+    profile_url: "https://learn.microsoft.com/en-us/users/${MSLEARN_USERNAME}"  # Uses environment variable
+    transcript_id: "${MSLEARN_TRANSCRIPT_ID}"  # Environment variable: MSLEARN_TRANSCRIPT_ID
+  
+  linkedin:
+    base_url: "https://api.linkedin.com"
+    # Note: LinkedIn API requires OAuth authentication
+
+# Resume/CV Settings
+resume:
+  templates:
+    - "academic_template.tex"
+    - "professional_template.tex"
+    - "cybersecurity_template.tex"
+  
+  sections:
+    - "personal_info"
+    - "professional_summary"
+    - "education"
+    - "certifications"
+    - "technical_skills"
+    - "professional_experience"
+    - "projects"
+    - "publications"
+    - "achievements"
+  
+  auto_update_frequency: "weekly"
+  output_formats: ["pdf", "html", "markdown"]
+
+# Portfolio Website Settings
+portfolio:
+  theme: "cybersecurity_professional"
+  components:
+    - "hero_section"
+    - "about"
+    - "skills_matrix"
+    - "projects_showcase"
+    - "certifications_display"
+    - "github_stats"
+    - "research_publications"
+    - "contact_form"
+  
+  live_metrics:
+    - "github_contributions"
+    - "certification_count"
+    - "project_stats"
+    - "research_progress"
+  
+  auto_deploy: true
+  hosting_platform: "github_pages"
+
+# Analytics & Tracking
+analytics:
+  metrics_to_track:
+    - "github_activity"
+    - "certification_progress"
+    - "academic_milestones"
+    - "job_applications"
+    - "networking_activity"
+    - "skill_development"
+  
+  reporting_frequency: "monthly"
+  dashboard_update: "daily"
+
+# Automation Settings
+automation:
+  linkedin_posting:
+    enabled: true
+    frequency: "on_significant_commits"
+    content_templates:
+      - "project_update"
+      - "certification_achievement"
+      - "research_milestone"
+  
+  job_application_tracking:
+    enabled: true
+    platforms:
+      - "LinkedIn"
+      - "Indeed"
+      - "Seek"
+      - "Company_Websites"
+  
+  skills_assessment:
+    frequency: "quarterly"
+    learning_recommendations: true
+    trend_analysis: true
+
+# Security & Privacy
+security:
+  data_encryption: true
+  api_key_rotation: "monthly"
+  backup_frequency: "daily"
+  privacy_compliance: "GDPR"
+
+# REQUIRED ENVIRONMENT VARIABLES:
+# export PORTFOLIO_NAME="Your Name"
+# export PORTFOLIO_TITLE="Your Professional Title"
+# export PORTFOLIO_EMAIL="your.email@example.com"
+# export PORTFOLIO_LOCATION="Your Location"
+# export GITHUB_USERNAME="your-github-username"
+# export LINKEDIN_USERNAME="your-linkedin-username"
+# export TWITTER_USERNAME="your-twitter-handle"
+# export CREDLY_USERNAME="your-credly-username"
+# export MSLEARN_USERNAME="your-mslearn-username"
+# export PORTFOLIO_URL="https://your-portfolio-site.com"
+# export MSLEARN_TRANSCRIPT_ID="your-transcript-id"
