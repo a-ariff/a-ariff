@@ -1,5 +1,4 @@
 name: Professional Portfolio Automation
-
 on:
   # Run on schedule (daily for data collection, weekly for resume updates)
   schedule:
@@ -38,7 +37,6 @@ on:
       - '.github/workflows/portfolio-automation.yml'
     branches:
       - main
-
 jobs:
   portfolio-automation:
     runs-on: ubuntu-latest
@@ -187,7 +185,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v2
-
   # Job for manual component execution
   manual-component:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.component != 'full'
@@ -232,11 +229,12 @@ jobs:
             git commit -m "🔧 Updated component: ${{ github.event.inputs.component }} - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git push
           fi
-
   # Notification job
   notify:
     needs: [portfolio-automation]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     if: always()
     
     steps:
