@@ -1,11 +1,14 @@
 # Ignore OS artifacts
 .DS_Store
 Thumbs.db
-
 # Ignore editor files
 .vscode/
 .idea/
-
 # Ignore temp files
 *.tmp
 *.bak
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

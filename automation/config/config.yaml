@@ -1,0 +1,154 @@
+# Professional Portfolio & Career Development Automation Config
+# Target: IT/Cybersecurity Professionals
+
+personal_info:
+  name: "Ariff Mohamed"
+  title: "Cloud Solutions Engineer | MIT Student (Cybersecurity)"
+  email: "ariff.mit@gmail.com"
+  location: "New Zealand"
+  
+  # Social & Professional Links
+  github: "a-ariff"
+  linkedin: "ariff-mohamed"
+  twitter: "ia_ariff"
+  credly: "ariff-mohamed"
+  microsoft_learn: "ariff-mohamed"
+  portfolio_url: "https://ariffmohamed.com"
+
+academic_info:
+  current_degree:
+    title: "Master of Information Technology"
+    specialization: "Cybersecurity"
+    institution: "Whitecliffe College"
+    expected_graduation: "2026"
+    current_year: 2
+  
+  research_focus:
+    primary: "Zero-trust architecture optimization in hybrid Microsoft cloud environments"
+    areas:
+      - "AI-Powered Security Automation"
+      - "Machine learning threat detection"
+      - "Cloud Security Governance"
+      - "Academic-Enterprise Bridge research"
+
+certifications:
+  active:
+    - name: "Azure Security Engineer Associate"
+      provider: "Microsoft"
+      certification_id: "AZ-500"
+      status: "Active"
+    - name: "Azure Solutions Architect Expert"
+      provider: "Microsoft"
+      certification_id: "AZ-305"
+      status: "Active"
+  
+  in_progress:
+    - name: "Salesforce Administrator"
+      provider: "Salesforce"
+      target_date: "2025-Q2"
+
+# API Configuration
+apis:
+  github:
+    base_url: "https://api.github.com"
+    username: "a-ariff"
+    rate_limit: 5000
+  
+  credly:
+    base_url: "https://api.credly.com"
+    profile_url: "https://www.credly.com/users/ariff-mohamed"
+  
+  microsoft_learn:
+    base_url: "https://learn.microsoft.com/api"
+    profile_url: "https://learn.microsoft.com/en-us/users/ariff-mohamed"
+    transcript_id: "73n4ki5ojwly24p"
+  
+  linkedin:
+    base_url: "https://api.linkedin.com"
+    # Note: LinkedIn API requires OAuth authentication
+
+# Resume/CV Settings
+resume:
+  templates:
+    - "academic_template.tex"
+    - "professional_template.tex"
+    - "cybersecurity_template.tex"
+  
+  sections:
+    - "personal_info"
+    - "professional_summary"
+    - "education"
+    - "certifications"
+    - "technical_skills"
+    - "professional_experience"
+    - "projects"
+    - "publications"
+    - "achievements"
+  
+  auto_update_frequency: "weekly"
+  output_formats: ["pdf", "html", "markdown"]
+
+# Portfolio Website Settings
+portfolio:
+  theme: "cybersecurity_professional"
+  components:
+    - "hero_section"
+    - "about"
+    - "skills_matrix"
+    - "projects_showcase"
+    - "certifications_display"
+    - "github_stats"
+    - "research_publications"
+    - "contact_form"
+  
+  live_metrics:
+    - "github_contributions"
+    - "certification_count"
+    - "project_stats"
+    - "research_progress"
+  
+  auto_deploy: true
+  hosting_platform: "github_pages"
+
+# Analytics & Tracking
+analytics:
+  metrics_to_track:
+    - "github_activity"
+    - "certification_progress"
+    - "academic_milestones"
+    - "job_applications"
+    - "networking_activity"
+    - "skill_development"
+  
+  reporting_frequency: "monthly"
+  dashboard_update: "daily"
+
+# Automation Settings
+automation:
+  linkedin_posting:
+    enabled: true
+    frequency: "on_significant_commits"
+    content_templates:
+      - "project_update"
+      - "certification_achievement"
+      - "research_milestone"
+  
+  job_application_tracking:
+    enabled: true
+    platforms:
+      - "LinkedIn"
+      - "Indeed"
+      - "Seek"
+      - "Company_Websites"
+  
+  skills_assessment:
+    frequency: "quarterly"
+    learning_recommendations: true
+    trend_analysis: true
+
+# Security & Privacy
+security:
+  data_encryption: true
+  api_key_rotation: "monthly"
+  backup_frequency: "daily"
+  privacy_compliance: "GDPR"

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ personal_info.name }} - Professional Portfolio</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Professional portfolio of {{ personal_info.name }}, {{ personal_info.title }}">
+    <meta name="keywords" content="cybersecurity, cloud security, azure, automation, research">
+    <meta name="author" content="{{ personal_info.name }}">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="{{ personal_info.name }} - Professional Portfolio">
+    <meta property="og:description" content="{{ personal_info.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ personal_info.portfolio_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- External CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">{{ personal_info.name }}</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#analytics" class="nav-link">Analytics</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title">
+                    <span class="typing-text">{{ personal_info.name }}</span>
+                </h1>
+                <h2 class="hero-subtitle">{{ personal_info.title }}</h2>
+                <p class="hero-description">
+                    Research-driven cybersecurity professional specializing in cloud security, 
+                    threat intelligence, and automated security solutions. Currently pursuing 
+                    Master's in Cybersecurity with focus on zero-trust architecture optimization.
+                </p>
+                
+                <!-- Live GitHub Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fab fa-github"></i>
+                        <span class="stat-number" id="github-repos">{{ github_stats.public_repos | default('0') }}</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-certificate"></i>
+                        <span class="stat-number" id="certification-count">{{ certification_count | default('0') }}</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="stat-number" id="academic-progress">{{ academic_progress | default('65') }}%</span>
+                        <span class="stat-label">Academic Progress</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="resumes/resume_latest.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/{{ personal_info.linkedin }}" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/{{ personal_info.github }}" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/{{ personal_info.twitter }}" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:{{ personal_info.email }}" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Animated Background -->
+            <div class="hero-animation">
+                <canvas id="matrix-canvas"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>About Me</h2>
+                <p>Research-driven professional bridging academic excellence with enterprise innovation</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>Professional Journey</h3>
+                    <p>
+                        I'm a Cloud Solutions Engineer with 10+ years of experience in cybersecurity 
+                        and cloud architecture. Currently pursuing my Master of Information Technology 
+                        with specialization in Cybersecurity at Whitecliffe College, where I bridge 
+                        academic research with enterprise practice.
+                    </p>
+                    
+                    <h3>Current Research Focus</h3>
+                    <p>
+                        My research centers on <strong>zero-trust architecture optimization in hybrid 
+                        Microsoft cloud environments</strong>, with emphasis on AI-driven threat detection 
+                        and automated security orchestration.
+                    </p>
+                    
+                    <h3>Core Expertise</h3>
+                    <ul class="expertise-list">
+                        <li><i class="fas fa-shield-alt"></i> Evidence-Based Security Implementation</li>
+                        <li><i class="fas fa-brain"></i> Advanced Threat Intelligence & AI/ML Security</li>
+                        <li><i class="fas fa-cloud"></i> Enterprise Cloud Architecture & Zero-Trust</li>
+                        <li><i class="fas fa-cogs"></i> Security Automation & DevSecOps</li>
+                        <li><i class="fas fa-graduation-cap"></i> Academic Research & Publication</li>
+                    </ul>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left">
+                    <div class="image-container">
+                        <img src="assets/professional-photo.jpg" alt="{{ personal_info.name }}" class="profile-image">
+                        
+                        <!-- Floating Achievement Cards -->
+                        <div class="achievement-card card-1">
+                            <i class="fas fa-award"></i>
+                            <span>Azure Security Expert</span>
+                        </div>
+                        <div class="achievement-card card-2">
+                            <i class="fas fa-microscope"></i>
+                            <span>Research Publications</span>
+                        </div>
+                        <div class="achievement-card card-3">
+                            <i class="fas fa-users"></i>
+                            <span>Enterprise Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Technical Expertise</h2>
+                <p>Skills developed through research, enterprise experience, and continuous learning</p>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Cloud Platforms -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-items">
+                        {% for skill in skills.cloud_platforms %}
+                        <div class="skill-item">
+                            <span class="skill-name">{{ skill }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: {{ skill_levels[skill] | default('80') }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Security Tools -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security Tools</h3>
+                    </div>
+                    <div class="skill-items">
+                        {% for skill in skills.security_tools %}
+                        <div class="skill-item">
+                            <span class="skill-name">{{ skill }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: {{ skill_levels[skill] | default('85') }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Programming Languages -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-items">
+                        {% for skill in skills.programming_languages %}
+                        <div class="skill-item">
+                            <span class="skill-name">{{ skill }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: {{ skill_levels[skill] | default('75') }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Infrastructure & DevOps -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Infrastructure & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        {% for skill in skills.infrastructure_devops %}
+                        <div class="skill-item">
+                            <span class="skill-name">{{ skill }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: {{ skill_levels[skill] | default('80') }}%"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Featured Projects</h2>
+                <p>Enterprise security solutions and research implementations</p>
+            </div>
+            
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="project-header">
+                        <h3>{{ project.name }}</h3>
+                        <div class="project-meta">
+                            <span class="project-year">{{ project.date }}</span>
+                            {% if project.github_url %}
+                            <a href="{{ project.github_url }}" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <p class="project-description">{{ project.description | default(project.details[0]) }}</p>
+                        
+                        <div class="project-technologies">
+                            {% for tech in project.technologies %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        
+                        <ul class="project-highlights">
+                            {% for detail in project.details[1:] %}
+                            <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    <!-- Live Project Metrics -->
+                    {% if project.live_metrics %}
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-star"></i>
+                            <span>{{ project.live_metrics.stars | default('0') }} Stars</span>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-code-branch"></i>
+                            <span>{{ project.live_metrics.forks | default('0') }} Forks</span>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-eye"></i>
+                            <span>{{ project.live_metrics.views | default('0') }} Views</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Display -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Professional Certifications</h2>
+                <p>Continuous learning and professional development</p>
+            </div>
+            
+            <div class="certifications-grid">
+                {% for cert in certifications %}
+                <div class="cert-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="cert-badge">
+                        {% if cert.badge_url %}
+                        <img src="{{ cert.badge_url }}" alt="{{ cert.name }}" class="cert-image">
+                        {% else %}
+                        <i class="fas fa-certificate"></i>
+                        {% endif %}
+                    </div>
+                    <div class="cert-content">
+                        <h3>{{ cert.name }}</h3>
+                        <p class="cert-issuer">{{ cert.issuer }}</p>
+                        <p class="cert-date">Issued: {{ cert.date }}</p>
+                        {% if cert.expiry_date %}
+                        <p class="cert-expiry">Expires: {{ cert.expiry_date }}</p>
+                        {% endif %}
+                        {% if cert.credential_id %}
+                        <p class="cert-id">ID: {{ cert.credential_id }}</p>
+                        {% endif %}
+                        
+                        {% if cert.skills %}
+                        <div class="cert-skills">
+                            {% for skill in cert.skills %}
+                            <span class="cert-skill">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Certification Timeline -->
+            <div class="cert-timeline" data-aos="fade-up">
+                <h3>Certification Journey</h3>
+                <canvas id="cert-timeline-chart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Academic Research</h2>
+                <p>Bridging academic excellence with enterprise innovation</p>
+            </div>
+            
+            <div class="research-content">
+                <div class="research-focus" data-aos="fade-right">
+                    <h3>Current Research Focus</h3>
+                    <div class="research-card">
+                        <h4>{{ academic_info.research_focus.primary }}</h4>
+                        <p>
+                            My research explores the optimization of zero-trust security architectures 
+                            in hybrid Microsoft cloud environments, with particular emphasis on 
+                            AI-driven threat detection and automated security orchestration.
+                        </p>
+                        
+                        <div class="research-areas">
+                            <h5>Research Areas:</h5>
+                            <ul>
+                                {% for area in academic_info.research_focus.areas %}
+                                <li>{{ area }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="academic-progress" data-aos="fade-left">
+                    <h3>Academic Progress</h3>
+                    <div class="progress-card">
+                        <div class="degree-info">
+                            <h4>{{ academic_info.current_degree.title }}</h4>
+                            <p>{{ academic_info.current_degree.specialization }}</p>
+                            <p>{{ academic_info.current_degree.institution }}</p>
+                            <p>Expected Graduation: {{ academic_info.current_degree.expected_graduation }}</p>
+                        </div>
+                        
+                        <div class="progress-metrics">
+                            <div class="progress-item">
+                                <span class="progress-label">Overall Progress</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: {{ academic_progress | default('65') }}%"></div>
+                                </div>
+                                <span class="progress-value">{{ academic_progress | default('65') }}%</span>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span class="progress-label">Coursework</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="progress-value">75%</span>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span class="progress-label">Research</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-value">45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Publications -->
+            {% if research_publications %}
+            <div class="publications" data-aos="fade-up">
+                <h3>Publications & Research Output</h3>
+                <div class="publications-grid">
+                    {% for pub in research_publications %}
+                    <div class="publication-card">
+                        <h4>{{ pub.title }}</h4>
+                        <p class="pub-description">{{ pub.description }}</p>
+                        <div class="pub-meta">
+                            <span class="pub-venue">{{ pub.venue }}</span>
+                            <span class="pub-date">{{ pub.date }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Analytics Dashboard -->
+    <section id="analytics" class="analytics">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Career Analytics</h2>
+                <p>Data-driven insights into professional development and achievements</p>
+            </div>
+            
+            <div class="analytics-grid">
+                <!-- GitHub Activity Chart -->
+                <div class="analytics-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>GitHub Activity</h3>
+                    <canvas id="github-activity-chart"></canvas>
+                </div>
+                
+                <!-- Skill Progression -->
+                <div class="analytics-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Skill Development</h3>
+                    <canvas id="skill-progression-chart"></canvas>
+                </div>
+                
+                <!-- Certification Timeline -->
+                <div class="analytics-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Professional Growth</h3>
+                    <canvas id="professional-growth-chart"></canvas>
+                </div>
+                
+                <!-- Career Metrics -->
+                <div class="analytics-card metrics-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Career Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-value" id="years-experience">10+</div>
+                            <div class="metric-label">Years Experience</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="projects-completed">50+</div>
+                            <div class="metric-label">Projects Completed</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="clients-served">15+</div>
+                            <div class="metric-label">Enterprise Clients</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="security-incidents">-70%</div>
+                            <div class="metric-label">Security Incidents Reduced</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Let's Connect</h2>
+                <p>Open to collaboration, research opportunities, and professional discussions</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://linkedin.com/in/{{ personal_info.linkedin }}" target="_blank">linkedin.com/in/{{ personal_info.linkedin }}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/{{ personal_info.github }}" target="_blank">github.com/{{ personal_info.github }}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <h4>Credly</h4>
+                            <a href="{{ personal_info.credly }}" target="_blank">View Certifications</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>{{ personal_info.name }}</h4>
+                    <p>Research-driven cybersecurity professional bridging academic excellence with enterprise innovation.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Professional</h4>
+                    <ul>
+                        <li><a href="resumes/resume_latest.pdf" target="_blank">Resume</a></li>
+                        <li><a href="{{ personal_info.credly }}" target="_blank">Certifications</a></li>
+                        <li><a href="{{ personal_info.microsoft_learn }}" target="_blank">Microsoft Learn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/{{ personal_info.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/{{ personal_info.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/{{ personal_info.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:{{ personal_info.email }}"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ current_year }} {{ personal_info.name }}. All rights reserved.</p>
+                <p>Last updated: <span id="last-updated">{{ last_updated }}</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/live-data.js"></script>
+</body>
+</html>
