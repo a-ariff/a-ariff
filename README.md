@@ -1,11 +1,3 @@
-# Agent tasks
-
-Add automation so any README update is committed to a new branch named update/readme-<YYYYMMDD-HHMM> with a PR opened to main.
-
-Implement via GitHub Actions workflow or Copilot Agent task.
-
----
-
 <div align="center">
 
 # 💫 Hi there! I'm **Ariff Mohamed** 🚀
