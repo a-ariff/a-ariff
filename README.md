@@ -96,13 +96,27 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 <div align="center">
 
-[![Azure Security Engineer Associate](https://img.shields.io/badge/Microsoft-Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-security-engineer/)
-[![Azure Fundamentals](https://img.shields.io/badge/Microsoft-Azure%20Fundamentals-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-fundamentals/)
+### 📜 **Microsoft Certifications**
+[![Microsoft Learn Transcript](https://img.shields.io/badge/Microsoft-Learning%20Transcript-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/users/ariff-mohamed/transcript/73n4ki5ojwly24p)
+[![Azure Security Engineer Associate](https://img.shields.io/badge/Microsoft%20Certified-Azure%20Security%20Engineer%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/1DE42D8D3E20360F?8ac53fd9)
+[![Azure Administrator Associate](https://img.shields.io/badge/Microsoft%20Certified-Azure%20Administrator%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/27EA011B0DB995A?8ac53fd9)
+[![Microsoft 365 Certified: Teams Administrator Associate](https://img.shields.io/badge/Microsoft%20365%20Certified-Teams%20Administrator%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-A/1FF2E73BDCAE576?sharingId=5996650C026DFF6A)
+[![Microsoft 365 Certified: Endpoint Administrator Associate](https://img.shields.io/badge/Microsoft%20365%20Certified-Endpoint%20Administrator%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/5E7B5535D853075?8ac53fd9)
+[![Microsoft 365 Certified: Administrator Expert](https://img.shields.io/badge/Microsoft%20365%20Certified-Administrator%20Expert-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/FFE73C769C6190B1?8ac53fd9)
+[![Microsoft Applied Skills: Entra ID](https://img.shields.io/badge/Microsoft%20Applied%20Skills-Get%20started%20with%20identities%20and%20access-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/api/credentials/share/en-us/Ariff-Mohamed/7CA3C54A4DAAF6D?8ac53fd9)
+
+### 📜 **AvePoint Certifications**
+[![Credly Profile](https://img.shields.io/badge/Credly-Certification%20Profile-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/users/ariff-mohamed)
+[![AvePoint Technical Professional - Cloud Backup for M365](https://img.shields.io/badge/AvePoint%20Certified-Technical%20Professional%20Cloud%20Backup-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)](https://www.credly.com/badges/41165314/public_url)
+[![AvePoint Technical Associate - Elements](https://img.shields.io/badge/AvePoint%20Certified-Technical%20Associate%20Elements-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)](https://www.credly.com/badges/9b33d9ab/public_url)
+[![AvePoint Technical Associate - Confidence](https://img.shields.io/badge/AvePoint%20Certified-Technical%20Associate%20Confidence-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)](https://www.credly.com/badges/47bfa023/public_url)
+[![AvePoint Technical Professional - Fly Server](https://img.shields.io/badge/AvePoint%20Certified-Technical%20Professional%20Fly%20Server-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)](https://www.credly.com/badges/c526d426/public_url)
+
+### 🎓 **Academic**
+![MIT Student](https://img.shields.io/badge/MIT%20Student-2026-4ECDC4?style=for-the-badge&logo=graduation-cap&logoColor=white)
+![Research](https://img.shields.io/badge/Research-Cybersecurity%20Focus-FF6B6B?style=for-the-badge&logo=academia&logoColor=white)
 
 </div>
-
-🎓 **Master of Information Technology (Cybersecurity)** - Whitecliffe College (2026)  
-🔬 **Research Focus:** Zero-trust architecture & AI-driven threat detection
 
 ---
 
@@ -127,7 +141,8 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/a-ariff)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff@example.com)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@aglobaltec.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://portfolio.aglobaltec.com/)
 [![Research Gate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Ariff-Mohamed-2?ev=prf_overview)
 
 </div>
@@ -144,7 +159,7 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 <div align="center">
 
 ### 💭 **Philosophy**
-*"Bridging academic research with enterprise practice to build tomorrow's security solutions today."*
+### 💫 *"Bridging academic excellence with enterprise innovation in cybersecurity"* 💫
 
 ⭐ **Star this repository if you find my work interesting!**
 
@@ -154,4 +169,12 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 **Thanks for visiting! 🙏**
 
+</div>
+
+---
+
+<!-- Snake Game Animation -->
+<div align="center">
+  <img src="https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only" alt="Snake animation for dark mode" />
+  <img src="https://raw.githubusercontent.com/a-ariff/a-ariff/output/github-contribution-grid-snake.svg#gh-light-mode-only" alt="Snake animation for light mode" />
 </div>
