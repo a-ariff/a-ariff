@@ -1,0 +1,8 @@
+# CODEOWNERS file defines who owns specific files/folders
+# This ensures the right people are automatically requested for review
+
+# README.md should be owned by a-ariff
+README.md @a-ariff
+
+# Fallback: a-ariff owns all files by default
+* @a-ariff
