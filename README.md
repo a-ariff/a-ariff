@@ -1,8 +1,8 @@
-<div align="center">
-
 # 💫 Hi there! I'm **Ariff Mohamed** 🚀
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Expert;MIT+Student+%7C+Cybersecurity+Research;Building+Secure+Cloud+Architectures;Research-Driven+Innovation;Transforming+Enterprise+Security)
+<div align="center">
+  
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Expert;MIT+Student+%7C+Cybersecurity+Research;Building+Secure+Cloud+Architectures;Research-Driven+Innovation;Transforming+Enterprise+Security)](https://github.com/a-ariff)
 
 [![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=for-the-badge)](https://github.com/a-ariff)
 [![GitHub followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=blue&labelColor=black)](https://github.com/a-ariff)
@@ -43,183 +43,119 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
 
 ### 🔐 **Security & Compliance**
 ![Microsoft Defender](https://img.shields.io/badge/Microsoft%20Defender-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)
-![Microsoft Intune](https://img.shields.io/badge/Microsoft%20Intune-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Azure Sentinel](https://img.shields.io/badge/Azure%20Sentinel-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Splunk](https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
-![CrowdStrike](https://img.shields.io/badge/CrowdStrike-E01F3D?style=for-the-badge&logo=crowdstrike&logoColor=white)
+![Zero Trust](https://img.shields.io/badge/Zero%20Trust-FF6B35?style=for-the-badge&logo=shield&logoColor=white)
+![SIEM](https://img.shields.io/badge/SIEM-2E8B57?style=for-the-badge&logo=security&logoColor=white)
+![Compliance](https://img.shields.io/badge/Compliance-4682B4?style=for-the-badge&logo=checklist&logoColor=white)
 
-### 💻 **Development & Analytics**
-![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Azure Functions](https://img.shields.io/badge/Azure%20Functions-0062AD?style=for-the-badge&logo=azure-functions&logoColor=white)
+### 💻 **Development & Automation**
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white)
 
-### 📊 **Data & AI/ML**
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Scikit Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Azure ML](https://img.shields.io/badge/Azure%20ML-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=white)
-
-</div>
-
----
-
-## 🏆 **Certifications & Achievements**
-
-<div align="center">
-
-![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-Azure%20Security%20Engineer%20Associate-0089D0?style=for-the-badge&logo=microsoft&logoColor=white)
-![Azure Security Engineer](https://img.shields.io/badge/Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Research](https://img.shields.io/badge/Research-Cybersecurity%20Focus-FF6B6B?style=for-the-badge&logo=academia&logoColor=white)
-![MIT Student](https://img.shields.io/badge/MIT%20Student-2026-4ECDC4?style=for-the-badge&logo=graduation-cap&logoColor=white)
-![CISSP](https://img.shields.io/badge/CISSP-00A651?style=for-the-badge&logo=isc2&logoColor=white)
-![CEH](https://img.shields.io/badge/CEH-8B0000?style=for-the-badge&logo=eccouncil&logoColor=white)
-
-
+### 📊 **Analytics & Intelligence**
+![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![KQL](https://img.shields.io/badge/KQL-00BCF2?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
+![Log Analytics](https://img.shields.io/badge/Log%20Analytics-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 
 </div>
 
 ---
 
-## 🚀 **Featured Projects**
-
-### 🛡️ **Azure Security Implementation Suite**
-```yaml
-Project: Enterprise Zero-Trust Framework
-Technology: Azure Sentinel | Defender | PowerShell | Terraform
-Impact: 40% reduction in security incidents across 50+ enterprise clients
-Features:
-  - Multi-tenant Security Framework
-  - Real-time Threat Intelligence Dashboard  
-  - Automated Compliance Reporting
-  - AI-powered Risk Assessment
-```
-
-### 🤖 **AI-Powered Threat Detection System**
-```yaml
-Project: Intelligent Security Analytics Platform
-Technology: Python | TensorFlow | Azure ML | Power BI
-Impact: 95% accuracy in threat prediction, 60% faster incident response
-Features:
-  - Machine Learning Anomaly Detection
-  - Predictive Threat Modeling
-  - Automated Response Orchestration
-  - Real-time Security Dashboards
-```
-
-### 🏗️ **Cloud Migration & Modernization**
-```yaml
-Project: Fortune 500 Cloud Transformation
-Technology: Azure | Kubernetes | Terraform | DevOps
-Impact: $2M+ cost savings, 99.9% uptime achieved
-Features:
-  - Hybrid Cloud Architecture Design
-  - Containerized Microservices
-  - CI/CD Pipeline Implementation
-  - Security-first Approach
-```
-
----
-
-## 📈 **GitHub Statistics**
+## 📊 **GitHub Analytics**
 
 <div align="center">
+  
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=F85D7F&icon_color=F8D866&text_color=FFFFFF)](https://github.com/a-ariff)
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&langs_count=8&theme=tokyonight"/>
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=F85D7F&text_color=FFFFFF)](https://github.com/a-ariff)
 
-</div>
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=radical&hide_border=true&background=0D1117&stroke=F85D7F&ring=F8D866&fire=F8D866&currStreakLabel=FFFFFF)](https://github.com/a-ariff)
 
-<div align="center">
-
-[![GitHub Streak](https://streak-stats.demolab.com/?user=a-ariff&theme=tokyonight)](https://git.io/streak-stats)
-
-</div>
-
-<div align="center">
-
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&theme=tokyo-night)
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&theme=react-dark&hide_border=true&bg_color=0D1117&color=F85D7F&line=F8D866&point=FFFFFF)](https://github.com/a-ariff)
 
 </div>
 
 ---
 
-## 📈 **What I'm Currently Working On**
+## 🎓 **Certifications & Education**
 
 <div align="center">
 
-```mermaid
-graph TD
-    A[🔬 Research Projects] --> B[Zero-Trust Architecture]
-    A --> C[AI/ML Security Integration]
-    D[💼 Professional Work] --> E[Enterprise Cloud Migration]
-    D --> F[Security Compliance Automation]
-    G[🎓 Academic Studies] --> H[MIT Cybersecurity Program]
-    G --> I[Research Publications]
-```
+[![Microsoft Certified: Azure Security Engineer Associate](https://img.shields.io/badge/Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-security-engineer/)
+[![Microsoft Certified: Azure Fundamentals](https://img.shields.io/badge/Azure%20Fundamentals-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-fundamentals/)
 
-</div>
-
-### 🎯 **Current Focus Areas:**
-- 🔬 **Research:** Zero-trust architecture optimization in hybrid cloud environments
-- 💼 **Professional:** Large-scale Azure security implementations for enterprise clients
-- 🎓 **Academic:** Advanced cybersecurity coursework and research methodology
-- 🚀 **Innovation:** AI-powered security automation and threat intelligence systems
-
-## 🌐 **Let's Connect & Collaborate**
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/a_ariff)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@ariffmohamed.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ariffmohamed.com)
-[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://researchgate.net/profile/ariff-mohamed)
+**🎓 Master of Information Technology (Cybersecurity)** - *Whitecliffe College (2026)*  
+**🔬 Research Focus:** Zero-trust architecture & AI-driven threat detection
 
 </div>
 
 ---
 
-## 💡 **Current Focus Areas**
+## 🚀 **Featured Projects & Research**
 
-```python
-class AriffMohamed:
-    def __init__(self):
-        self.role = "Cloud Solutions Engineer"
-        self.education = "MIT - Cybersecurity Research"
-        self.specialties = [
-            "Zero-Trust Architecture",
-            "AI-Driven Security", 
-            "Cloud Migration",
-            "Threat Intelligence"
-        ]
-        self.current_research = "Hybrid Cloud Security Optimization"
-        self.goal = "Transforming enterprise security through innovation"
-    
-    def get_expertise(self):
-        return {
-            "cloud_platforms": ["Azure", "AWS", "Multi-Cloud"],
-            "security_tools": ["Sentinel", "Defender", "CrowdStrike"],
-            "programming": ["Python", "PowerShell", "JavaScript"],
-            "frameworks": ["Terraform", "Kubernetes", "React"]
-        }
-```
+<div align="center">
+
+### 🔐 **Enterprise Security Implementations**
+*Advanced Azure Sentinel SIEM deployments with custom KQL analytics*
+
+### 🤖 **AI-Powered Threat Detection**
+*Machine learning models for anomaly detection in hybrid cloud environments*
+
+### 🏗️ **Zero-Trust Architecture**
+*Research-backed implementation of Microsoft Zero Trust framework*
+
+### 📊 **Security Analytics Dashboards**
+*Power BI integration with security data for executive reporting*
+
+</div>
+
+---
+
+## 🌐 **Connect & Collaborate**
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/a-ariff)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff@example.com)
+
+**💬 Open to:**
+- 🔬 Research Collaborations
+- 💼 Cybersecurity Consulting
+- 🎯 Cloud Architecture Projects
+- 📚 Academic Partnerships
+- 🚀 Innovation Initiatives
+
+</div>
 
 ---
 
 <div align="center">
 
-### 💫 *"Bridging academic excellence with enterprise innovation in cybersecurity"* 💫
+*"Bridging academic research with enterprise practice to build tomorrow's security solutions today."*
 
-<img src="https://komarev.com/ghpvc/?username=a-ariff&style=for-the-badge&color=blue" alt="Profile Views"/>
+⭐ **Star this repository if you find my work interesting!**
 
-**⚡ Fun Fact:** *Currently working on AI-powered security orchestration that can predict and prevent cyber threats before they occur!*
+[![Profile Trophy](https://github-profile-trophy.vercel.app/?username=a-ariff&theme=radical&no-frame=true&no-bg=true&margin-w=4)](https://github.com/a-ariff)
+
+</div>
+
+---
+
+<div align="center">
+  
+![Wave](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
+
+**Thanks for visiting! 🙏**
 
 </div>
