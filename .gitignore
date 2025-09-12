@@ -9,3 +9,33 @@ Thumbs.db
 # Ignore temp files
 *.tmp
 *.bak
+
+# Ignore cybersecurity framework generated files
+cybersecurity-framework/scripts/python/__pycache__/
+cybersecurity-framework/scripts/python/*.pyc
+cybersecurity-framework/reporting/generated-reports/
+cybersecurity-framework/vulnerability-mgmt/scan-results/
+cybersecurity-framework/threat-intelligence/*.db
+cybersecurity-framework/secret-management/temp-keys/
+
+# Ignore security scan artifacts
+*.sarif
+security-*.json
+vulnerability-*.json
+compliance-*.json
+incident-*.json
+
+# Ignore log files
+*.log
+logs/
+
+# Ignore build artifacts
+dist/
+build/
+node_modules/
+
+# Ignore environment files
+.env
+.env.local
+config.json
+*-config.json
