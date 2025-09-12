@@ -1,0 +1,93 @@
+name: 'README Auto-Branch and PR'
+
+# Trigger on pull_request_target and push when README.md changes on main
+on:
+  pull_request_target:
+    paths:
+      - 'README.md'
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+
+# Set GITHUB_TOKEN permissions
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-branch-readme:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout with permissions
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Set up git user
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Check if README.md has changed
+      - name: Check for README changes
+        id: readme-check
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q "README.md"; then
+            echo "readme_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "readme_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Create branch with timestamp if README changed
+      - name: Create branch and commit changes
+        if: steps.readme-check.outputs.readme_changed == 'true'
+        run: |
+          # Create branch name with timestamp
+          TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
+          BRANCH_NAME="update/readme-${TIMESTAMP}"
+          
+          # Create and switch to new branch
+          git checkout -b $BRANCH_NAME
+          
+          # Check if there are any changes to commit
+          if git diff --cached --quiet && git diff --quiet; then
+            echo "No changes to commit"
+          else
+            # Commit any changes
+            git add .
+            git commit -m "chore: update README.md automatically"
+          fi
+          
+          # Push branch
+          git push origin $BRANCH_NAME
+          
+          # Store branch name for next step
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      # Create pull request using peter-evans/create-pull-request@v6
+      - name: Create Pull Request
+        if: steps.readme-check.outputs.readme_changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.BRANCH_NAME }}
+          base: main
+          title: 'chore: auto PR for README update'
+          body: |
+            ## Automated README Update
+            
+            This PR was automatically created by the README Auto-Branch and PR workflow.
+            
+            ### Changes
+            - README.md has been updated
+            
+            ### Branch
+            - Branch: `${{ env.BRANCH_NAME }}`
+            
+            Please review the changes and merge if appropriate.
+          draft: false
+          delete-branch: true
