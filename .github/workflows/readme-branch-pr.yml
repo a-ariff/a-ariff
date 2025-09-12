@@ -32,7 +32,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: update/readme-$(date +"%Y%m%d-%H%M")
+          branch: update/readme-automated
           base: main
           commit-message: 'chore: automated README update'
           title: 'chore: automated README update'
@@ -45,7 +45,7 @@ jobs:
             - README.md has been updated
             
             ### Branch
-            - Branch: `update/readme-$(date +"%Y%m%d-%H%M")`
+            - Branch: `update/readme-automated`
             
             Please review the changes and merge if appropriate.
           labels: |
