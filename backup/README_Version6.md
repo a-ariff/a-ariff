@@ -2,13 +2,15 @@
 
 # 💫 Hi there! I'm **Ariff Mohamed** 🚀
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Security+Engineer;Cybersecurity+Researcher+%7C+MIT+Student+(2026);Modern+Endpoint+Management+%7C+Cloud+Architecture)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Expert;MIT+Student+%7C+Cybersecurity+Research;Building+Secure+Cloud+Architectures;Research-Driven+Innovation;Transforming+Enterprise+Security)
 
 [![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=for-the-badge)](https://github.com/a-ariff)
 [![GitHub followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=blue&labelColor=black)](https://github.com/a-ariff)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
 
 </div>
+
+---
 
 ---
 
