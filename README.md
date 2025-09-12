@@ -1,12 +1,13 @@
+<div align="center">
+
 # 💫 Hi there! I'm **Ariff Mohamed** 🚀
 
-<div align="center">
-  
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=32&duration=3000&pause=1000&color=2196F3&center=true&vCenter=true&width=800&lines=Cloud+Solutions+Engineer+%7C+Azure+Expert;MIT+Student+%7C+Cybersecurity+Research;Building+Secure+Cloud+Architectures;Research-Driven+Innovation;Transforming+Enterprise+Security)](https://github.com/a-ariff)
 
-[![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=for-the-badge)](https://github.com/a-ariff)
-[![GitHub followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=blue&labelColor=black)](https://github.com/a-ariff)
+![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&label=Profile%20views&color=0e75b6&style=for-the-badge)
+![GitHub followers](https://img.shields.io/github/followers/a-ariff?label=Followers&style=for-the-badge&color=blue&labelColor=black)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff@example.com)
 
 </div>
 
@@ -22,7 +23,7 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 ### 🌟 **What I Bring to the Table:**
 - 🔒 **Evidence-Based Security** – Applying research methodologies to cybersecurity implementations
-- 🛡️ **Advanced Threat Intelligence** – Academic-backed approach to Azure Sentinel and Defender deployments
+- 🛡️ **Advanced Threat Intelligence** – Academic-backed approach to Azure Sentinel and Defender deployments  
 - 🤖 **Intelligent Security Systems** – Integrating AI/ML research with Microsoft security stack
 - 📊 **Strategic Technology Management** – Academic governance frameworks applied to enterprise environments
 - 🏗️ **Enterprise Architecture** – Designing scalable, secure cloud solutions for Fortune 500 companies
@@ -47,25 +48,25 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
 
 ### 🔐 **Security & Compliance**
+![Azure Security Center](https://img.shields.io/badge/Azure%20Security%20Center-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Azure Sentinel](https://img.shields.io/badge/Azure%20Sentinel-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Microsoft Defender](https://img.shields.io/badge/Microsoft%20Defender-00A4EF?style=for-the-badge&logo=microsoft&logoColor=white)
-![Azure Sentinel](https://img.shields.io/badge/Azure%20Sentinel-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Zero Trust](https://img.shields.io/badge/Zero%20Trust-FF6B35?style=for-the-badge&logo=shield&logoColor=white)
-![SIEM](https://img.shields.io/badge/SIEM-2E8B57?style=for-the-badge&logo=security&logoColor=white)
-![Compliance](https://img.shields.io/badge/Compliance-4682B4?style=for-the-badge&logo=checklist&logoColor=white)
+![Intune](https://img.shields.io/badge/Microsoft%20Intune-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Zero Trust](https://img.shields.io/badge/Zero%20Trust-FF6B6B?style=for-the-badge&logo=security&logoColor=white)
 
 ### 💻 **Development & Automation**
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white)
+![ARM Templates](https://img.shields.io/badge/ARM%20Templates-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 
 ### 📊 **Analytics & Intelligence**
-![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
-![KQL](https://img.shields.io/badge/KQL-00BCF2?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
-![Log Analytics](https://img.shields.io/badge/Log%20Analytics-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Azure Analytics](https://img.shields.io/badge/Azure%20Analytics-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![KQL](https://img.shields.io/badge/KQL-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
 </div>
 
@@ -74,14 +75,18 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 ## 📊 **GitHub Analytics**
 
 <div align="center">
-  
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=F85D7F&icon_color=F8D866&text_color=FFFFFF)](https://github.com/a-ariff)
 
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=F85D7F&text_color=FFFFFF)](https://github.com/a-ariff)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=a-ariff&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=a-ariff&layout=compact&theme=tokyonight&hide_border=true&langs_count=8)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=radical&hide_border=true&background=0D1117&stroke=F85D7F&ring=F8D866&fire=F8D866&currStreakLabel=FFFFFF)](https://github.com/a-ariff)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=a-ariff&theme=tokyonight&hide_border=true)
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&theme=tokyo-night&hide_border=true)
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&theme=react-dark&hide_border=true&bg_color=0D1117&color=F85D7F&line=F8D866&point=FFFFFF)](https://github.com/a-ariff)
+### 🏆 **GitHub Trophies**
+![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=a-ariff&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&row=1)
+
+### ⚡ **Recent GitHub Activity**
+![GitHub Activity](https://github-readme-activity-graph.vercel.app/graph?username=a-ariff&bg_color=1a1b27&color=38bdae&line=70a5fd&point=bf91f3&area=true&hide_border=true)
 
 </div>
 
@@ -91,13 +96,13 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 <div align="center">
 
-[![Microsoft Certified: Azure Security Engineer Associate](https://img.shields.io/badge/Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-security-engineer/)
-[![Microsoft Certified: Azure Fundamentals](https://img.shields.io/badge/Azure%20Fundamentals-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-fundamentals/)
-
-**🎓 Master of Information Technology (Cybersecurity)** - *Whitecliffe College (2026)*  
-**🔬 Research Focus:** Zero-trust architecture & AI-driven threat detection
+[![Azure Security Engineer Associate](https://img.shields.io/badge/Microsoft-Azure%20Security%20Engineer%20Associate-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-security-engineer/)
+[![Azure Fundamentals](https://img.shields.io/badge/Microsoft-Azure%20Fundamentals-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-fundamentals/)
 
 </div>
+
+🎓 **Master of Information Technology (Cybersecurity)** - Whitecliffe College (2026)  
+🔬 **Research Focus:** Zero-trust architecture & AI-driven threat detection
 
 ---
 
@@ -105,17 +110,12 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 <div align="center">
 
-### 🔐 **Enterprise Security Implementations**
-*Advanced Azure Sentinel SIEM deployments with custom KQL analytics*
-
-### 🤖 **AI-Powered Threat Detection**
-*Machine learning models for anomaly detection in hybrid cloud environments*
-
-### 🏗️ **Zero-Trust Architecture**
-*Research-backed implementation of Microsoft Zero Trust framework*
-
-### 📊 **Security Analytics Dashboards**
-*Power BI integration with security data for executive reporting*
+| Project | Description | Tech Stack | Status |
+|---------|-------------|------------|--------|
+| 🔐 **Enterprise Security Suite** | Advanced Azure Sentinel SIEM deployments with custom KQL analytics | Azure Sentinel, KQL, PowerShell | 🚀 Active |
+| 🤖 **AI Threat Detection** | Machine learning models for anomaly detection in hybrid cloud environments | Python, Azure ML, TensorFlow | 🔬 Research |
+| 🏗️ **Zero-Trust Framework** | Research-backed implementation of Microsoft Zero Trust architecture | Azure AD, Intune, Conditional Access | 📈 Production |
+| 📊 **Security Analytics Dashboard** | Power BI integration with security data for executive reporting | Power BI, Azure APIs, KQL | ✅ Complete |
 
 </div>
 
@@ -125,36 +125,32 @@ I'm pursuing my **Master of Information Technology** with specialization in **Cy
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/a-ariff)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ariff-mohamed)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/a-ariff)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ariff@example.com)
+[![Research Gate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://researchgate.net/profile/ariff-mohamed)
 
-**💬 Open to:**
+</div>
+
+💬 **Open to:**
 - 🔬 Research Collaborations
-- 💼 Cybersecurity Consulting
+- 💼 Cybersecurity Consulting  
 - 🎯 Cloud Architecture Projects
 - 📚 Academic Partnerships
 - 🚀 Innovation Initiatives
 
-</div>
-
 ---
 
 <div align="center">
 
+### 💭 **Philosophy**
 *"Bridging academic research with enterprise practice to build tomorrow's security solutions today."*
 
 ⭐ **Star this repository if you find my work interesting!**
 
-[![Profile Trophy](https://github-profile-trophy.vercel.app/?username=a-ariff&theme=radical&no-frame=true&no-bg=true&margin-w=4)](https://github.com/a-ariff)
+![Profile Views](https://komarev.com/ghpvc/?username=a-ariff&style=for-the-badge&color=brightgreen)
 
-</div>
-
----
-
-<div align="center">
-  
-![Wave](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
+![Footer](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
 
 **Thanks for visiting! 🙏**
 
