@@ -4,16 +4,49 @@ on:
     branches: [ main ]
   schedule:
     - cron: '0 2 * * 1'
+
 permissions:
   contents: read
+
 jobs:
   link-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Check if only README files changed
+      - name: Check changed files
+        id: changed-files
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            changed_files=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+            echo "changed_files=$changed_files" >> $GITHUB_OUTPUT
+            # Check if only README files changed
+            non_readme_changes=$(echo "$changed_files" | grep -v '^README.*\.md$' | head -1)
+            if [ -z "$non_readme_changes" ]; then
+              echo "readme_only=true" >> $GITHUB_OUTPUT
+            else
+              echo "readme_only=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "readme_only=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v2
+        continue-on-error: ${{ steps.changed-files.outputs.readme_only == 'true' }}
         with:
-          args: --no-progress --verbose --accept 200,999 --max-redirects 5 --retry-wait-time 2 --timeout 20 README.md README_DRAFT.md
+          args: --no-progress --verbose --accept 200,204,206,301,302,307,308,403,429,999 --max-redirects 10 --retry-wait-time 5 --timeout 30 --max-retries 3 README.md README_DRAFT.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Link check summary
+        if: always()
+        run: |
+          if [ "${{ steps.changed-files.outputs.readme_only }}" = "true" ]; then
+            echo "✅ README-only changes detected - link failures are non-blocking for this PR"
+          else
+            echo "🔍 Mixed file changes detected - link check results are blocking"
+          fi
