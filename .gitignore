@@ -9,3 +9,19 @@ Thumbs.db
 # Ignore temp files
 *.tmp
 *.bak
+
+# Ignore automation artifacts
+scripts/__pycache__/
+scripts/*.pyc
+*.log
+
+# Ignore generated reports
+*-report.md
+*-report.json
+npm-audit.json
+safety-report.json
+trivy-report.json
+
+# Ignore temporary automation files
+.automation-temp/
+temp-repos/

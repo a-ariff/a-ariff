@@ -1,0 +1,99 @@
+name: 📚 Documentation
+description: Request documentation improvements or report documentation issues
+title: "[DOCS] Brief description of documentation issue"
+labels: ["documentation", "needs-triage"]
+assignees:
+  - a-ariff
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve our documentation! Clear documentation is essential for user success.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation issue is this?
+      options:
+        - Missing Documentation
+        - Incorrect/Outdated Information
+        - Unclear Instructions
+        - Broken Links
+        - Examples Needed
+        - API Documentation
+        - Installation Guide
+        - Configuration Guide
+        - Troubleshooting Guide
+        - Security Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is the documentation issue located?
+      placeholder: |
+        Provide specific location information:
+        - File name (e.g., README.md, docs/installation.md)
+        - Section or heading
+        - Line numbers (if applicable)
+        - URL (if web documentation)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe the documentation issue in detail
+      placeholder: |
+        Clearly describe the documentation problem:
+        - What information is missing, incorrect, or unclear?
+        - What did you expect to find?
+        - How does this impact users?
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-improvement
+    attributes:
+      label: Suggested Improvement
+      description: How should the documentation be improved?
+      placeholder: |
+        Provide specific suggestions for improvement:
+        - What information should be added?
+        - How should existing content be corrected?
+        - What examples would be helpful?
+
+  - type: dropdown
+    id: user-type
+    attributes:
+      label: User Type
+      description: What type of user would benefit from this documentation improvement?
+      multiple: true
+      options:
+        - New Users/Beginners
+        - Experienced Users
+        - Developers/Contributors
+        - System Administrators
+        - IT Professionals
+        - Security Engineers
+        - Students/Learners
+        - All Users
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you like to help improve this documentation?
+      options:
+        - label: I would like to write/update this documentation
+        - label: I can provide examples or use cases
+        - label: I can review proposed changes
+        - label: I can test documentation accuracy

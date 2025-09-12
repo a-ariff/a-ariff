@@ -1,0 +1,138 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior
+title: "[BUG] Brief description of the issue"
+labels: ["bug", "needs-triage"]
+assignees:
+  - a-ariff
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug! Please fill out the form below to help us understand and reproduce the issue.
+
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Pre-submission Checklist
+      description: Please verify you have completed these steps before submitting
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate
+          required: true
+        - label: I have read the documentation and FAQ
+          required: true
+        - label: I am using a supported version
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Run command '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: Describe the expected result
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Describe what actually happened instead
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: What environment are you using?
+      multiple: true
+      options:
+        - Windows 10
+        - Windows 11
+        - Windows Server 2019
+        - Windows Server 2022
+        - macOS
+        - Linux (Ubuntu)
+        - Linux (CentOS/RHEL)
+        - Linux (Other)
+        - Docker Container
+        - Azure Cloud Shell
+        - PowerShell 5.1
+        - PowerShell 7.x
+        - Azure DevOps
+        - GitHub Actions
+    validations:
+      required: true
+
+  - type: textarea
+    id: version
+    attributes:
+      label: Version Information
+      description: Relevant version information
+      placeholder: |
+        - Script/Tool Version:
+        - PowerShell Version:
+        - Azure CLI Version:
+        - Module Versions:
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Messages/Logs
+      description: Please paste any relevant error messages or logs
+      render: shell
+      placeholder: Paste error messages, stack traces, or relevant log output here
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: Add any other context, screenshots, or files that might help
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this issue?
+      options:
+        - Critical - System unusable/data loss
+        - High - Major functionality broken
+        - Medium - Minor functionality broken
+        - Low - Cosmetic/documentation issue
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you like to contribute to fixing this issue?
+      options:
+        - label: I would like to work on fixing this issue
+        - label: I can provide additional testing/validation

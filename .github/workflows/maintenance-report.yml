@@ -1,0 +1,445 @@
+name: Monthly Maintenance Report
+
+on:
+  schedule:
+    # Run on the 1st day of every month at 6 AM UTC
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  security-events: read
+  actions: read
+
+jobs:
+  generate-maintenance-report:
+    name: Generate Monthly Maintenance Report
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        npm install @octokit/rest date-fns
+
+    - name: Generate comprehensive maintenance report
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { Octokit } = require('@octokit/rest');
+          const { format, subMonths, startOfMonth, endOfMonth } = require('date-fns');
+          
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+          
+          // Calculate date range for last month
+          const now = new Date();
+          const lastMonth = subMonths(now, 1);
+          const startDate = startOfMonth(lastMonth);
+          const endDate = endOfMonth(lastMonth);
+          
+          console.log(`Generating report for period: ${format(startDate, 'yyyy-MM-dd')} to ${format(endDate, 'yyyy-MM-dd')}`);
+          
+          let report = `# Monthly Maintenance Report - ${format(lastMonth, 'MMMM yyyy')}\n\n`;
+          report += `**Repository:** ${owner}/${repo}\n`;
+          report += `**Report Period:** ${format(startDate, 'MMMM d, yyyy')} - ${format(endDate, 'MMMM d, yyyy')}\n`;
+          report += `**Generated:** ${format(now, 'MMMM d, yyyy \'at\' HH:mm \'UTC\'')}\n\n`;
+          
+          try {
+            // Repository overview
+            report += `## 📊 Repository Overview\n\n`;
+            
+            const repoInfo = await github.rest.repos.get({ owner, repo });
+            report += `- **Description:** ${repoInfo.data.description || 'No description'}\n`;
+            report += `- **Language:** ${repoInfo.data.language || 'Multiple/None'}\n`;
+            report += `- **Stars:** ${repoInfo.data.stargazers_count}\n`;
+            report += `- **Forks:** ${repoInfo.data.forks_count}\n`;
+            report += `- **Open Issues:** ${repoInfo.data.open_issues_count}\n`;
+            report += `- **Last Updated:** ${format(new Date(repoInfo.data.updated_at), 'MMMM d, yyyy')}\n\n`;
+            
+            // Commits analysis
+            report += `## 📈 Activity Summary\n\n`;
+            
+            const commits = await github.rest.repos.listCommits({
+              owner,
+              repo,
+              since: startDate.toISOString(),
+              until: endDate.toISOString(),
+              per_page: 100
+            });
+            
+            report += `### Commits\n`;
+            report += `- **Total Commits:** ${commits.data.length}\n`;
+            
+            if (commits.data.length > 0) {
+              const authors = {};
+              commits.data.forEach(commit => {
+                const author = commit.author?.login || commit.commit.author.name;
+                authors[author] = (authors[author] || 0) + 1;
+              });
+              
+              report += `- **Contributors:** ${Object.keys(authors).length}\n`;
+              report += `- **Top Contributors:**\n`;
+              Object.entries(authors)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5)
+                .forEach(([author, count]) => {
+                  report += `  - ${author}: ${count} commits\n`;
+                });
+            }
+            report += `\n`;
+            
+            // Issues and PRs
+            const issues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'all',
+              since: startDate.toISOString(),
+              per_page: 100
+            });
+            
+            const issuesCreated = issues.data.filter(issue => 
+              !issue.pull_request && 
+              new Date(issue.created_at) >= startDate && 
+              new Date(issue.created_at) <= endDate
+            );
+            
+            const issuesClosed = issues.data.filter(issue => 
+              !issue.pull_request && 
+              issue.closed_at &&
+              new Date(issue.closed_at) >= startDate && 
+              new Date(issue.closed_at) <= endDate
+            );
+            
+            const prsCreated = issues.data.filter(issue => 
+              issue.pull_request && 
+              new Date(issue.created_at) >= startDate && 
+              new Date(issue.created_at) <= endDate
+            );
+            
+            const prsClosed = issues.data.filter(issue => 
+              issue.pull_request && 
+              issue.closed_at &&
+              new Date(issue.closed_at) >= startDate && 
+              new Date(issue.closed_at) <= endDate
+            );
+            
+            report += `### Issues & Pull Requests\n`;
+            report += `- **Issues Created:** ${issuesCreated.length}\n`;
+            report += `- **Issues Closed:** ${issuesClosed.length}\n`;
+            report += `- **PRs Created:** ${prsCreated.length}\n`;
+            report += `- **PRs Merged/Closed:** ${prsClosed.length}\n\n`;
+            
+            // Security analysis
+            report += `## 🔒 Security Status\n\n`;
+            
+            try {
+              // Get security alerts (if accessible)
+              const securityAlerts = await github.rest.dependabot.listAlertsForRepo({
+                owner,
+                repo,
+                state: 'open'
+              });
+              
+              report += `### Dependabot Alerts\n`;
+              report += `- **Open Security Alerts:** ${securityAlerts.data.length}\n`;
+              
+              if (securityAlerts.data.length > 0) {
+                report += `- **Severity Breakdown:**\n`;
+                const severityCounts = {};
+                securityAlerts.data.forEach(alert => {
+                  const severity = alert.security_advisory.severity;
+                  severityCounts[severity] = (severityCounts[severity] || 0) + 1;
+                });
+                
+                Object.entries(severityCounts).forEach(([severity, count]) => {
+                  report += `  - ${severity.charAt(0).toUpperCase() + severity.slice(1)}: ${count}\n`;
+                });
+              }
+              report += `\n`;
+            } catch (error) {
+              report += `- **Security Alerts:** Unable to fetch (${error.message})\n\n`;
+            }
+            
+            // Workflow runs analysis
+            report += `## ⚙️ Automation & Workflows\n\n`;
+            
+            try {
+              const workflowRuns = await github.rest.actions.listWorkflowRunsForRepo({
+                owner,
+                repo,
+                created: `${format(startDate, 'yyyy-MM-dd')}..${format(endDate, 'yyyy-MM-dd')}`,
+                per_page: 100
+              });
+              
+              report += `### Workflow Activity\n`;
+              report += `- **Total Workflow Runs:** ${workflowRuns.data.total_count}\n`;
+              
+              if (workflowRuns.data.workflow_runs.length > 0) {
+                const statusCounts = {};
+                workflowRuns.data.workflow_runs.forEach(run => {
+                  statusCounts[run.conclusion] = (statusCounts[run.conclusion] || 0) + 1;
+                });
+                
+                report += `- **Success Rate:** ${Math.round((statusCounts.success || 0) / workflowRuns.data.total_count * 100)}%\n`;
+                report += `- **Status Breakdown:**\n`;
+                Object.entries(statusCounts).forEach(([status, count]) => {
+                  const emoji = status === 'success' ? '✅' : status === 'failure' ? '❌' : '⚠️';
+                  report += `  - ${emoji} ${status || 'unknown'}: ${count}\n`;
+                });
+              }
+              report += `\n`;
+            } catch (error) {
+              report += `- **Workflow Runs:** Unable to fetch (${error.message})\n\n`;
+            }
+            
+            // Dependencies analysis
+            report += `## 📦 Dependencies\n\n`;
+            
+            // Check for common dependency files
+            const dependencyFiles = [
+              'package.json',
+              'requirements.txt',
+              'Cargo.toml',
+              'go.mod',
+              'pom.xml',
+              'build.gradle'
+            ];
+            
+            let foundDependencies = false;
+            for (const file of dependencyFiles) {
+              try {
+                await github.rest.repos.getContent({
+                  owner,
+                  repo,
+                  path: file
+                });
+                foundDependencies = true;
+                
+                const fileType = {
+                  'package.json': 'Node.js (npm)',
+                  'requirements.txt': 'Python (pip)',
+                  'Cargo.toml': 'Rust (cargo)',
+                  'go.mod': 'Go (modules)',
+                  'pom.xml': 'Java (Maven)',
+                  'build.gradle': 'Java (Gradle)'
+                };
+                
+                report += `- **${fileType[file]}:** ✅ Found\n`;
+              } catch (error) {
+                // File doesn't exist, skip
+              }
+            }
+            
+            if (!foundDependencies) {
+              report += `- **No standard dependency files found**\n`;
+            }
+            report += `\n`;
+            
+            // Recommendations
+            report += `## 📋 Recommendations\n\n`;
+            
+            const recommendations = [];
+            
+            if (repoInfo.data.open_issues_count > 10) {
+              recommendations.push("Consider triaging and closing stale issues");
+            }
+            
+            if (commits.data.length === 0) {
+              recommendations.push("Repository appears inactive - consider archiving if no longer maintained");
+            }
+            
+            if (!repoInfo.data.description) {
+              recommendations.push("Add a repository description");
+            }
+            
+            // Check for README
+            try {
+              await github.rest.repos.getReadme({ owner, repo });
+            } catch (error) {
+              recommendations.push("Add a README.md file");
+            }
+            
+            // Check for license
+            if (!repoInfo.data.license) {
+              recommendations.push("Add a license file");
+            }
+            
+            if (recommendations.length > 0) {
+              recommendations.forEach(rec => {
+                report += `- ${rec}\n`;
+              });
+            } else {
+              report += `- ✅ Repository is well-maintained!\n`;
+            }
+            
+            report += `\n## 🎯 Action Items\n\n`;
+            report += `- [ ] Review and address open security alerts\n`;
+            report += `- [ ] Update dependencies if needed\n`;
+            report += `- [ ] Review failed workflow runs\n`;
+            report += `- [ ] Clean up stale issues and PRs\n`;
+            report += `- [ ] Update documentation if needed\n\n`;
+            
+            report += `---\n\n`;
+            report += `*This report was automatically generated by the Monthly Maintenance Report workflow.*\n`;
+            report += `*For questions or issues, please contact the repository maintainers.*\n`;
+            
+            // Save report to file
+            require('fs').writeFileSync('maintenance-report.md', report);
+            console.log('✅ Maintenance report generated successfully');
+            
+          } catch (error) {
+            console.error('Error generating maintenance report:', error);
+            throw error;
+          }
+
+    - name: Upload maintenance report
+      uses: actions/upload-artifact@v4
+      with:
+        name: monthly-maintenance-report
+        path: maintenance-report.md
+        retention-days: 365
+
+    - name: Create maintenance issue
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.readFileSync('maintenance-report.md', 'utf8');
+          
+          const now = new Date();
+          const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+          const monthName = lastMonth.toLocaleString('default', { month: 'long', year: 'numeric' });
+          
+          const issueTitle = `📋 Monthly Maintenance Report - ${monthName}`;
+          
+          const issueBody = `${report}
+
+---
+
+**Next Steps:**
+1. Review the report above
+2. Address any identified action items
+3. Update this issue with progress
+4. Close when all maintenance tasks are complete
+
+**Monthly Checklist:**
+- [ ] Security alerts reviewed and addressed
+- [ ] Dependencies updated
+- [ ] Failed workflows investigated
+- [ ] Documentation updated
+- [ ] Issue triage completed
+
+---
+*This issue was automatically created by the Monthly Maintenance Report workflow.*`;
+
+          try {
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: issueBody,
+              labels: ['maintenance', 'automated', 'monthly-report']
+            });
+            
+            console.log(`✅ Created maintenance issue #${issue.data.number}`);
+          } catch (error) {
+            console.error('Error creating maintenance issue:', error);
+          }
+
+  analyze-org-repositories:
+    name: Analyze Organization Repositories
+    runs-on: ubuntu-latest
+    if: github.repository == 'a-ariff/a-ariff'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Generate organization-wide report
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const owner = 'a-ariff';
+          
+          try {
+            // Get all repositories in the organization
+            const repos = await github.rest.repos.listForUser({
+              username: owner,
+              type: 'all',
+              sort: 'updated',
+              per_page: 100
+            });
+            
+            let orgReport = `# Organization-Wide Maintenance Report\n\n`;
+            orgReport += `**Organization:** ${owner}\n`;
+            orgReport += `**Generated:** ${new Date().toISOString().split('T')[0]}\n`;
+            orgReport += `**Total Repositories:** ${repos.data.length}\n\n`;
+            
+            orgReport += `## 📊 Repository Summary\n\n`;
+            orgReport += `| Repository | Language | Stars | Issues | Last Updated |\n`;
+            orgReport += `|------------|----------|-------|--------|--------------|\n`;
+            
+            for (const repo of repos.data) {
+              const lastUpdated = new Date(repo.updated_at).toLocaleDateString();
+              orgReport += `| [${repo.name}](${repo.html_url}) | ${repo.language || 'N/A'} | ${repo.stargazers_count} | ${repo.open_issues_count} | ${lastUpdated} |\n`;
+            }
+            
+            orgReport += `\n## 🎯 Organization-Wide Recommendations\n\n`;
+            
+            // Analyze patterns
+            const languages = {};
+            let totalStars = 0;
+            let totalIssues = 0;
+            let inactiveRepos = 0;
+            const threeMonthsAgo = new Date();
+            threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+            
+            repos.data.forEach(repo => {
+              if (repo.language) {
+                languages[repo.language] = (languages[repo.language] || 0) + 1;
+              }
+              totalStars += repo.stargazers_count;
+              totalIssues += repo.open_issues_count;
+              
+              if (new Date(repo.updated_at) < threeMonthsAgo) {
+                inactiveRepos++;
+              }
+            });
+            
+            orgReport += `### Statistics\n`;
+            orgReport += `- **Total Stars:** ${totalStars}\n`;
+            orgReport += `- **Total Open Issues:** ${totalIssues}\n`;
+            orgReport += `- **Inactive Repositories (>3 months):** ${inactiveRepos}\n`;
+            orgReport += `- **Primary Languages:** ${Object.keys(languages).slice(0, 5).join(', ')}\n\n`;
+            
+            orgReport += `### Action Items\n`;
+            if (inactiveRepos > 0) {
+              orgReport += `- Review ${inactiveRepos} inactive repositories for archival\n`;
+            }
+            if (totalIssues > 20) {
+              orgReport += `- Conduct organization-wide issue triage\n`;
+            }
+            orgReport += `- Ensure all repositories have security scanning enabled\n`;
+            orgReport += `- Standardize README templates across repositories\n`;
+            orgReport += `- Implement consistent branch protection rules\n\n`;
+            
+            require('fs').writeFileSync('org-maintenance-report.md', orgReport);
+            console.log('✅ Organization report generated');
+            
+          } catch (error) {
+            console.error('Error generating org report:', error);
+          }
+
+    - name: Upload organization report
+      uses: actions/upload-artifact@v4
+      with:
+        name: organization-maintenance-report
+        path: org-maintenance-report.md
+        retention-days: 365

@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Questions & Discussions
+    url: https://github.com/a-ariff/a-ariff/discussions
+    about: Ask questions, share ideas, or discuss the project
+  
+  - name: 🔒 Security Vulnerabilities
+    url: https://github.com/a-ariff/a-ariff/security/advisories/new
+    about: Report security vulnerabilities privately
+  
+  - name: 📧 Direct Contact
+    url: mailto:contact@aglobaltec.com
+    about: Contact the maintainer directly via email
+  
+  - name: 💼 LinkedIn Profile
+    url: https://www.linkedin.com/in/ariff-mohamed/
+    about: Connect on LinkedIn for professional inquiries

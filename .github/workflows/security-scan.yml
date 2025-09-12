@@ -1,0 +1,193 @@
+name: Security Scanning Suite
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  schedule:
+    # Run security scans daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+jobs:
+  codeql-analysis:
+    name: CodeQL Security Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript', 'python', 'csharp', 'go', 'java', 'cpp']
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"
+
+  secret-scanning:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Run TruffleHog OSS
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: main
+        head: HEAD
+        extra_args: --debug --only-verified
+
+  dependency-scanning:
+    name: Dependency Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  powershell-security-scan:
+    name: PowerShell Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.repository, 'powershell') || contains(github.repository, 'intune') || contains(github.repository, 'automation')
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup PowerShell
+      uses: actions/setup-powershell@v1
+
+    - name: Install PSScriptAnalyzer
+      shell: pwsh
+      run: |
+        Set-PSRepository PSGallery -InstallationPolicy Trusted
+        Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+
+    - name: Run PSScriptAnalyzer
+      shell: pwsh
+      run: |
+        $results = @()
+        Get-ChildItem -Recurse -Include "*.ps1", "*.psm1", "*.psd1" | ForEach-Object {
+          $analysis = Invoke-ScriptAnalyzer -Path $_.FullName -Severity Error,Warning -IncludeDefaultRules
+          $results += $analysis
+        }
+        
+        if ($results.Count -gt 0) {
+          Write-Host "PowerShell security issues found:"
+          $results | Format-Table -AutoSize
+          exit 1
+        } else {
+          Write-Host "No PowerShell security issues found."
+        }
+
+  docker-security-scan:
+    name: Docker Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.repository, 'docker') || contains(github.repository, 'rust')
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run Hadolint for Dockerfile
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: Dockerfile
+        failure-threshold: warning
+      continue-on-error: true
+
+    - name: Scan Docker images with Trivy
+      if: hashFiles('**/Dockerfile') != ''
+      run: |
+        if [ -f "docker-compose.yml" ] || [ -f "docker-compose.yaml" ]; then
+          echo "Scanning Docker Compose configuration..."
+          docker run --rm -v $(pwd):/workspace aquasec/trivy config /workspace
+        fi
+
+  security-report:
+    name: Generate Security Report
+    runs-on: ubuntu-latest
+    needs: [codeql-analysis, secret-scanning, dependency-scanning]
+    if: always()
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Generate Security Summary
+      run: |
+        echo "# Security Scan Summary for $(date)" > security-report.md
+        echo "" >> security-report.md
+        echo "## Repository: ${{ github.repository }}" >> security-report.md
+        echo "## Scan Date: $(date -u)" >> security-report.md
+        echo "## Branch: ${{ github.ref_name }}" >> security-report.md
+        echo "" >> security-report.md
+        
+        # Check job statuses
+        if [ "${{ needs.codeql-analysis.result }}" = "success" ]; then
+          echo "✅ CodeQL Analysis: PASSED" >> security-report.md
+        else
+          echo "❌ CodeQL Analysis: FAILED" >> security-report.md
+        fi
+        
+        if [ "${{ needs.secret-scanning.result }}" = "success" ]; then
+          echo "✅ Secret Scanning: PASSED" >> security-report.md
+        else
+          echo "❌ Secret Scanning: FAILED" >> security-report.md
+        fi
+        
+        if [ "${{ needs.dependency-scanning.result }}" = "success" ]; then
+          echo "✅ Dependency Scanning: PASSED" >> security-report.md
+        else
+          echo "❌ Dependency Scanning: FAILED" >> security-report.md
+        fi
+
+    - name: Upload Security Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-report
+        path: security-report.md
+        retention-days: 30
+
+    - name: Notify on Failure
+      if: failure()
+      run: |
+        echo "::warning title=Security Scan Failed::One or more security scans failed. Please review the security report."
