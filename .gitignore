@@ -9,3 +9,35 @@ Thumbs.db
 # Ignore temp files
 *.tmp
 *.bak
+
+# Docker automation build artifacts
+docker-automation/logs/
+docker-automation/tmp/
+*.log
+*.pid
+
+# Security scan results
+trivy-*.json
+snyk-*.json
+*.sarif
+
+# Container volumes
+**/volumes/
+**/data/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Build cache
+.buildx-cache/
+docker-compose.override.yml
+
+# Kubernetes secrets
+**/secrets/
+**/*-secret.yaml
+
+# Temporary scripts
+/tmp/
+temp-*

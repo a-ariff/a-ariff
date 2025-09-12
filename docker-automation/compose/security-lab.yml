@@ -1,0 +1,302 @@
+# Security Lab Docker Compose
+# Comprehensive security testing environment with monitoring
+
+version: '3.8'
+
+services:
+  # Main security lab environment
+  security-lab:
+    build:
+      context: ../
+      dockerfile: dockerfiles/security-lab.Dockerfile
+      args:
+        - BUILD_DATE=${BUILD_DATE:-$(date -u +'%Y-%m-%dT%H:%M:%SZ')}
+        - VCS_REF=${VCS_REF:-$(git rev-parse --short HEAD)}
+    image: ${REGISTRY:-localhost}/security-lab:${TAG:-latest}
+    container_name: security-lab
+    hostname: seclab-workstation
+    networks:
+      - security-network
+      - target-network
+    ports:
+      - "8888:8888"   # Jupyter/Lab interface
+      - "4444:4444"   # Metasploit XMLRPC
+      - "8080:8080"   # Web proxy/tools
+    volumes:
+      - lab-workspace:/lab
+      - lab-results:/lab/results
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ../scripts/security:/lab/scripts:ro
+      - ../config/security:/lab/config:ro
+    environment:
+      - LAB_HOME=/lab
+      - USER=seclab
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    privileged: false
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.environment.type=lab"
+    healthcheck:
+      test: ["CMD", "pwsh", "-File", "/usr/local/bin/security-healthcheck.ps1"]
+      interval: 60s
+      timeout: 15s
+      retries: 3
+      start_period: 30s
+
+  # Vulnerable web application for testing
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: security-dvwa
+    hostname: dvwa-target
+    networks:
+      - target-network
+    ports:
+      - "8081:80"
+    environment:
+      - MYSQL_HOSTNAME=mysql-target
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USERNAME=dvwa
+      - MYSQL_PASSWORD=p@ssw0rd
+    depends_on:
+      - mysql-target
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=target"
+      - "security.service.vulnerability=high"
+
+  # MySQL for vulnerable applications
+  mysql-target:
+    image: mysql:8.0
+    container_name: security-mysql
+    hostname: mysql-target
+    networks:
+      - target-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=p@ssw0rd
+    volumes:
+      - mysql-target-data:/var/lib/mysql
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=database"
+
+  # Metasploitable for penetration testing
+  metasploitable:
+    image: tleemcjr/metasploitable2:latest
+    container_name: security-metasploitable
+    hostname: metasploitable-target
+    networks:
+      - target-network
+    ports:
+      - "2222:22"     # SSH
+      - "2121:21"     # FTP
+      - "8082:80"     # HTTP
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=target"
+      - "security.service.vulnerability=critical"
+
+  # OWASP WebGoat for web application security
+  webgoat:
+    image: webgoat/webgoat:latest
+    container_name: security-webgoat
+    hostname: webgoat-target
+    networks:
+      - target-network
+    ports:
+      - "8083:8080"
+    environment:
+      - WEBGOAT_PORT=8080
+      - WEBWOLF_PORT=9090
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=target"
+      - "security.service.category=web"
+
+  # Juice Shop for modern web application testing
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: security-juice-shop
+    hostname: juice-shop-target
+    networks:
+      - target-network
+    ports:
+      - "8084:3000"
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=target"
+      - "security.service.category=modern-web"
+
+  # ELK Stack for security monitoring and analysis
+  elasticsearch-security:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: security-elasticsearch
+    hostname: elasticsearch-security
+    networks:
+      - security-network
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    volumes:
+      - elasticsearch-security-data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=monitoring"
+
+  # Kibana for security analytics visualization
+  kibana-security:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: security-kibana
+    hostname: kibana-security
+    networks:
+      - security-network
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch-security:9200
+      - xpack.security.enabled=false
+    depends_on:
+      - elasticsearch-security
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=visualization"
+
+  # Grafana for security metrics dashboard
+  grafana-security:
+    image: grafana/grafana:latest
+    container_name: security-grafana
+    hostname: grafana-security
+    networks:
+      - security-network
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana-security-data:/var/lib/grafana
+      - ../config/grafana:/etc/grafana/provisioning:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=dashboard"
+
+  # MISP for threat intelligence
+  misp:
+    image: coolacid/misp-docker:core-latest
+    container_name: security-misp
+    hostname: misp-threat-intel
+    networks:
+      - security-network
+    ports:
+      - "8085:80"
+      - "8443:443"
+    environment:
+      - MYSQL_HOST=misp-mysql
+      - MYSQL_DATABASE=misp
+      - MYSQL_USER=misp
+      - MYSQL_PASSWORD=${MISP_MYSQL_PASSWORD:-misp123}
+      - MISP_ADMIN_EMAIL=admin@misp.local
+      - MISP_ADMIN_PASSPHRASE=${MISP_ADMIN_PASSWORD:-admin123}
+    depends_on:
+      - misp-mysql
+    volumes:
+      - misp-data:/var/www/MISP
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=threat-intelligence"
+
+  # MySQL for MISP
+  misp-mysql:
+    image: mysql:8.0
+    container_name: security-misp-mysql
+    hostname: misp-mysql
+    networks:
+      - security-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MISP_MYSQL_ROOT_PASSWORD:-root123}
+      - MYSQL_DATABASE=misp
+      - MYSQL_USER=misp
+      - MYSQL_PASSWORD=${MISP_MYSQL_PASSWORD:-misp123}
+    volumes:
+      - misp-mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.service.type=database"
+
+networks:
+  security-network:
+    driver: bridge
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.network.type=internal"
+  
+  target-network:
+    driver: bridge
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.network.type=target"
+
+volumes:
+  lab-workspace:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=workspace"
+  
+  lab-results:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=results"
+  
+  mysql-target-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=target-data"
+  
+  elasticsearch-security-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=monitoring"
+  
+  grafana-security-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=dashboard"
+  
+  misp-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=threat-intel"
+  
+  misp-mysql-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=security-lab"
+      - "security.volume.type=database"

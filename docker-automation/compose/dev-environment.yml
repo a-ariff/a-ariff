@@ -1,0 +1,250 @@
+# Development Environment Docker Compose
+# Includes development tools, databases, and supporting services
+
+version: '3.8'
+
+services:
+  # Main development environment
+  dev-environment:
+    build:
+      context: ../
+      dockerfile: dockerfiles/dev-environment.Dockerfile
+      args:
+        - BUILD_DATE=${BUILD_DATE:-$(date -u +'%Y-%m-%dT%H:%M:%SZ')}
+        - VCS_REF=${VCS_REF:-$(git rev-parse --short HEAD)}
+    image: ${REGISTRY:-localhost}/dev-environment:${TAG:-latest}
+    container_name: dev-environment
+    hostname: dev-workstation
+    networks:
+      - dev-network
+    ports:
+      - "3000:3000"   # React/Node.js
+      - "4200:4200"   # Angular
+      - "5000:5000"   # Flask/Python
+      - "8000:8000"   # Django/FastAPI
+      - "8080:8080"   # General web services
+      - "8443:8443"   # HTTPS services
+      - "9000:9000"   # Code server
+    volumes:
+      - dev-workspace:/workspace
+      - dev-home:/home/developer
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ../scripts:/workspace/scripts:ro
+      - ../config:/workspace/config:ro
+    environment:
+      - WORKSPACE=/workspace
+      - USER=developer
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.environment.type=development"
+    healthcheck:
+      test: ["CMD", "pwsh", "-File", "/usr/local/bin/dev-healthcheck.ps1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: dev-postgres
+    hostname: postgres-db
+    networks:
+      - dev-network
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-devpassword}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../config/postgres:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=database"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U developer -d devdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: dev-redis
+    hostname: redis-cache
+    networks:
+      - dev-network
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ../config/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=cache"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # MongoDB
+  mongodb:
+    image: mongo:7
+    container_name: dev-mongodb
+    hostname: mongodb
+    networks:
+      - dev-network
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=developer
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD:-devpassword}
+      - MONGO_INITDB_DATABASE=devdb
+    volumes:
+      - mongodb-data:/data/db
+      - ../config/mongodb:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=database"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Elasticsearch for logging and search
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: dev-elasticsearch
+    hostname: elasticsearch
+    networks:
+      - dev-network
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=search"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Kibana for Elasticsearch visualization
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: dev-kibana
+    hostname: kibana
+    networks:
+      - dev-network
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - xpack.security.enabled=false
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=visualization"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MinIO for S3-compatible object storage
+  minio:
+    image: minio/minio:latest
+    container_name: dev-minio
+    hostname: minio
+    networks:
+      - dev-network
+    ports:
+      - "9001:9000"   # API
+      - "9002:9002"   # Console
+    environment:
+      - MINIO_ROOT_USER=developer
+      - MINIO_ROOT_PASSWORD=${MINIO_PASSWORD:-devpassword123}
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9002"
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.service.type=storage"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  dev-network:
+    driver: bridge
+    labels:
+      - "com.docker.compose.project=dev-environment"
+
+volumes:
+  dev-workspace:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=workspace"
+  
+  dev-home:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=home"
+  
+  postgres-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=database"
+  
+  redis-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=cache"
+  
+  mongodb-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=database"
+  
+  elasticsearch-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=search"
+  
+  minio-data:
+    driver: local
+    labels:
+      - "com.docker.compose.project=dev-environment"
+      - "dev.volume.type=storage"

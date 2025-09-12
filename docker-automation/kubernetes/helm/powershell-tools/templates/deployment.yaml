@@ -1,0 +1,127 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "powershell-tools.fullname" . }}
+  labels:
+    {{- include "powershell-tools.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "powershell-tools.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "powershell-tools.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "powershell-tools.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: winrm-http
+              containerPort: {{ .Values.service.ports.winrmHttp }}
+              protocol: TCP
+            - name: winrm-https
+              containerPort: {{ .Values.service.ports.winrmHttps }}
+              protocol: TCP
+            - name: ssh
+              containerPort: {{ .Values.service.ports.ssh }}
+              protocol: TCP
+          env:
+            - name: WORKSPACE
+              value: {{ .Values.powershell.workspaceDir }}
+            - name: USER
+              value: "psuser"
+            - name: AZURE_CONFIG_DIR
+              value: "{{ .Values.powershell.workspaceDir }}/config/azure"
+            {{- if .Values.azure.tenantId }}
+            - name: AZURE_TENANT_ID
+              value: {{ .Values.azure.tenantId }}
+            {{- end }}
+            {{- if .Values.azure.subscriptionId }}
+            - name: AZURE_SUBSCRIPTION_ID
+              value: {{ .Values.azure.subscriptionId }}
+            {{- end }}
+          volumeMounts:
+            - name: workspace
+              mountPath: {{ .Values.powershell.workspaceDir }}
+            {{- if .Values.azure.configSecret }}
+            - name: azure-config
+              mountPath: {{ .Values.powershell.workspaceDir }}/config/azure
+              readOnly: true
+            {{- end }}
+            - name: scripts
+              mountPath: {{ .Values.powershell.workspaceDir }}/scripts
+              readOnly: true
+          {{- if .Values.healthCheck.enabled }}
+          livenessProbe:
+            exec:
+              command:
+                - pwsh
+                - -File
+                - /usr/local/bin/healthcheck.ps1
+            initialDelaySeconds: {{ .Values.healthCheck.initialDelaySeconds }}
+            periodSeconds: {{ .Values.healthCheck.periodSeconds }}
+            timeoutSeconds: {{ .Values.healthCheck.timeoutSeconds }}
+            successThreshold: {{ .Values.healthCheck.successThreshold }}
+            failureThreshold: {{ .Values.healthCheck.failureThreshold }}
+          readinessProbe:
+            exec:
+              command:
+                - pwsh
+                - -File
+                - /usr/local/bin/healthcheck.ps1
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: workspace
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "powershell-tools.fullname" . }}-pvc
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        {{- if .Values.azure.configSecret }}
+        - name: azure-config
+          secret:
+            secretName: {{ .Values.azure.configSecret }}
+            optional: true
+        {{- end }}
+        - name: scripts
+          configMap:
+            name: {{ .Values.powershell.scriptsConfigMap }}
+            defaultMode: 0755
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

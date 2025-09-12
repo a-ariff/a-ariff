@@ -1,0 +1,114 @@
+# Snyk Security Configuration
+# Advanced vulnerability and license scanning
+
+# API configuration
+api: https://snyk.io/api/v1
+
+# Organization settings
+org: a-ariff
+
+# Project settings
+project-name: docker-automation-suite
+
+# Vulnerability scanning
+test:
+  severity-threshold: medium
+  fail-on: all
+  dev: false
+  
+# Docker-specific settings
+docker:
+  severity-threshold: high
+  exclude-base-image-vulns: false
+  file: Dockerfile
+  
+# License policy
+license-policy:
+  # Allowed licenses
+  allowed:
+    - MIT
+    - Apache-2.0
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - ISC
+    - 0BSD
+  
+  # Forbidden licenses  
+  forbidden:
+    - GPL-2.0
+    - GPL-3.0
+    - AGPL-1.0
+    - AGPL-3.0
+    - LGPL-2.0
+    - LGPL-2.1
+    - LGPL-3.0
+
+# Ignore specific vulnerabilities
+ignore:
+  # Example: Ignore specific CVE for base images
+  # SNYK-UBUNTU2204-CURL-12345:
+  #   - '*'
+
+# Monitor settings
+monitor:
+  all-sub-projects: true
+  prune-repeated-subdependencies: true
+
+# Output configuration
+output:
+  format: json
+  file: snyk-results.json
+
+# Update policy
+auto-update: true
+
+# Code analysis settings
+code:
+  enabled: true
+  org: a-ariff
+  
+# Infrastructure as Code settings
+iac:
+  rules: |
+    - SNYK-CC-K8S-1
+    - SNYK-CC-K8S-2
+    - SNYK-CC-K8S-3
+    - SNYK-CC-K8S-4
+    - SNYK-CC-K8S-5
+    - SNYK-CC-K8S-6
+    - SNYK-CC-K8S-7
+    - SNYK-CC-K8S-8
+    - SNYK-CC-K8S-9
+    - SNYK-CC-K8S-10
+    - SNYK-CC-DOCKER-1
+    - SNYK-CC-DOCKER-2
+    - SNYK-CC-DOCKER-3
+    - SNYK-CC-DOCKER-4
+    - SNYK-CC-DOCKER-5
+    - SNYK-CC-DOCKER-6
+    - SNYK-CC-DOCKER-7
+    - SNYK-CC-DOCKER-8
+
+# Notification settings
+notifications:
+  slack:
+    webhook: ${SLACK_WEBHOOK_URL}
+  email:
+    - security@example.com
+
+# Reporting settings
+reporting:
+  sarif: true
+  html: true
+  pdf: false
+
+# Container registry settings
+container:
+  exclude-app-vulns: false
+  nested-jars-depth: 5
+
+# Advanced settings
+advanced:
+  max-depth: 10
+  show-vulnerable-paths: all
+  integration-name: github-actions

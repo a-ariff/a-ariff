@@ -1,0 +1,17 @@
+apiVersion: v2
+name: powershell-tools
+description: A Helm chart for PowerShell automation tools
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - powershell
+  - automation
+  - azure
+  - devops
+home: https://github.com/a-ariff/a-ariff
+sources:
+  - https://github.com/a-ariff/a-ariff
+maintainers:
+  - name: Ariff Mohamed
+    email: ariff@example.com
