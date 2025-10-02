@@ -27,12 +27,16 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # Generate timestamp
+      - name: Generate timestamp
+        id: ts
+        run: echo "ts=$(date -u +'%Y%m%d-%H%M')" >> $GITHUB_OUTPUT
       # Create branch with timestamp and PR
       - name: Create branch and pull request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: update/readme-$(date +"%Y%m%d-%H%M")
+          branch: update/readme-${{ steps.ts.outputs.ts }}
           base: main
           commit-message: 'chore: automated README update'
           title: 'chore: automated README update'
@@ -45,7 +49,7 @@ jobs:
             - README.md has been updated
             
             ### Branch
-            - Branch: `update/readme-$(date +"%Y%m%d-%H%M")`
+            - Branch: `update/readme-${{ steps.ts.outputs.ts }}`
             
             Please review the changes and merge if appropriate.
           labels: |
