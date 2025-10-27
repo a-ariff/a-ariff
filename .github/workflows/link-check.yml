@@ -33,12 +33,12 @@ jobs:
           else
             echo "readme_only=false" >> $GITHUB_OUTPUT
           fi
-          
+      
       - name: Run lychee link checker
         uses: lycheeverse/lychee-action@v2
         continue-on-error: ${{ steps.changed-files.outputs.readme_only == 'true' }}
         with:
-          args: --no-progress --verbose --accept 200,204,206,301,302,307,308,403,429,999 --max-redirects 10 --retry-wait-time 5 --timeout 30 --max-retries 3 README.md README_DRAFT.md
+          args: --no-progress --verbose --accept 200,204,206,301,302,307,308,403,429,999 --max-redirects 10 --retry-wait-time 5 --timeout 30 --max-retries 3 README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
